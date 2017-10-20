@@ -10,4 +10,6 @@ During the game the player will come across many chemistry problems like naming 
 #Download
 The desktop version of the game can be found here : https://drive.google.com/file/d/0B9czXhPWLY-lUGdZRFN6bVByUGc/view?usp=sharing
 
-#Images
+# Images
+
+![chemistry lab 10_20_2017 1_49_23 pm](https://user-images.githubusercontent.com/15057375/31817825-41827e58-b59e-11e7-99af-9363a6365b56.png)
