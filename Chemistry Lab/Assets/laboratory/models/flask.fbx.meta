@@ -1,0 +1,177 @@
+fileFormatVersion: 2
+guid: 7fce99bc7bdf3d745af428dd011168f5
+timeCreated: 1488882572
+licenseType: Store
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: flask_1
+    100004: flask_10
+    100006: flask_2
+    100008: flask_3
+    100010: flask_4
+    100012: flask_5
+    100014: flask_6
+    100016: flask_7
+    100018: flask_8
+    100020: flask_8.001
+    100022: flask_9
+    100024: solution_1
+    100026: solution_10
+    100028: solution_2
+    100030: solution_3
+    100032: solution_4
+    100034: solution_5
+    100036: solution_6
+    100038: solution_7
+    100040: solution_9
+    400000: //RootNode
+    400002: flask_1
+    400004: flask_10
+    400006: flask_2
+    400008: flask_3
+    400010: flask_4
+    400012: flask_5
+    400014: flask_6
+    400016: flask_7
+    400018: flask_8
+    400020: flask_8.001
+    400022: flask_9
+    400024: solution_1
+    400026: solution_10
+    400028: solution_2
+    400030: solution_3
+    400032: solution_4
+    400034: solution_5
+    400036: solution_6
+    400038: solution_7
+    400040: solution_9
+    2300000: flask_1
+    2300002: flask_10
+    2300004: flask_2
+    2300006: flask_3
+    2300008: flask_4
+    2300010: flask_5
+    2300012: flask_6
+    2300014: flask_7
+    2300016: flask_8
+    2300018: flask_8.001
+    2300020: flask_9
+    2300022: solution_1
+    2300024: solution_10
+    2300026: solution_2
+    2300028: solution_3
+    2300030: solution_4
+    2300032: solution_5
+    2300034: solution_6
+    2300036: solution_7
+    2300038: solution_9
+    3300000: flask_1
+    3300002: flask_10
+    3300004: flask_2
+    3300006: flask_3
+    3300008: flask_4
+    3300010: flask_5
+    3300012: flask_6
+    3300014: flask_7
+    3300016: flask_8
+    3300018: flask_8.001
+    3300020: flask_9
+    3300022: solution_1
+    3300024: solution_10
+    3300026: solution_2
+    3300028: solution_3
+    3300030: solution_4
+    3300032: solution_5
+    3300034: solution_6
+    3300036: solution_7
+    3300038: solution_9
+    4300000: flask_2
+    4300002: solution_2
+    4300004: flask_1
+    4300006: solution_1
+    4300008: flask_4
+    4300010: solution_4
+    4300012: flask_6
+    4300014: solution_6
+    4300016: flask_3
+    4300018: solution_3
+    4300020: flask_7
+    4300022: solution_7
+    4300024: flask_8
+    4300026: flask_8.001
+    4300028: flask_9
+    4300030: solution_9
+    4300032: flask_10
+    4300034: solution_10
+    4300036: flask_5
+    4300038: solution_5
+  materials:
+    importMaterials: 1
+    materialName: 1
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 1
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

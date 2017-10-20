@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 2c4cdebb88651be4e912c89ea02468e3
+timeCreated: 1508139970
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: MV Boli
+  fontNames:
+  - MV Boli
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

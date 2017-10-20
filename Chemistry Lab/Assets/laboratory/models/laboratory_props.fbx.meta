@@ -1,0 +1,172 @@
+fileFormatVersion: 2
+guid: 43a30abcfba35574fb0480a8ee4abf9a
+timeCreated: 1489048391
+licenseType: Store
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: blender
+    100002: blender_2
+    100004: cap
+    100006: cap_2
+    100008: dispenser
+    100010: keyboard
+    100012: //RootNode
+    100014: microscope
+    100016: monitor
+    100018: stand
+    100020: stove
+    100022: stove_door
+    100024: tablet
+    100026: test-tube
+    100028: test-tube_2
+    100030: test-tube_solution
+    100032: tripod
+    100034: tripod.001
+    100036: tripod2
+    100038: weight
+    400000: blender
+    400002: blender_2
+    400004: cap
+    400006: cap_2
+    400008: dispenser
+    400010: keyboard
+    400012: //RootNode
+    400014: microscope
+    400016: monitor
+    400018: stand
+    400020: stove
+    400022: stove_door
+    400024: tablet
+    400026: test-tube
+    400028: test-tube_2
+    400030: test-tube_solution
+    400032: tripod
+    400034: tripod.001
+    400036: tripod2
+    400038: weight
+    2300000: blender
+    2300002: blender_2
+    2300004: cap
+    2300006: cap_2
+    2300008: dispenser
+    2300010: keyboard
+    2300012: microscope
+    2300014: monitor
+    2300016: stand
+    2300018: stove
+    2300020: stove_door
+    2300022: tablet
+    2300024: test-tube
+    2300026: test-tube_2
+    2300028: test-tube_solution
+    2300030: tripod
+    2300032: tripod.001
+    2300034: tripod2
+    2300036: weight
+    3300000: blender
+    3300002: blender_2
+    3300004: cap
+    3300006: cap_2
+    3300008: dispenser
+    3300010: keyboard
+    3300012: microscope
+    3300014: monitor
+    3300016: stand
+    3300018: stove
+    3300020: stove_door
+    3300022: tablet
+    3300024: test-tube
+    3300026: test-tube_2
+    3300028: test-tube_solution
+    3300030: tripod
+    3300032: tripod.001
+    3300034: tripod2
+    3300036: weight
+    4300000: stove_door
+    4300002: stove
+    4300004: blender
+    4300006: blender_2
+    4300008: test-tube_2
+    4300010: cap_2
+    4300012: test-tube
+    4300014: test-tube_solution
+    4300016: cap
+    4300018: stand
+    4300020: tablet
+    4300022: tripod
+    4300024: tripod.001
+    4300026: tripod2
+    4300028: keyboard
+    4300030: monitor
+    4300032: weight
+    4300034: microscope
+    4300036: dispenser
+  materials:
+    importMaterials: 1
+    materialName: 1
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 1
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
