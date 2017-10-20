@@ -12,4 +12,8 @@ The desktop version of the game can be found here : https://drive.google.com/fil
 
 # Images
 
+![chemistry lab 10_20_2017 1_51_03 pm](https://user-images.githubusercontent.com/15057375/31817852-62a56e10-b59e-11e7-8035-072c29292fe0.png)
+
+![chemistry lab 10_20_2017 1_49_59 pm](https://user-images.githubusercontent.com/15057375/31817847-60471740-b59e-11e7-8ed9-fc6f8ca7fb03.png)
+
 ![chemistry lab 10_20_2017 1_49_23 pm](https://user-images.githubusercontent.com/15057375/31817825-41827e58-b59e-11e7-99af-9363a6365b56.png)
