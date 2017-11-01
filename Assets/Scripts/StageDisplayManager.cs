@@ -32,7 +32,7 @@ public class StageDisplayManager : MonoBehaviour
     public GameGuide guide;
     [SerializeField] private MouseLook mouseLock;
     [SerializeField] private SoundManager soundManager;
-    private bool menuEnabled = false;
+    public bool menuEnabled = false;
 
 
 
@@ -77,10 +77,14 @@ public class StageDisplayManager : MonoBehaviour
             canvasStage3.enabled = false;
             if(!menuEnabled)    cam.DisableCamera();
         }
-        if (Input.GetKeyDown(KeyCode.I))
+        if (Input.GetKeyDown(KeyCode.I) && menuEnabled == false)
         {
             soundManager.PlaySoundOnce(soundManager.audioClips[0]);
-            EnableInformationCanvas();
+            SetInformationCanvasVisible(true);
+        }
+        else if (menuEnabled  && Input.GetKeyDown(KeyCode.I))
+        {
+            SetInformationCanvasVisible(false);
         }
     }
 
@@ -173,25 +177,27 @@ public class StageDisplayManager : MonoBehaviour
         GameManager.instance.ChangeToStage(0);
     }
 
-    public void EnableInformationCanvas()
+    public void SetInformationCanvasVisible(bool visible)
     {
-        player.GetComponent<FirstPersonController>().enabled = false;
-        informationCanvas.enabled = true;
-        mouseLock.SetCursorLock(false);
-        mouseLock.UpdateCursorLock();
-        menuEnabled = true;
-    }
-
-    public void CloseInformationCanvas()
-    {
-        player.GetComponent<FirstPersonController>().enabled = true;
-        informationCanvas.enabled = false;
-        if(GameManager.instance.currentStage == GameManager.Stage.stage0)
+        if (visible)
         {
-            mouseLock.SetCursorLock(true);
+            player.GetComponent<FirstPersonController>().enabled = false;
+            informationCanvas.enabled = true;
+            menuEnabled = true;
+            mouseLock.SetCursorLock(false);
             mouseLock.UpdateCursorLock();
         }
-        menuEnabled = false;
+        else
+        {
+            player.GetComponent<FirstPersonController>().enabled = true;
+            informationCanvas.enabled = false;
+            menuEnabled = false;
+            // in stages 1,2,3 cursor must not be locked.
+            if (GameManager.instance.currentStage == GameManager.Stage.stage0)
+            {
+                mouseLock.SetCursorLock(true);
+                mouseLock.UpdateCursorLock();
+            }
+        }
     }
-
 }

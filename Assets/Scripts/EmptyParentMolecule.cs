@@ -33,6 +33,7 @@ public class EmptyParentMolecule : MonoBehaviour
             else if (placedElementsCount == placedElements.Length)
             {
                 rotator.YawRotation();
+                GameManager.instance.DestroyUnusedAtoms();
                 GameManager.instance.chosenMolecule.SetConstruction(true);
                 if (Input.GetKeyDown(KeyCode.R))
                 {

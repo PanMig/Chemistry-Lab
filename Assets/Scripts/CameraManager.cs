@@ -5,6 +5,8 @@ public class CameraManager : MonoBehaviour {
 
     [SerializeField] private GameObject player;
     [SerializeField] private MouseLook mouseLock;
+    [SerializeField] private Canvas crossHair;
+    [SerializeField] private StageDisplayManager displayMng;
     private int zoomSpeed = 5;
 
     private void Start()
@@ -14,7 +16,18 @@ public class CameraManager : MonoBehaviour {
 
     private void Update()
     {
+        // for mouse zoom only in microscope view
         if (GameManager.instance.currentStage == GameManager.Stage.stage3)  SubCameraZoom();
+
+        // for cursor locking 
+        if (mouseLock.Mouselocked() == false && GameManager.instance.currentStage == GameManager.Stage.stage0 ||
+            GameManager.instance.currentStage == GameManager.Stage.stage4)
+            if (displayMng.menuEnabled == false)
+            {
+                {
+                    mouseLock.LockCursorOnClick();
+                }
+            }
     }
 
     public void EnableCamera(Transform target)
@@ -54,4 +67,12 @@ public class CameraManager : MonoBehaviour {
             player.GetComponent<CharacterController>().enabled = true;
         }
     }
+
+    public void SetCrossHairVisible(bool visible)
+    {
+        if (visible) crossHair.enabled = true;
+        else crossHair.enabled = false;
+    }
+
+    
 }

@@ -40,7 +40,7 @@ public class GameGuide : MonoBehaviour
         }
         else if (GameManager.instance.currentStage == GameManager.Stage.stage0 && gameGuideCompletion == true)
         {
-            text.text = "Great, the molecule creation process is finished successfully. Now head over to the textbook to create some more or press the 'I' key to exit.";
+            text.text = "Great, the molecule creation process is finished successfully. Now head over to the textbook to create new molecules.";
             text.enabled = true;
         }
         else if (GameManager.instance.currentStage == GameManager.Stage.stage1)

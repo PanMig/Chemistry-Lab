@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour {
 
     public static GameManager instance = null;
 
-    public enum Stage {stage0,stage1,stage2,stage3,stage4,end}
+    public enum Stage { stage0, stage1, stage2, stage3, stage4, end }
     public Stage currentStage;
 
     public Molecule chosenMolecule;
@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour {
 
 
     // Use this for initialization
-    void Start () {
+    void Start() {
         InitializeValues();
     }
 
@@ -42,7 +42,7 @@ public class GameManager : MonoBehaviour {
         {
             instance.ChangeToStage(0);
         }
-        if(instance.currentStage == Stage.stage0)
+        if (instance.currentStage == Stage.stage0)
         {
             chosenMolecule = null;
         }
@@ -84,15 +84,15 @@ public class GameManager : MonoBehaviour {
         switch (moleculeNumber)
         {
             case 1:
-                Molecule water = new Molecule(Molecule.Molecules.water, Color.white, "H2O",false, Molecule.HomogenousTeam.various);
+                Molecule water = new Molecule(Molecule.Molecules.water, Color.white, "H2O", false, Molecule.HomogenousTeam.various);
                 instance.chosenMolecule = water;
                 break;
             case 2:
-                Molecule methanole = new Molecule(Molecule.Molecules.methanole, Color.white, "CH4O",false, Molecule.HomogenousTeam.alchohol);
+                Molecule methanole = new Molecule(Molecule.Molecules.methanole, Color.white, "CH4O", false, Molecule.HomogenousTeam.alchohol);
                 instance.chosenMolecule = methanole;
                 break;
             case 3:
-                Molecule aithanole = new Molecule(Molecule.Molecules.ethanol, Color.white, "C2H6O",false, Molecule.HomogenousTeam.alchohol);
+                Molecule aithanole = new Molecule(Molecule.Molecules.ethanol, Color.white, "C2H6O", false, Molecule.HomogenousTeam.alchohol);
                 instance.chosenMolecule = aithanole;
                 break;
             case 4:
@@ -105,14 +105,19 @@ public class GameManager : MonoBehaviour {
         }
     }
 
-    public void NextLevel()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-    }
+  
 
-    public void ExitGame()
+    public void DestroyUnusedAtoms()
     {
-        Application.Quit();
+        var hydrogens = GameObject.FindObjectsOfType<MouseTranslate>();
+
+        if (hydrogens.Length != 0)
+        {
+            for (int i = 0; i < hydrogens.Length; i++)
+            {
+                    Destroy(hydrogens[i].gameObject);
+            }
+        }
     }
 
 }

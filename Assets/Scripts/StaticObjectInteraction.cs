@@ -65,6 +65,7 @@ public class StaticObjectInteraction : MonoBehaviour {
             rend.material = outlinedMat;
             interactionCanvas.enabled = true;
             inTrigger = true;
+            cam.SetCrossHairVisible(false);
         }
     }
 
@@ -73,6 +74,7 @@ public class StaticObjectInteraction : MonoBehaviour {
         rend.material = defaultMat;
         interactionCanvas.enabled = false;
         inTrigger = false;
+        cam.SetCrossHairVisible(true);
     }
 
     #endregion
