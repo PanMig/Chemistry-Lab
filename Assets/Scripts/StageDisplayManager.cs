@@ -44,7 +44,6 @@ public class StageDisplayManager : MonoBehaviour
         player.GetComponent<FirstPersonController>().enabled = true;
         mouseLock.SetCursorLock(true);
         mouseLock.UpdateCursorLock();
-        inputField.GetComponent<InputField>().text = null;
     }
 
     // Update is called once per frame
@@ -174,6 +173,7 @@ public class StageDisplayManager : MonoBehaviour
         cam.DisableCamera();
         canvasStage1.enabled = false;
         canvasStage2.enabled = false;
+        inputField.GetComponent<InputField>().text = null;
         GameManager.instance.ChangeToStage(0);
     }
 
