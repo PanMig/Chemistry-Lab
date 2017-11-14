@@ -1,17 +1,20 @@
 ﻿using UnityEngine;
 
-public class StaticObjectInteraction : MonoBehaviour {
+public class ObjectInteraction : MonoBehaviour
+{
 
-    private Renderer rend;
-    public Canvas interactionCanvas;
-    [SerializeField] private Material defaultMat; //used to store the default and the outiline materials
-    [SerializeField] private Material outlinedMat;
     private bool inTrigger = false;
-    [SerializeField] private Transform target;
-    private CameraManager cam;
+    private Renderer rend;
 
-    private enum Interactable {notebook,microscope}
+    [SerializeField] private Canvas interactionCanvas;
+    [SerializeField] private Canvas crosshair;
+
+    [SerializeField] private Material defaultMat; //used to store the default and the outiline materials.
+    [SerializeField] private Material outlinedMat;
+
+    private enum Interactable { notebook, microscope }
     [SerializeField] private Interactable interactable;
+
     [SerializeField] private GameGuide guide;
     [SerializeField] private SoundManager soundManager;
 
@@ -23,32 +26,28 @@ public class StaticObjectInteraction : MonoBehaviour {
         //apply the default material
         rend = GetComponent<Renderer>();
         rend.material = defaultMat;
-        cam = GameObject.FindGameObjectWithTag("Cam").GetComponent<CameraManager>();
     }
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.E) && inTrigger == true)
         {
-            interactionCanvas.enabled = false;
             InteractWithObject();
-            inTrigger = false;
-            soundManager.PlaySoundOnce(soundManager.audioClips[1]);
         }
     }
 
 
     private void InteractWithObject()
     {
-        if(interactable == Interactable.notebook && GameManager.instance.currentStage == GameManager.Stage.stage0)
+        if (interactable == Interactable.notebook && GameManager.instance.currentStage == GameManager.Stage.stage0)
         {
             GameManager.instance.ChangeToStage(1);
-            cam.EnableCamera(target);
+            GameManager.LoadScene("Notebook");
         }
-        else if(interactable == Interactable.microscope && GameManager.instance.currentStage == GameManager.Stage.stage2)
+        else if (interactable == Interactable.microscope && GameManager.instance.currentStage == GameManager.Stage.stage2)
         {
             GameManager.instance.ChangeToStage(3);
-            cam.EnableCamera(target);
+            GameManager.LoadScene("Microscope");
         }
         else if (interactable == Interactable.microscope && GameManager.instance.currentStage == GameManager.Stage.stage0)
         {
@@ -65,7 +64,8 @@ public class StaticObjectInteraction : MonoBehaviour {
             rend.material = outlinedMat;
             interactionCanvas.enabled = true;
             inTrigger = true;
-            cam.SetCrossHairVisible(false);
+            crosshair.GetComponent<Crosshair>().DisableCrosshair();
+
         }
     }
 
@@ -74,8 +74,9 @@ public class StaticObjectInteraction : MonoBehaviour {
         rend.material = defaultMat;
         interactionCanvas.enabled = false;
         inTrigger = false;
-        cam.SetCrossHairVisible(true);
+        crosshair.GetComponent<Crosshair>().EnableCrosshair();
     }
 
     #endregion
+
 }

@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour {
             Destroy(gameObject);
         }
         //Sets this to not be destroyed when reloading scene
-        //DontDestroyOnLoad(gameObject);
+        DontDestroyOnLoad(this.gameObject);
     }
 
 
@@ -103,6 +103,11 @@ public class GameManager : MonoBehaviour {
                 Debug.Log("No option was recieved");
                 break;
         }
+    }
+
+    public static void LoadScene(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName);
     }
 
   
