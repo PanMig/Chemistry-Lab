@@ -25,6 +25,10 @@ public class FormulaSelection : MonoBehaviour
         if (GameManager.instance.currentStage == GameManager.Stage.stage2)
         {
             Stage2();
+            if (formulaSubmited)
+            {
+                GameManager.LoadScene("lab");
+            }
         }
     }
 
