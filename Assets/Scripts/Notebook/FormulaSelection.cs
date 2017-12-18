@@ -11,6 +11,7 @@ public class FormulaSelection : MonoBehaviour
     //stage 2
     [SerializeField] private Canvas canvasStage2;
     [SerializeField] private Text moleculeNameText;
+    [SerializeField] private Text wrongFormulaText; 
 
     private bool correctFormula = false;
     public bool formulaSubmited = false;
@@ -27,7 +28,7 @@ public class FormulaSelection : MonoBehaviour
             Stage2();
             if (formulaSubmited)
             {
-                GameManager.LoadScene("lab");
+                GameManager.LoadScene("Lab");
             }
         }
     }
@@ -62,7 +63,7 @@ public class FormulaSelection : MonoBehaviour
         }
         else
         {
-            // TODO : Add guide msg telling that the formula submitted is false. 
+            wrongFormulaText.enabled = true;
         }
     }
 
