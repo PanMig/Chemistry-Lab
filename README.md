@@ -9,6 +9,7 @@ During the game the player will come across many chemistry problems like naming 
 
 # Try
 You can visit this webpage to try the web version of the game.
+http://www.envisage-h2020.eu/virtual-labs/
 
 # Images
 
