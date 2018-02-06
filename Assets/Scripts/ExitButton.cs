@@ -5,13 +5,23 @@ public class ExitButton : CustomButton
 {
     public SlotSpawner slotSpawner;
 
+    //sprites
+    [SerializeField] private Sprite normalSprite;
+    [SerializeField] private Sprite greenSprite;
+    
     //delegate
     public delegate void ButtonClick();
     public static event  ButtonClick ButtonClicked;
 
     private void Start()
     {
-        SlotSpawner.MolCompleted += ChangeColor;
+        gameObject.GetComponent<Image>().sprite = normalSprite;
+        SlotSpawner.MolCompleted += ChangeSprite;
+    }
+
+    private void OnDisable()
+    {
+        SlotSpawner.MolCompleted -= ChangeSprite;
     }
 
     public override void OnClick()
@@ -21,13 +31,12 @@ public class ExitButton : CustomButton
             ButtonClicked();
         }
         GameManager.chosenMolecule = null;
-        gameObject.GetComponent<Image>().color = Color.red;
-
+        gameObject.GetComponent<Image>().sprite = normalSprite;
     }
 
-    public override void ChangeColor()
+    public override void ChangeSprite()
     {
-        gameObject.GetComponent<Image>().color = Color.green;
+        gameObject.GetComponent<Image>().sprite = greenSprite;
     }
 
 }

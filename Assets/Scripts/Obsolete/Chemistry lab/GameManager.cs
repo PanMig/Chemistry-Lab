@@ -45,7 +45,7 @@ public class GameManager : MonoBehaviour {
         
         if (chosenMolecule != null)
         {
-            print(namedMolecules);
+            //print(namedMolecules);
         }
     }
 

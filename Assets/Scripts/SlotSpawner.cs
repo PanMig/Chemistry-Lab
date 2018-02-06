@@ -49,7 +49,6 @@ public class SlotSpawner : MonoBehaviour
 
         //calculate the number of slots from the formula string
         slotsNumber = GameManager.chosenMolecule.GetFormulaLength();
-
         //calculate the width of the panel that stores the slots.
         float slotWidth = slotIcon.GetComponent<RectTransform>().rect.width;
         float spacingWithAdjucent = parent.GetComponent<GridLayoutGroup>().spacing.x;
@@ -59,7 +58,8 @@ public class SlotSpawner : MonoBehaviour
         for (int i = 0; i < slotsNumber; i++)
         {
             GameObject slot = Instantiate(slotIcon, parent.transform);
-            slot.GetComponent<Slot>().SlotTag = GameManager.chosenMolecule.GetFormula()[i].ToString();
+            print("i" + i);
+            slot.GetComponent<Slot>().SlotTag = GameManager.chosenMolecule.GetFormula()[i];
         }
         // add all slots to the list ONCE.
         slotsList.AddRange(parent.GetComponentsInChildren<Slot>());

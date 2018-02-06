@@ -7,15 +7,23 @@ public class EnterButton : CustomButton
     public string moleculeName, formula;
     public bool clicked = false;
 
+    //sprites
+    [SerializeField] private Sprite normalSprite;
+    [SerializeField] private Sprite greenSprite;
     //delegate
     public delegate void ButtonClick();
     public static event  ButtonClick ButtonClicked;
 
     private void OnEnable()
     {
+        SlotSpawner.MolCompleted += ChangeSprite;
+    }
+
+    private void Start()
+    {
         clicked = false;
         visited = 0;
-        SlotSpawner.MolCompleted += ChangeColor;
+        gameObject.GetComponent<Image>().sprite = normalSprite;
     }
 
     public override void OnClick()
@@ -32,11 +40,11 @@ public class EnterButton : CustomButton
     }
 
     //updates also the values on GameManager because we want values to be updated only the first time the button is visited.
-    public override void ChangeColor()
+    public override void ChangeSprite()
     {
         if (clicked)
         {
-            gameObject.GetComponent<Image>().color = Color.green;
+            gameObject.GetComponent<Image>().sprite = greenSprite;
             visited ++;
         }
     }

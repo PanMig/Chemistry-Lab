@@ -12,9 +12,9 @@ public class CustomButton : MonoBehaviour {
 
     }
 
-    public virtual void ChangeColor()
+    public virtual void ChangeSprite()
     {
-
+           
     }
 
 }

@@ -7,9 +7,6 @@ public class Slot : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPointerE
 {
 
     private string elementCardTag;
-    private Sprite startSprite;
-    public Sprite hightlightedSprite;
-    public Sprite filledSprite;
 
     public bool full;
 
@@ -43,7 +40,7 @@ public class Slot : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPointerE
 
     private void Start()
     {
-        startSprite = gameObject.GetComponent<Image>().sprite;
+        ChangeImageAlpha(1.0f);
         full = false;
     }
 
@@ -54,9 +51,9 @@ public class Slot : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPointerE
             elementCardTag = Draggable.item.GetComponent<ElementCardDisplay>().GetTag();
             if (string.Equals(elementCardTag, SlotTag))
             {
-                ChangeImageSprite(filledSprite);
                 Draggable.item.transform.SetParent(transform);
                 Draggable.item.GetComponent<Draggable>().placed = true;
+                ChangeImageAlpha(1.0f);
                 full = true;
             }
         }
@@ -66,19 +63,20 @@ public class Slot : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPointerE
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if (!SlotItem) ChangeImageSprite(hightlightedSprite);
+        if (!SlotItem) ChangeImageAlpha(0.6f);
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        if (!SlotItem) ChangeImageSprite(startSprite);
+        ChangeImageAlpha(1.0f);
+        if (!SlotItem) ChangeImageAlpha(1.0f);
     }
 
     #endregion
 
-    public void ChangeImageSprite(Sprite sprite)
+    public void ChangeImageAlpha(float alpha)
     {
-        gameObject.GetComponent<Image>().sprite = sprite;
+        gameObject.GetComponent<CanvasGroup>().alpha = alpha;
     }
 
 
