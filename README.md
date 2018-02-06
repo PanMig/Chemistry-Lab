@@ -7,8 +7,9 @@ Use the WASD keys to move through the 3d scene. Panning the mouse will move your
 # Education purpose
 During the game the player will come across many chemistry problems like naming a molecule formula, constructing the molecule based on the correct formula as well as defining the molecule's homogenous series. All these problems require to have a good knowledge about molecules and player's general knowledge in this domain will be improved after the completion of the game.
 
-# Download
-The desktop version of the game can be found here : https://drive.google.com/file/d/0B9czXhPWLY-lUGdZRFN6bVByUGc/view?usp=sharing
+# Try
+You can visit this webpage to try the web version of the game.
+http://www.envisage-h2020.eu/virtual-labs/
 
 # Images
 
