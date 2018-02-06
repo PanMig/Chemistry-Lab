@@ -1,25 +1,51 @@
 ﻿using UnityEngine;
+using UnityEngine.Collections;
+using UnityEngine.EventSystems;
 
 public class MouseTranslate : MonoBehaviour
 {
 
     private Camera cam;
     private Vector3 objPosition;
+    private Vector3 objStartPosition;
+
+    public bool mouseReleased = false;
+    private bool collision = false;
+
+    public bool Collision
+    {
+        get
+        {
+            return collision;
+        }
+
+        set
+        {
+            collision = value;
+        }
+    }
 
     private void Start()
     {
-        cam = GameObject.FindGameObjectWithTag("Cam").GetComponent<Camera>();
+        objStartPosition = gameObject.transform.position;
+        cam = Camera.main.GetComponent<Camera>();
     }
 
     void OnMouseDrag()
     {
-        Vector3 mousePosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y,3);
+        mouseReleased = false;
+        Vector3 mousePosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y,1);
         objPosition = cam.ScreenToWorldPoint(mousePosition);
         transform.position = objPosition;
+    }
 
-        if (Input.GetKey(KeyCode.X))
+    private void OnMouseUp()
+    {
+        mouseReleased = true;
+        if (collision == false)
         {
-            Destroy(gameObject);
+            print("RELEASED");
+            //transform.position = objStartPosition;
         }
     }
 
