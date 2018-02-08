@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using UnityEngine;
 
 public class Molecule
 {
@@ -21,20 +20,6 @@ public class Molecule
 
     private string formula;
 
-    private bool moleculeNamed;
-    public bool MoleculeNamed
-    {
-        get
-        {
-            return moleculeNamed;
-        }
-
-        set
-        {
-            moleculeNamed = value;
-        }
-    }
-
     #region CONSTRUCTORS
 
     public Molecule(string name, string formula)
@@ -43,13 +28,11 @@ public class Molecule
         this.name = name;
     }
 
-
-
     #endregion
 
     public List<string> GetFormula()
     {
-        //return formula;
+        //return a list with the elements 1 by 1 in cells with an order from left to right.
         List<string> list = new List<string>();
         for (int i = 0; i < formula.Length; i++) // in string always use lesser than the lenght otherwise out of range exception is given.
         {
@@ -60,22 +43,22 @@ public class Molecule
                     if (char.IsLower(formula[i + 1]))
                     {
                         list.Add(string.Concat(formula[i], formula[i + 1]));
-                        Debug.Log(string.Concat(formula[i], formula[i + 1]));
+                        //Debug.Log(string.Concat(formula[i], formula[i + 1]));
                     }
                     else
                     {
-                        Debug.Log(formula[i]);
+                        //Debug.Log(formula[i]);
                         list.Add(formula[i].ToString());
                     }
                 }
                 else
                 {
-                    Debug.Log(formula[i]);
+                    //Debug.Log(formula[i]);
                     list.Add(formula[i].ToString());
                 }
             }
         }
-        Debug.Log(list.Count);
+        //Debug.Log(list.Count);
         return list;
     }
 
@@ -83,7 +66,6 @@ public class Molecule
     public int GetFormulaLength()
     {
         int length = 0;
-        //return formula.Length;
         foreach (char c in formula)
         {
             if (Char.IsUpper(c))

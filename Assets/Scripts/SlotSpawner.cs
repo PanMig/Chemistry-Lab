@@ -58,7 +58,6 @@ public class SlotSpawner : MonoBehaviour
         for (int i = 0; i < slotsNumber; i++)
         {
             GameObject slot = Instantiate(slotIcon, parent.transform);
-            print("i" + i);
             slot.GetComponent<Slot>().SlotTag = GameManager.chosenMolecule.GetFormula()[i];
         }
         // add all slots to the list ONCE.

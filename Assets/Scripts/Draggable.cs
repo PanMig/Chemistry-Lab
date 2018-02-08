@@ -13,6 +13,9 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
     public Vector3 startPosition;
     public float alpha;
 
+    public AudioClip errorClip;
+    public AudioClip correctClip;
+
     public void Start()
     {
         item = gameObject;
@@ -70,11 +73,13 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
         transform.position = startPosition;
         if (placed)
         {
+            SoundManager.instance.PlaySingle(correctClip);
             GetComponent<CanvasGroup>().blocksRaycasts = false;
             item = null;
         }
         else
         {
+            SoundManager.instance.PlaySingle(errorClip);
             GetComponent<CanvasGroup>().blocksRaycasts = true;
             item = null;
         }

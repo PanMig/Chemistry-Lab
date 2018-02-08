@@ -38,7 +38,6 @@ public class ElementsCreator : MonoBehaviour {
         {
             Debug.Log("uninitialized element choice");
         }
-        SoundManager.PlaySoundOnce(SoundManager.audioClips[2]);
     }
 
 }

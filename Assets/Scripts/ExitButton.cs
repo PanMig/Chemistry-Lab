@@ -13,10 +13,16 @@ public class ExitButton : CustomButton
     public delegate void ButtonClick();
     public static event  ButtonClick ButtonClicked;
 
+    private Animator animator;
+
     private void Start()
     {
         gameObject.GetComponent<Image>().sprite = normalSprite;
         SlotSpawner.MolCompleted += ChangeSprite;
+        
+        //initialize the animator.
+        animator = gameObject.GetComponent<Animator>();
+        animator.enabled = false;
     }
 
     private void OnDisable()
@@ -31,12 +37,17 @@ public class ExitButton : CustomButton
             ButtonClicked();
         }
         GameManager.chosenMolecule = null;
+        SoundManager.instance.PlaySingle(clip);
+
+        //set parameters to initial.
         gameObject.GetComponent<Image>().sprite = normalSprite;
+        animator.enabled = false;
     }
 
     public override void ChangeSprite()
     {
         gameObject.GetComponent<Image>().sprite = greenSprite;
+        animator.enabled = true;
     }
 
 }

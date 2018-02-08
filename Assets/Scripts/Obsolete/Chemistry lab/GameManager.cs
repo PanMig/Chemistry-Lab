@@ -8,12 +8,11 @@ public class GameManager : MonoBehaviour {
     public enum Levels {moleculeNaming, moleculeConstruction, labSafety}
     public static Levels currentLevel;
 
-    private List<string> namedMols = new List<string>(); 
-
     public static Molecule chosenMolecule;
 
     //Molecule naming properties
     public static int namedMolecules;
+    private List<string> namedMols = new List<string>();
 
 
     void Awake()
@@ -45,7 +44,7 @@ public class GameManager : MonoBehaviour {
         
         if (chosenMolecule != null)
         {
-            //print(namedMolecules);
+            print(namedMolecules);
         }
     }
 
@@ -56,17 +55,17 @@ public class GameManager : MonoBehaviour {
 
     public void IncrementNamedMolecules()
     {
-        if (!IsMoleculeNamed())
+        if (!IsMoleculeNamed(chosenMolecule.Name))
         {
             namedMolecules++;
         }
         namedMols.Add(chosenMolecule.Name);
     }
 
-    public bool IsMoleculeNamed() {
-        foreach (string molecule in namedMols)
+    public bool IsMoleculeNamed(string name) {
+        foreach (string moleculeName in namedMols)
         {
-            if(chosenMolecule.Name == molecule)
+            if(name == moleculeName)
             {
                 return true;
             }

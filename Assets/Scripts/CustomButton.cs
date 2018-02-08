@@ -5,6 +5,7 @@ using UnityEngine;
 public class CustomButton : MonoBehaviour {
 
     public GameObject menuPanel;
+    public AudioClip clip;
     protected int visited;
 
     public virtual void OnClick()

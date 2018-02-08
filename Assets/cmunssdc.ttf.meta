@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 937d849fd61453e4e8501ea3ab449fb5
+timeCreated: 1518078810
+licenseType: Free
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: CMU Sans Serif Demi Condensed
+  fontNames:
+  - CMU Sans Serif Demi Condensed
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

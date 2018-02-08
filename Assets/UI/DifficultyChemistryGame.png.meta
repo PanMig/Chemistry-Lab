@@ -1,9 +1,14 @@
 fileFormatVersion: 2
-guid: 12c4250c2de39fc419093554b6a0389a
-timeCreated: 1517221176
+guid: 7940949e84d4fde46a1981b1c098e5ef
+timeCreated: 1518014831
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: DifficultyChemistryGame_0
+    21300002: DifficultyChemistryGame_1
+    21300004: DifficultyChemistryGame_2
+    21300006: DifficultyChemistryGame_3
+    21300008: DifficultyChemistryGame_4
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -40,7 +45,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -108,7 +113,77 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: DifficultyChemistryGame_0
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 305
+        width: 176
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: DifficultyChemistryGame_1
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 204
+        width: 178
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: DifficultyChemistryGame_2
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 98
+        width: 175
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: DifficultyChemistryGame_3
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 3
+        width: 175
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: DifficultyChemistryGame_4
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 204
+        width: 178
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
     outline: []
     physicsShape: []
   spritePackingTag: 

@@ -14,15 +14,10 @@ public class EnterButton : CustomButton
     public delegate void ButtonClick();
     public static event  ButtonClick ButtonClicked;
 
-    private void OnEnable()
-    {
-        SlotSpawner.MolCompleted += ChangeSprite;
-    }
 
     private void Start()
     {
         clicked = false;
-        visited = 0;
         gameObject.GetComponent<Image>().sprite = normalSprite;
     }
 
@@ -30,22 +25,21 @@ public class EnterButton : CustomButton
     {
         //create a molecule
         GameManager.instance.CreateMolecule(moleculeName, formula);
-
+        SoundManager.instance.PlaySingle(clip);
         if (ButtonClicked != null)
         {
             ButtonClicked();
         }
         clicked = true;
-        
+        SlotSpawner.MolCompleted += ChangeSprite;
     }
 
     //updates also the values on GameManager because we want values to be updated only the first time the button is visited.
     public override void ChangeSprite()
     {
-        if (clicked)
+        if (clicked && GameManager.instance.IsMoleculeNamed(moleculeName))
         {
             gameObject.GetComponent<Image>().sprite = greenSprite;
-            visited ++;
         }
     }
 
