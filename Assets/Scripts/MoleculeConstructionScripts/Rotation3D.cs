@@ -1,0 +1,59 @@
+﻿using UnityEngine;
+
+public class Rotation3D : MonoBehaviour {
+
+    public float rotSpeed = 50.0f;
+    public bool isRotating = false;
+
+    //start transform.
+    private Vector3 startPosition;
+    private Quaternion startRotation;
+
+    public void Start()
+    {
+        startPosition = gameObject.transform.position;
+        startRotation = gameObject.transform.rotation;
+    }
+
+    public void Update()
+    {
+        if(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+        {
+            YawRotation(rotSpeed);
+        }
+        else if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
+        {
+            PitchRotation();
+        }
+        else if (Input.GetKey(KeyCode.R) || Input.GetKey(KeyCode.DownArrow))
+        {
+            ResetTransformation();
+        }
+    }
+
+    //y axis
+    public void YawRotation(float speed)
+    {
+        transform.Rotate(Vector3.up * Time.deltaTime * speed, Space.World);
+        isRotating = true;
+    }
+
+    //x axis
+    public void PitchRotation()
+    {
+        transform.Rotate(Vector3.right * Time.deltaTime * rotSpeed, Space.World);
+    }
+
+    //z axis
+    public void RollRotation()
+    {
+        transform.Rotate(Vector3.forward * Time.deltaTime * rotSpeed, Space.World);
+    }
+
+    public void ResetTransformation()
+    {
+        gameObject.transform.position = startPosition;
+        gameObject.transform.rotation = startRotation;
+    }
+
+}

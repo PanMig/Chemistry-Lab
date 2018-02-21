@@ -125,16 +125,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 return false;
             }
         }
-        
-        //NEW METHOD
-        public void LockCursorOnClick()
-        {
-            if (Input.GetMouseButton(0))
-            {
-                SetCursorLock(true);
-                UpdateCursorLock();
-            }
-        }
 
     }
 }
