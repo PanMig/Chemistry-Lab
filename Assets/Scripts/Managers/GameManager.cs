@@ -18,6 +18,11 @@ public class GameManager : MonoBehaviour {
     public static int constructedMolecules;
     private List<string> constructedMols = new List<string>();
 
+    //PLayer Information
+    public string playerName;
+    public string playerClass;
+    public string playerSchoolName;
+
 
     void Awake()
     {
@@ -104,6 +109,26 @@ public class GameManager : MonoBehaviour {
             }
         }
         return false;
+    }
+
+    #endregion
+
+    #region Player Information
+
+    public void SetName(string text)
+    {
+        instance.playerName = text;
+        //GoedleAnalytics.trackTraits("first_name", instance.playerName);
+    }
+    public void SetClass(string text)
+    {
+        instance.playerClass = text;
+        //GoedleAnalytics.track("group", "class", instance.playerClass);
+    }
+    public void SetSchoolName(string text)
+    {
+        instance.playerSchoolName = text;
+        //GoedleAnalytics.track("group", "school", instance.playerSchoolName);
     }
 
     #endregion
