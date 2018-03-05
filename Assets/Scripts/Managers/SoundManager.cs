@@ -30,8 +30,8 @@ public class SoundManager : MonoBehaviour
 
     public void PlaySingle(AudioClip clip)
     {
-        efxSource.clip = clip;
-        efxSource.Play();
+        instance.efxSource.clip = clip;
+        instance.efxSource.Play();
     }
 
 }

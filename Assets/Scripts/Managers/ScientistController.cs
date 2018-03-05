@@ -29,12 +29,12 @@ public class ScientistController : MonoBehaviour
         {
             if (GameManager.namedMolecules <1)
             {
-                text.text = "Welcome to molecule naming mini game.\n\n" +
+                text.text = "Welcome to molecule naming quiz.\n\n" +
                 "Choose from a list of availiable molecules on the left and provide their formulas.";
             }
             else if (GameManager.namedMolecules == 1)
             {
-                text.text = "Good job, you have just completed your first formula naming challenge.\nKeep going!!";
+                text.text = "Good job, you have just completed your first formula naming quiz.\nKeep going!!";
             }
             else
             {
@@ -46,7 +46,7 @@ public class ScientistController : MonoBehaviour
         {
             if (GameManager.constructedMolecules < 1)
             {
-                text.text = "Welcome to molecule construction mini game.\n\n" +
+                text.text = "Welcome to molecule construction quiz.\n\n" +
                 "Choose from a list of availiable molecules on the left and construct their structure.";
             }
             else if (GameManager.constructedMolecules == 1)
