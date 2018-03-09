@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour {
 
     public static GameManager instance = null;
 
-    public enum Levels {moleculeNaming, moleculeConstruction, labSafety}
+    public enum Levels {moleculeNaming, moleculeConstruction,lab,menu}
     public static Levels currentLevel;
 
     public static Molecule chosenMolecule;
@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviour {
             Destroy(gameObject);
         }
         //Sets this to not be destroyed when reloading scene
-        DontDestroyOnLoad(this.gameObject);
+        DontDestroyOnLoad(gameObject);
     }
 
     private void Start()
@@ -53,14 +53,14 @@ public class GameManager : MonoBehaviour {
         
         if (chosenMolecule != null)
         {
-            //print(constructedMolecules);
         }
     }
 
-    public void CreateMolecule(string name, string formula)
+    public void CreateMolecule(string name, string formula,string difficulty)
     {
-        chosenMolecule = new Molecule(name, formula);
+        chosenMolecule = new Molecule(name, formula,difficulty);
     }
+
 
     #region Molecule naming
 
@@ -113,6 +113,7 @@ public class GameManager : MonoBehaviour {
 
     #endregion
 
+
     #region Player Information
 
     public void SetName(string text)
@@ -132,4 +133,24 @@ public class GameManager : MonoBehaviour {
     }
 
     #endregion
+
+
+    #region Exit from lab simulation
+
+    public void ExitSimulation()
+    {
+        //logout user
+        instance.playerName = null;
+        instance.playerClass = null;
+        instance.playerSchoolName = null;
+        //empty molecules lists
+        namedMols.Clear();
+        constructedMols.Clear();
+        //make Lab scene tutorial active.
+        StartCanvas.presentedToUser = false;
+        currentLevel = GameManager.Levels.menu;
+    }
+
+    #endregion
+
 }

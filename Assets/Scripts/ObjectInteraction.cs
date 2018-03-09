@@ -12,10 +12,8 @@ public class ObjectInteraction : MonoBehaviour
     [SerializeField] private Material defaultMat; //used to store the default and the outiline materials.
     [SerializeField] private Material outlinedMat;
 
-    private enum Interactables {naming, construction }
+    private enum Interactables {naming, construction,exit}
     [SerializeField] private Interactables interactable;
-
-    [SerializeField] private SoundManager soundManager;
 
     public SceneLoader sceneLoader;
     public CursorLock cursor;
@@ -53,6 +51,12 @@ public class ObjectInteraction : MonoBehaviour
             GameManager.currentLevel = GameManager.Levels.moleculeConstruction;
             cursor.UnLockCursor();
             sceneLoader.LoadScene("MoleculeConstruction");
+        }
+        else if (interactable == Interactables.exit)
+        {
+            GameManager.instance.ExitSimulation();
+            cursor.UnLockCursor();
+            sceneLoader.LoadScene("Menu");
         }
         SoundManager.instance.PlaySingle(clip);
     }

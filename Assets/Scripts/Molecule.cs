@@ -4,6 +4,7 @@ using System.Collections.Generic;
 public class Molecule
 {
 
+    #region properties
     private string name;
     public string Name
     {
@@ -32,18 +33,35 @@ public class Molecule
         }
     }
 
-    
+    private string difficulty;
+    public string Difficulty
+    {
+        get
+        {
+            return difficulty;
+        }
+
+        set
+        {
+            difficulty = value;
+        }
+    } 
+    #endregion
+
 
     #region CONSTRUCTORS
 
-    public Molecule(string name, string formula)
+    public Molecule(string name, string formula,string difficulty)
     {
         this.formula = formula;
         this.name = name;
+        this.difficulty = difficulty;
     }
 
     #endregion
 
+
+    // ROLE : We use the formula so to parce formulas that have both lowercase and Uppercase letters (e.g NaC)
     public List<string> GetFormula()
     {
         //return a list with the elements 1 by 1 in cells with an order from left to right.

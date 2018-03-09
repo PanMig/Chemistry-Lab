@@ -3,12 +3,13 @@ using UnityStandardAssets.Characters.FirstPerson;
 
 public class StartCanvas : MonoBehaviour {
 
-    private static bool disabled = false;
+    //defines that the canvas has been presented to the user, so we set it to disabled.
+    internal static bool presentedToUser = false;
     public GameObject player;
 
 	// Use this for initialization
 	void Start () {
-        if (disabled == true)
+        if (presentedToUser == true)
         {
             gameObject.SetActive(false);
         }
@@ -27,7 +28,7 @@ public class StartCanvas : MonoBehaviour {
             || Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow))
         {
             gameObject.SetActive(false);
-            disabled = true;
+            presentedToUser = true;
             player.GetComponent<FirstPersonController>().enabled = true;
         }
     }

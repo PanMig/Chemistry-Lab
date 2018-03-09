@@ -14,7 +14,7 @@ public class SoundManager : MonoBehaviour
     public AudioClip elementConstructed;
 
 
-    private void Awake()
+    void Awake()
     {
         //sigleton pattern
         if (instance == null)

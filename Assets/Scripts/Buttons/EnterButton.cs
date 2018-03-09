@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public class EnterButton : CustomButton
 {
     //control the value to pass to event as you need
-    public string moleculeName, formula;
+    public string moleculeName, formula,difficulty;
     public bool clicked = false;
 
     //sprites
@@ -51,7 +51,7 @@ public class EnterButton : CustomButton
     public override void OnClick()
     {
         //create a molecule
-        GameManager.instance.CreateMolecule(moleculeName, formula);
+        GameManager.instance.CreateMolecule(moleculeName, formula,difficulty);
         SoundManager.instance.PlaySingle(clip);
         if (ButtonClicked != null)
         {
@@ -63,20 +63,37 @@ public class EnterButton : CustomButton
 
     public override void ChangeSprite()
     {
-        if (clicked && GameManager.instance.IsMoleculeNamed(moleculeName) 
-            || clicked && GameManager.instance.IsMoleculeConstructed(moleculeName))
+        if(GameManager.currentLevel == GameManager.Levels.moleculeNaming)
         {
-            if(gameObject != null)
+            if (clicked && GameManager.instance.IsMoleculeNamed(moleculeName))
             {
-                gameObject.GetComponent<Image>().sprite = greySprite;
+                if (gameObject != null)
+                {
+                    gameObject.GetComponent<Image>().sprite = greySprite;
+                }
+                ExitButton.ButtonClicked -= ChangeSprite;
             }
-            //SlotSpawner.MolCompleted -= ChangeSprite;
-            //EmptyParentMolecule.MolConstructed -= ChangeSprite;
-            ExitButton.ButtonClicked -= ChangeSprite;
+            else if (clicked)
+            { // case where the button is click and then user returns to clipboard (used for emptying the delegate).
+                ExitButton.ButtonClicked -= ChangeSprite;
+            }
         }
-        else if(clicked){
-            ExitButton.ButtonClicked -= ChangeSprite;
+        else if (GameManager.currentLevel == GameManager.Levels.moleculeConstruction)
+        {
+            if (clicked && GameManager.instance.IsMoleculeConstructed(moleculeName))
+            {
+                if (gameObject != null)
+                {
+                    gameObject.GetComponent<Image>().sprite = greySprite;
+                }
+                ExitButton.ButtonClicked -= ChangeSprite;
+            }
+            else if (clicked)
+            { // case where the button is click and then user returns to clipboard (used for emptying the delegate).
+                ExitButton.ButtonClicked -= ChangeSprite;
+            }
         }
+       
     }
 
 }
