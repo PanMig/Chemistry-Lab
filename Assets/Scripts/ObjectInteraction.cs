@@ -67,7 +67,7 @@ public class ObjectInteraction : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            //rend.material = outlinedMat;
+            rend.material = outlinedMat;
             interactionCanvas.enabled = true;
             inTrigger = true;
             crosshair.GetComponent<Crosshair>().DisableCrosshair();
@@ -77,7 +77,7 @@ public class ObjectInteraction : MonoBehaviour
 
     public void OnTriggerExit(Collider other)
     {
-        //rend.material = defaultMat;
+        rend.material = defaultMat;
         interactionCanvas.enabled = false;
         inTrigger = false;
         crosshair.GetComponent<Crosshair>().EnableCrosshair();
