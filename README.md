@@ -18,4 +18,12 @@ The <i> Chemistry Lab</i> game is designed under the ENVISAGE project. For more 
 
 ![screenshot 13](https://user-images.githubusercontent.com/15057375/37338462-2ff4e0e8-26c0-11e8-842c-7b3820967583.png)
 
+![screenshot 14](https://user-images.githubusercontent.com/15057375/37338504-4ff46224-26c0-11e8-83f2-4612ea4e4b5f.png)
+
+![screenshot 18](https://user-images.githubusercontent.com/15057375/37338513-59133100-26c0-11e8-8845-2038d3e23ae7.png)
+
+![screenshot 17](https://user-images.githubusercontent.com/15057375/37338525-5f3488c2-26c0-11e8-9c2d-313183fab866.png)
+
+![screenshot 14](https://user-images.githubusercontent.com/15057375/37338530-628d4a0e-26c0-11e8-8983-ed96dcf2e905.png)
+
 
