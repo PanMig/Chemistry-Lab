@@ -1,19 +1,19 @@
 # Chemistry-Lab
-A 3D first-person serious game, aiming to teach the player about atoms and molecules through an immersive and fun way.
+Welcome to Chemistry Lab, a 3D first-person serious game, aiming to teach the player about the science of chemistry through an immersive and entertaining experience.
 
 # Controls 
-Use the WASD keys to move through the 3d scene. Panning the mouse will move your rotate your camera according to the specified direction of the mouse position.
+Use the WASD keys to move through the 3d scene. Use the mouse to rotate your camera according to the specified direction of the mouse position.
 
-# Education purpose
-During the game the player will come across many chemistry problems like naming a molecule formula, constructing the molecule based on the correct formula as well as defining the molecule's homogenous series. All these problems require to have a good knowledge about molecules and player's general knowledge in this domain will be improved after the completion of the game.
+# Play
+The game is released as a web project. To try the game you can visit this webpage ( http://160.40.51.48/games/chemistry/ )
+For avoiding any perfomance problems, its suggested to use either google chroome or mozilla firefox browsers.
 
-# Download
-The desktop version of the game can be found here : https://drive.google.com/file/d/0B9czXhPWLY-lUGdZRFN6bVByUGc/view?usp=sharing
+# Information
+The <i> Chemistry Lab</i> game is designed under the ENVISAGE project. For more information you can visit the core webpage of the project
+( http://www.envisage-h2020.eu/ ).
 
 # Images
 
 ![chemistry lab 10_20_2017 1_51_03 pm](https://user-images.githubusercontent.com/15057375/31817852-62a56e10-b59e-11e7-8035-072c29292fe0.png)
 
-![chemistry lab 10_20_2017 1_49_59 pm](https://user-images.githubusercontent.com/15057375/31817847-60471740-b59e-11e7-8ed9-fc6f8ca7fb03.png)
 
-![chemistry lab 10_20_2017 1_49_23 pm](https://user-images.githubusercontent.com/15057375/31817825-41827e58-b59e-11e7-99af-9363a6365b56.png)
