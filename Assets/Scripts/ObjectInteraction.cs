@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using goedle_sdk;
 
 public class ObjectInteraction : MonoBehaviour
 {
@@ -44,13 +45,17 @@ public class ObjectInteraction : MonoBehaviour
         {
             GameManager.currentLevel = GameManager.Levels.moleculeNaming;
             cursor.UnLockCursor();
-            sceneLoader.LoadScene("MoleculeNaming");
+            string sceneName = "MoleculeNaming";
+            GoedleAnalytics.track("choose.quiz",sceneName);
+            sceneLoader.LoadScene(sceneName);
         }
         else if (interactable == Interactables.construction)
         {
             GameManager.currentLevel = GameManager.Levels.moleculeConstruction;
             cursor.UnLockCursor();
+            string sceneName = "MoleculeConstruction";
             sceneLoader.LoadScene("MoleculeConstruction");
+            GoedleAnalytics.track("choose.quiz", sceneName);
         }
         else if (interactable == Interactables.exit)
         {
@@ -67,6 +72,8 @@ public class ObjectInteraction : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            GoedleAnalytics.track("play");
+
             rend.material = outlinedMat;
             interactionCanvas.enabled = true;
             inTrigger = true;

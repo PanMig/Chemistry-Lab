@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using goedle_sdk;
 
 public class LogoutButton : MonoBehaviour
 {
@@ -15,5 +16,6 @@ public class LogoutButton : MonoBehaviour
         {
             inputFields[i].text = null;
         }
+        GoedleAnalytics.track("logout");
     }
 }

@@ -23,6 +23,7 @@ public class ExitButton : CustomButton
         }
         else if (GameManager.currentLevel == GameManager.Levels.moleculeConstruction)
         {
+
             EmptyParentMolecule.MolConstructed += ChangeSprite;
         }
 
@@ -33,12 +34,14 @@ public class ExitButton : CustomButton
 
     private void OnDisable()
     {
+
         SlotSpawner.MolCompleted -= ChangeSprite;
         EmptyParentMolecule.MolConstructed -= ChangeSprite;
     }
 
     public override void OnClick()
     {
+        
         if (ButtonClicked != null)
         {
             ButtonClicked();

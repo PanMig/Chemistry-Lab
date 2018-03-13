@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-
+using goedle_sdk;
 
 public class Slot : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPointerExitHandler
 {
@@ -48,6 +48,7 @@ public class Slot : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPointerE
     {
         if (!SlotItem)
         {
+            
             elementCardTag = Draggable.item.GetComponent<ElementCardDisplay>().GetTag();
             if (string.Equals(elementCardTag, SlotTag))
             {

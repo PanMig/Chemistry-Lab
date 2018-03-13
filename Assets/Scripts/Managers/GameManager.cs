@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
+using goedle_sdk;
 
 public class GameManager : MonoBehaviour {
 
@@ -59,6 +60,7 @@ public class GameManager : MonoBehaviour {
     public void CreateMolecule(string name, string formula,string difficulty)
     {
         chosenMolecule = new Molecule(name, formula,difficulty);
+        GoedleAnalytics.track("select.molecule", name, difficulty);
     }
 
 
@@ -119,17 +121,17 @@ public class GameManager : MonoBehaviour {
     public void SetName(string text)
     {
         instance.playerName = text;
-        //GoedleAnalytics.trackTraits("first_name", instance.playerName);
+        GoedleAnalytics.trackTraits("first_name", instance.playerName);
     }
     public void SetClass(string text)
     {
         instance.playerClass = text;
-        //GoedleAnalytics.track("group", "class", instance.playerClass);
+        GoedleAnalytics.track("group", "class", instance.playerClass);
     }
     public void SetSchoolName(string text)
     {
         instance.playerSchoolName = text;
-        //GoedleAnalytics.track("group", "school", instance.playerSchoolName);
+        GoedleAnalytics.track("group", "school", instance.playerSchoolName);
     }
 
     #endregion
@@ -149,6 +151,7 @@ public class GameManager : MonoBehaviour {
         //make Lab scene tutorial active.
         StartCanvas.presentedToUser = false;
         currentLevel = GameManager.Levels.menu;
+        GoedleAnalytics.track("exit.simulation");
     }
 
     #endregion
