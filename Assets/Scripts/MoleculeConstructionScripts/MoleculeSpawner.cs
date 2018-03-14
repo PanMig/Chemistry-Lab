@@ -20,7 +20,6 @@ public class MoleculeSpawner : MonoBehaviour {
 
     public void OnDisable()
     {
-        Debug.Log("OnDisable");
         EnterButton.ButtonClicked -= SpawnMolecule;
         EmptyParentMolecule.MolConstructed -= DestroyUnusedElements;
         ExitButton.ButtonClicked -= DestroyUnusedElements;
