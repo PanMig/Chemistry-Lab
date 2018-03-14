@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-
+using goedle_sdk;
 public class ExitButton : CustomButton
 {
 
@@ -53,6 +53,8 @@ public class ExitButton : CustomButton
         //set parameters to initial.
         gameObject.GetComponent<Image>().sprite = normalSprite;
         animator.enabled = false;
+        Debug.Log("EXIT QUIZ");
+        Debug.Log(GameManager.currentLevel);
     }
 
     public override void ChangeSprite()

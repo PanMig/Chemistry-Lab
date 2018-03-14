@@ -68,6 +68,8 @@ public class GameManager : MonoBehaviour {
 
     public void IncrementNamedMolecules()
     {
+        GoedleAnalytics.track("complete.formula", chosenMolecule.Name);
+
         if (!IsMoleculeNamed(chosenMolecule.Name))
         {
             namedMolecules++;
@@ -94,6 +96,8 @@ public class GameManager : MonoBehaviour {
 
     public void IncrementConstructedMolecules()
     {
+        GoedleAnalytics.track("complete.construction",chosenMolecule.Name);
+
         if (!IsMoleculeConstructed(chosenMolecule.Name))
         {
             constructedMolecules++;
@@ -103,6 +107,7 @@ public class GameManager : MonoBehaviour {
 
     public bool IsMoleculeConstructed(string name)
     {
+
         foreach (string moleculeName in constructedMols)
         {
             if (name == moleculeName)
@@ -110,6 +115,7 @@ public class GameManager : MonoBehaviour {
                 return true;
             }
         }
+
         return false;
     }
 

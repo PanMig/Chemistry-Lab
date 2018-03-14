@@ -20,6 +20,7 @@ public class MoleculeSpawner : MonoBehaviour {
 
     public void OnDisable()
     {
+        Debug.Log("OnDisable");
         EnterButton.ButtonClicked -= SpawnMolecule;
         EmptyParentMolecule.MolConstructed -= DestroyUnusedElements;
         ExitButton.ButtonClicked -= DestroyUnusedElements;
@@ -43,9 +44,10 @@ public class MoleculeSpawner : MonoBehaviour {
     public void DestroyUnusedElements()
     {
         var elements = FindObjectsOfType<MouseTranslate>();
-        GoedleAnalytics.track("clear.elements",GameManager.chosenMolecule.Name, elements.Length.ToString());
         if (elements.Length != 0)
         {
+            GoedleAnalytics.track("clear.elements", GameManager.chosenMolecule.Name, elements.Length.ToString());
+
             for (int i = 0; i < elements.Length; i++)
             {
                 Destroy(elements[i].gameObject);
