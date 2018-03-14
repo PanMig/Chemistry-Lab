@@ -53,8 +53,7 @@ public class ExitButton : CustomButton
         //set parameters to initial.
         gameObject.GetComponent<Image>().sprite = normalSprite;
         animator.enabled = false;
-        Debug.Log("EXIT QUIZ");
-        Debug.Log(GameManager.currentLevel);
+        GoedleAnalytics.track("continue.quiz",GameManager.currentLevel.ToString());
     }
 
     public override void ChangeSprite()
