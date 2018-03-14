@@ -19,6 +19,7 @@ public class MoleculeSpawner : MonoBehaviour {
 
     public void OnDisable()
     {
+        Debug.Log("OnDisable");
         EnterButton.ButtonClicked -= SpawnMolecule;
         EmptyParentMolecule.MolConstructed -= DestroyUnusedElements;
         ExitButton.ButtonClicked -= DestroyUnusedElements;
@@ -27,10 +28,16 @@ public class MoleculeSpawner : MonoBehaviour {
 
     public void SpawnMolecule()
     {
+        Debug.Log("SpawnMolecule");
+
         foreach (GameObject mol in Molecules)
         {
+            Debug.Log("SpawnMolecule in loop");
+
             if(mol.name == GameManager.chosenMolecule.Name)
             {
+                Debug.Log("SpawnMolecule in if");
+
                 molecule = Instantiate(mol, position.position, Quaternion.identity);
             }
         }
@@ -39,6 +46,7 @@ public class MoleculeSpawner : MonoBehaviour {
     public void DestroyUnusedElements()
     {
         var elements = FindObjectsOfType<MouseTranslate>();
+        Debug.Log("DestroyUnusedElements");
 
         if (elements.Length != 0)
         {
@@ -51,6 +59,8 @@ public class MoleculeSpawner : MonoBehaviour {
 
     public void DestroyMolecule()
     {
+        Debug.Log("DestroyMolecule");
+
         if(molecule != null)
         {
             Destroy (molecule);
