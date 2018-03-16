@@ -13,7 +13,7 @@
 using UnityEngine;
 using System;
 using SimpleJSON;
-
+using UnityEngine.Networking;
 namespace goedle_sdk
 {
 
@@ -29,6 +29,9 @@ namespace goedle_sdk
     public class GoedleAnalytics : MonoBehaviour
     {
         public static GoedleAnalytics instance = null;
+
+        detail.IUnityWebRequests www = null;
+
         /*! \cond PRIVATE */
         #region settings
         [Header("Project")]
@@ -106,7 +109,7 @@ namespace goedle_sdk
 		public static void trackTraits(string traitKey, string traitValue)
 		{
 			#if !ENABLE_GOEDLE
-                goedle_analytics.trackTraits(null, null, null, traitKey, traitValue);
+                goedle_analytics.trackTraits(traitKey, traitValue);
 			#endif
 		}
 
@@ -137,18 +140,6 @@ namespace goedle_sdk
 		}
 
 
-        /// <summary>
-        /// returns the strategies from the goedle api
-        /// </summary>
-
-        public static JSONNode getStrategy()
-        {
-        #if !ENABLE_GOEDLE
-            return goedle_analytics.getStrategy();
-        #endif
-        }
-
-
 		#region internal
         public static detail.GoedleAnalytics gio_interface;
         public static detail.GoedleAnalytics goedle_analytics
@@ -158,6 +149,15 @@ namespace goedle_sdk
 				return gio_interface;
 			}
 		}
+
+        public detail.IGoedleHttpClient gio_http_client;
+        public detail.IGoedleHttpClient http_client
+        {
+            get
+            {
+                return gio_http_client;
+            }
+        }
 
         static bool tracking_enabled = true;
 
@@ -197,11 +197,10 @@ namespace goedle_sdk
                     app_name = Application.productName;
                 else
                     app_name = app_version;
-
             //string locale = Application.systemLanguage.ToString();
             // Build HTTP CLient
-
-            IGoedleHttpClient gio_http_client = new GoedleHttpClient(this);
+            gio_http_client = (new GameObject("GoedleHTTPClient")).AddComponent<detail.GoedleHttpClient>();
+            gio_http_client.addUnityHTTPClient(www);
             if (tracking_enabled && gio_interface == null)
             {
                 gio_interface = new detail.GoedleAnalytics(api_key, app_key, user_id.ToString("D"), app_version, GA_TRACKIND_ID, app_name, GA_CD_1, GA_CD_2, GA_CD_EVENT, gio_http_client);
