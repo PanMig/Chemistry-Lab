@@ -40,6 +40,11 @@ namespace goedle_sdk.detail
             track_launch();
         }
 
+        public void reset_user_id(string user_id)
+        {
+            this.user_id = user_id;
+        }
+
         public void set_user_id(string user_id)
         {
             this.anonymous_id = this.user_id;

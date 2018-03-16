@@ -9,7 +9,6 @@ using System.Collections;
 namespace goedle_sdk.detail
 {
     public interface IGoedleUtils{
-        string userHash(string strToEncrypt);
         string HexStringFromBytes(byte[] bytes);
         string encodeToUrlParameter(string content, string api_key);
         bool IsFloatOrInt(string value);
@@ -21,7 +20,7 @@ namespace goedle_sdk.detail
             
         }
 
-        public string userHash(string strToEncrypt)
+        public static string userHash(string strToEncrypt)
         {
             UTF8Encoding ue = new UTF8Encoding();
             byte[] bytes = ue.GetBytes(strToEncrypt);

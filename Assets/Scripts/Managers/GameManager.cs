@@ -126,17 +126,17 @@ public class GameManager : MonoBehaviour {
 
     public void SetName(string text)
     {
-        instance.playerName = text;
+        instance.playerName = text.Trim();
         GoedleAnalytics.trackTraits("first_name", instance.playerName);
     }
     public void SetClass(string text)
     {
-        instance.playerClass = text;
+        instance.playerClass = text.Trim();
         GoedleAnalytics.track("group", "class", instance.playerClass);
     }
     public void SetSchoolName(string text)
     {
-        instance.playerSchoolName = text;
+        instance.playerSchoolName = text.Trim();
         GoedleAnalytics.track("group", "school", instance.playerSchoolName);
     }
 

@@ -76,9 +76,9 @@ namespace goedle_sdk.detail
                 else
                 {
                     // Show results as text
-                    Debug.Log(client.downloadHandler.text);
+                    //Debug.Log(client.downloadHandler.text);
                     // Or retrieve results as binary data
-                    byte[] results = client.downloadHandler.data;
+                    //byte[] results = client.downloadHandler.data;
                 }
             }
         }
@@ -136,16 +136,13 @@ namespace goedle_sdk.detail
                     client.SetRequestHeader("Authorization", authentification);
                 client.chunkedTransfer = false;
                 yield return client.SendWebRequest();
-                Console.WriteLine(client.responseCode);
-                Console.WriteLine(client.isNetworkError);
-                Console.WriteLine(client.isHttpError);
                 if (client.isNetworkError || client.isHttpError)
                 {
                     Debug.Log(client.error);
                 }
                 else
                 { 
-                   Debug.Log(content);
+                   //Debug.Log(content);
                 }
             }
 	    }

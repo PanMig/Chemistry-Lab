@@ -1,7 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.UI;                
+using System.Linq;
+using goedle_sdk;
+using goedle_sdk.detail;
 
 public class UserIdentification : MonoBehaviour {
 
@@ -34,6 +37,10 @@ public class UserIdentification : MonoBehaviour {
         }
         else
         {
+            // Creating a hashed user id, md5 hash of a string and then using a guid
+            string[] user_ids = inputFields.OfType<InputField>().Select(o => o.ToString()).ToArray();
+            string hashed_user_id = GoedleUtils.userHash(user_ids.ToString());
+            goedle_sdk.GoedleAnalytics.setUserId(hashed_user_id);
             // if input is not empty load the lab scene.
             sceneLoader.LoadScene("Lab");
         }

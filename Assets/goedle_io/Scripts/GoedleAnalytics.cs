@@ -139,6 +139,18 @@ namespace goedle_sdk
 			#endif
 		}
 
+        /// <summary>
+        /// Reset user id
+        /// </summary>
+
+        public static void resetUserId()
+        {
+        #if !ENABLE_GOEDLE
+            Guid new_user_id = Guid.NewGuid();
+            goedle_analytics.reset_user_id(new_user_id.ToString("D"));
+        #endif
+        }
+
 
 		#region internal
         public static detail.GoedleAnalytics gio_interface;
@@ -163,6 +175,8 @@ namespace goedle_sdk
 
         void Awake()
         {
+            gio_http_client = (new GameObject("GoedleHTTPClient")).AddComponent<detail.GoedleHttpClient>();
+            gio_http_client.addUnityHTTPClient(www);
             //Check if instance already exists
             if (instance == null)
             {
@@ -177,6 +191,8 @@ namespace goedle_sdk
             }
             //Sets this to not be destroyed when reloading scene
             DontDestroyOnLoad(gameObject);
+            DontDestroyOnLoad(GameObject.Find("GoedleHTTPClient"));
+
             InitGoedle();
         }
 
@@ -199,8 +215,7 @@ namespace goedle_sdk
                     app_name = app_version;
             //string locale = Application.systemLanguage.ToString();
             // Build HTTP CLient
-            gio_http_client = (new GameObject("GoedleHTTPClient")).AddComponent<detail.GoedleHttpClient>();
-            gio_http_client.addUnityHTTPClient(www);
+
             if (tracking_enabled && gio_interface == null)
             {
                 gio_interface = new detail.GoedleAnalytics(api_key, app_key, user_id.ToString("D"), app_version, GA_TRACKIND_ID, app_name, GA_CD_1, GA_CD_2, GA_CD_EVENT, gio_http_client);
