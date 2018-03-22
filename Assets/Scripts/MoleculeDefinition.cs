@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 
-public static class MoleCuleDefinition
+public static class MoleculeDefinition
 {
     // Definition of molecules
     static Molecule _H20 = new Molecule("water", "H2O");
