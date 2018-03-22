@@ -20,7 +20,7 @@ public static class MoleculeDefinition
     public static Queue<string> _strategy_stack_construction=new Queue<string>(standard_strategy);
 
 
-    // There are no static dictonaries in C# this ugly but the best and efficents solution
+    // There are no static dictonaries in C# this is ugly but the best and efficent solution
     public static Molecule getMolecule(string forumla)
     {
         switch (forumla)
@@ -37,22 +37,18 @@ public static class MoleculeDefinition
             case "C2H2O": return _C2H2O;
                 // I had no better idea, now water is the default molecule
             default: return _H20;
-
         }
     }
-
     // this builds the strategy que for the naming quiz
     public static void buildStrategyNamingQueue(string[] strategy)
     {
         _strategy_stack_naming = new Queue<string>(strategy);
     }
-
     // this builds the strategy que for the construction quiz
     public static void buildStrategyConstructionQueue(string[] strategy)
     {
         _strategy_stack_construction = new Queue<string>(strategy);
     }
-
     // helper function to get the current active molecule for a lab
     public static Molecule getActiveMolecule(string quiz_name)
     {
@@ -63,7 +59,6 @@ public static class MoleculeDefinition
             default: return getMolecule(_strategy_stack_default.Peek());
         }
     }
-
     // helper function to get the next molecule for a lab 
     public static Molecule nextMolecule(string quiz_name)
     {
@@ -74,15 +69,11 @@ public static class MoleculeDefinition
             default: return dequeueMolecule(_strategy_stack_default);
         }
     }
-
     // dequeue molecule and put molecule in the queue and peek the next in queue
     public static Molecule dequeueMolecule(Queue<string> strategy_stack){
         string current_molecule = strategy_stack.Dequeue();
         strategy_stack.Enqueue(current_molecule);
         return getMolecule(strategy_stack.Peek());
     }
-
-
-
 }
 
