@@ -4,14 +4,14 @@ using System.Collections.Generic;
 public static class MoleculeDefinition
 {
     // Definition of molecules
-    static Molecule _H20 = new Molecule("water", "H2O");
-    static Molecule _CH4 = new Molecule("methane", "CH4");
+    static Molecule _H20 = new Molecule("Water", "H2O");
+    static Molecule _CH4 = new Molecule("Methane", "CH4");
     static Molecule _HCl = new Molecule("Hydrogen Chloride", "HCl");
     static Molecule _NaCl = new Molecule("Sodium Chloride", "NaCl");
     static Molecule _CH4O = new Molecule("Methanole", "CH4O");
     static Molecule _C2H6O = new Molecule("Ethanol", "C2H6O");
     static Molecule _C3H6O = new Molecule("Acetone", "C3H6O");
-    static Molecule _CH5N = new Molecule("Isocyanic acid", "CH5N");
+    static Molecule _CH5N = new Molecule("Isocyanic Acid", "CH5N");
     static Molecule _CH2N2 = new Molecule("Cyanamide", "CH2N2");
     static Molecule _C2H2O = new Molecule("Ethenone", "C2H2O");
     public static string[] standard_strategy = new string[] { "H20", "CH4", "HCl", "NaCl", "CH4O", "C2H6O", "C3H6O", "CH5N", "CH2N2", "C2H2O" };
