@@ -58,6 +58,14 @@ public class Molecule
         this.difficulty = difficulty;
     }
 
+    public Molecule(string name, string formula)
+    {
+        this.formula = formula;
+        this.name = name;
+    }
+
+
+
     #endregion
 
 
