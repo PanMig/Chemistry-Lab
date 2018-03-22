@@ -65,18 +65,18 @@ public static class MoleculeDefinition
     }
 
     // helper function to get the next molecule for a lab 
-    public static Molecule nextMolecule(string quiz_name, Queue<string> strategy_stack)
+    public static Molecule nextMolecule(string quiz_name)
     {
         switch (quiz_name)
         {
-            case "nameing": return dequeueMolecule(quiz_name, _strategy_stack_naming);
-            case "construction": return dequeueMolecule(quiz_name, _strategy_stack_construction);
-            default: return dequeueMolecule(quiz_name, _strategy_stack_default);
+            case "nameing": return dequeueMolecule(_strategy_stack_naming);
+            case "construction": return dequeueMolecule(_strategy_stack_construction);
+            default: return dequeueMolecule(_strategy_stack_default);
         }
     }
 
     // dequeue molecule and put molecule in the queue and peek the next in queue
-    public static Molecule dequeueMolecule(string quiz_name, Queue<string> strategy_stack){
+    public static Molecule dequeueMolecule(Queue<string> strategy_stack){
         string current_molecule = strategy_stack.Dequeue();
         strategy_stack.Enqueue(current_molecule);
         return getMolecule(strategy_stack.Peek());
