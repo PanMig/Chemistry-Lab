@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Comment CommentText="Naming&#xD;&#xA;">
+    <Position X="0.5" Y="3.273" Height="0.291" Width="0.945" />
+  </Comment>
+  <Comment CommentText="Construction&#xD;&#xA;&#xD;&#xA;">
+    <Position X="0.5" Y="6.218" Height="0.351" Width="1.053" />
+  </Comment>
+  <Class Name="CustomButton" Collapsed="true">
+    <Position X="1.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAQAAAAAAAAAAAAAAAAACAAAAAAAgAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Buttons\CustomButton.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EnterButton" Collapsed="true">
+    <Position X="0.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQABCCAAAAAAgAAAACAGAAAAAAAAAAAgAAAAAgA=</HashCode>
+      <FileName>Assets\Scripts\Buttons\EnterButton.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ExitButton" Collapsed="true">
+    <Position X="2.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAQAAACAAAAAAgAAAAAACgAAAAAAIAAAAAAAAAgA=</HashCode>
+      <FileName>Assets\Scripts\Buttons\ExitButton.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameManager" Collapsed="true">
+    <Position X="5.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAQAAAUAICAAAEAIAAEAAAEAIIDYIAAABAEAQBAAAEA=</HashCode>
+      <FileName>Assets\Scripts\Managers\GameManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SoundManager" Collapsed="true">
+    <Position X="7.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAAAAAAIAAAAAAQABAAAABAAAAEAAAAAAAAAEA=</HashCode>
+      <FileName>Assets\Scripts\Managers\SoundManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SceneLoader" Collapsed="true">
+    <Position X="9.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAgAAAAAAAAAAAAAGAAAAAAAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Managers\SceneLoader.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Draggable" Collapsed="true">
+    <Position X="0.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACQAAhAAAgRAEAAAAAAgQCAIAAAwAwAAAAA=</HashCode>
+      <FileName>Assets\Scripts\MoleculeNamingScripts\Draggable.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Slot" Collapsed="true">
+    <Position X="2.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAACAAAQAAQAAAAAAAAAAiAAAAAABQAQAAQAA=</HashCode>
+      <FileName>Assets\Scripts\MoleculeNamingScripts\Slot.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SlotSpawner" Collapsed="true">
+    <Position X="4.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAUQAAAgAAAAECBAACAACAAAAAAAAAgIQAgAAAAACAA=</HashCode>
+      <FileName>Assets\Scripts\MoleculeNamingScripts\SlotSpawner.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ElementCard" Collapsed="true">
+    <Position X="8.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAAAAAAAAAAAAAAAAEAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\MoleculeNamingScripts\ElementCard.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ElementCardDisplay" Collapsed="true">
+    <Position X="10.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAACAAAAAAAAAAAAAIAAAAAAAIAQAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\MoleculeNamingScripts\ElementCardDisplay.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MoleculeSpawner" Collapsed="true">
+    <Position X="0.5" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAIAAAACAAAABAAAAAIAAAAAAIAAAICAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\MoleculeConstructionScripts\MoleculeSpawner.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ElementsCreator" Collapsed="true">
+    <Position X="2.25" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAACAAAAAAAAAIIIAIAAAAAAAhAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\MoleculeConstructionScripts\ElementsCreator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MouseTranslate" Collapsed="true">
+    <Position X="4.75" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAABQAAAAAQAAAACAAACAAA=</HashCode>
+      <FileName>Assets\Scripts\MoleculeConstructionScripts\MouseTranslate.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ElementCollision" Collapsed="true">
+    <Position X="6.5" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABCAAAAAAACAAAAAIAAAAQAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\MoleculeConstructionScripts\ElementCollision.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EmptyParentMolecule" Collapsed="true">
+    <Position X="10.5" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAEACAABAAAQAAAAAAAAAEBAAAAIAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\MoleculeConstructionScripts\EmptyParentMolecule.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -1,0 +1,648 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="SimpleJSON.JSONNode" Collapsed="true">
+    <Position X="7.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYgIAIISMAgEBBMiACEFAQAAEgIQIALABBhAAAAEig=</HashCode>
+      <FileName>Assets\goedle_io\Plugins\SimpleJSON.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SimpleJSON.JSONArray" Collapsed="true">
+    <Position X="1" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAEAgEBBACAAEBAQABAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\goedle_io\Plugins\SimpleJSON.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SimpleJSON.JSONObject" Collapsed="true">
+    <Position X="3.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAIAEAgEBBACAAEBAQAAAAAAABAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\goedle_io\Plugins\SimpleJSON.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SimpleJSON.JSONString" Collapsed="true">
+    <Position X="5.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgEBAIgIAAAAAAAAAAAIAAAAAgAAAAAAA=</HashCode>
+      <FileName>Assets\goedle_io\Plugins\SimpleJSON.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SimpleJSON.JSONNumber" Collapsed="true">
+    <Position X="7.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgEBAAgICAAAAAAAAAAIAAAAAgAAAAAAg=</HashCode>
+      <FileName>Assets\goedle_io\Plugins\SimpleJSON.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SimpleJSON.JSONBool" Collapsed="true">
+    <Position X="10" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgEBBAgIAAAAAAAAAAAIABAAAgAAAAAAA=</HashCode>
+      <FileName>Assets\goedle_io\Plugins\SimpleJSON.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SimpleJSON.JSONNull" Collapsed="true">
+    <Position X="12.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgEBAAgAAACEAAAAEAAIAJAAAgAAAAAAA=</HashCode>
+      <FileName>Assets\goedle_io\Plugins\SimpleJSON.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SimpleJSON.JSONLazyCreator" Collapsed="true">
+    <Position X="14.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAEAAACAAgFBAAiAAAAAAAAAAIAIAjABAAAAAAAig=</HashCode>
+      <FileName>Assets\goedle_io\Plugins\SimpleJSON.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SimpleJSON.JSON" Collapsed="true">
+    <Position X="20.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\goedle_io\Plugins\SimpleJSON.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="goedle_sdk.detail.GoedleAnalytics" Collapsed="true">
+    <Position X="22.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAQCAgoIAAAAABQAQAQBBAAAAAIAAAAAAEAAQCIgBA=</HashCode>
+      <FileName>Assets\goedle_io\Scripts\detail\GoedleAnalytics.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="goedle_sdk.detail.GoedleAtom" Collapsed="true">
+    <Position X="24" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAgABAAAAAAAYBAAJAAAAAAAAAACgAAAQAAAHA=</HashCode>
+      <FileName>Assets\goedle_io\Scripts\detail\GoedleAtom.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="goedle_sdk.detail.GoedleConstants" Collapsed="true">
+    <Position X="25.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAEAAIAAUAAAYAACAIAAAAAAgAAAAAAAABAAgAAAA=</HashCode>
+      <FileName>Assets\goedle_io\Scripts\detail\GoedleConstants.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="goedle_sdk.detail.GoedleHttpClient" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="27.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAIAAAAAAAAAAAAAAAAACAAAAgIAAAAgAAAAEAAA=</HashCode>
+      <FileName>Assets\goedle_io\Scripts\detail\GoedleHttpClient.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="goedle_sdk.detail.GoedlePersistentStorageController" Collapsed="true">
+    <Position X="31" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAICAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\goedle_io\Scripts\detail\GoedlePersistentStorageController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="goedle_sdk.detail.GoedlePersonStorage" Collapsed="true">
+    <Position X="17" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAAAQAgAAAUAAAAAEAAAAAAgAAAAAACAAA=</HashCode>
+      <FileName>Assets\goedle_io\Scripts\detail\GoedlePersonStorage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="goedle_sdk.detail.GoedleUtils" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="18.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAAAAAAAAAAAAAAgCIAAAAAAAAAAAAAIAAA=</HashCode>
+      <FileName>Assets\goedle_io\Scripts\detail\GoedleUtils.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="goedle_sdk.detail.UriHelper" Collapsed="true">
+    <Position X="20.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\goedle_io\Scripts\detail\GoedleUtils.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="goedle_sdk.detail.CoroutineWithData" Collapsed="true">
+    <Position X="17" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACAAAJAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>Assets\goedle_io\Scripts\detail\GoedleUtils.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="goedle_sdk.GoedleAnalytics" Collapsed="true">
+    <Position X="20.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAADEAAAAAAIEAJQBAAQBAAAAABIMAEAAAAIIQGAgEA=</HashCode>
+      <FileName>Assets\goedle_io\Scripts\GoedleAnalytics.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GoedleLoader" Collapsed="true">
+    <Position X="29.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>Assets\goedle_io\Scripts\GoedleLoader.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PDBBuilder" Collapsed="true">
+    <Position X="20.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIABAAAAAAAAAAAAIEAECAAAAAAIACAEBAAAAIEA=</HashCode>
+      <FileName>Assets\PDBBuilder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PDBParser" Collapsed="true">
+    <Position X="22.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAIAwBgAAAAAAAAAAQABAAIIAQAAAAAAAAA=</HashCode>
+      <FileName>Assets\PDBParser.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AtomsRandomSpawner" Collapsed="true">
+    <Position X="17" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAwAAAAAAAAAAAAAAAAACAAAAAAgAAA=</HashCode>
+      <FileName>Assets\Prefabs\Molecules\AtomsRandomSpawner.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CustomButton" Collapsed="true">
+    <Position X="1.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAQAAAAAAAAAAAAAAAAACAAAAAAAgAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Buttons\CustomButton.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EnterButton" Collapsed="true">
+    <Position X="2.75" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQABCCAAAAAAgAAAACAGAAAAAAAAAAAgAAAAAgA=</HashCode>
+      <FileName>Assets\Scripts\Buttons\EnterButton.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ExitButton" Collapsed="true">
+    <Position X="0.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAQAAACAAAAAAgAAAAAACgAAAAAAIAAAAAAAAAgA=</HashCode>
+      <FileName>Assets\Scripts\Buttons\ExitButton.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LogoutButton" Collapsed="true">
+    <Position X="24" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAIAAAAAAACAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Buttons\LogoutButton.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Loader" Collapsed="true">
+    <Position X="22.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>Assets\Scripts\Loader.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameManager" Collapsed="true">
+    <Position X="18.75" Y="2.5" Width="1.5" />
+    <NestedTypes>
+      <Enum Name="GameManager.Levels" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Assets\Scripts\Managers\GameManager.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>EAQAAAUAICAAAEAIAAEAAAEAIIDYIAAABAEAQBAAAEA=</HashCode>
+      <FileName>Assets\Scripts\Managers\GameManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SceneLoader" Collapsed="true">
+    <Position X="27.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAgAAAAAAAAAAAAAGAAAAAAAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Managers\SceneLoader.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ScientistController" Collapsed="true">
+    <Position X="29.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAIAAAAAAAACAA=</HashCode>
+      <FileName>Assets\Scripts\Managers\ScientistController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SoundManager" Collapsed="true">
+    <Position X="24" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAAAAAAIAAAAAAQABAAAABAAAAEAAAAAAAAAEA=</HashCode>
+      <FileName>Assets\Scripts\Managers\SoundManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Molecule" Collapsed="true">
+    <Position X="25.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABAAAAAQAAAAAAAAQEQAAEBAAAAAAAAAAAACA=</HashCode>
+      <FileName>Assets\Scripts\Molecule.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CameraZoom" Collapsed="true">
+    <Position X="29.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAgAAAAAAAAAACAAIAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\MoleculeConstructionScripts\CameraZoom.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ElementCollision" Collapsed="true">
+    <Position X="27.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABCAAAAAAACAAAAAIAAAAQAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\MoleculeConstructionScripts\ElementCollision.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ElementsCreator" Collapsed="true">
+    <Position X="29.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAACAAAAAAAAAIIIAIAAAAAAAhAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\MoleculeConstructionScripts\ElementsCreator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EmptyParentMolecule" Collapsed="true">
+    <Position X="31" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAEACAABAAAQAAAAAAAAAEBAAAAIAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\MoleculeConstructionScripts\EmptyParentMolecule.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MoleculeSpawner" Collapsed="true">
+    <Position X="27.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAIAAAACAAAABAAAAAIAAAAAAIAAAICAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\MoleculeConstructionScripts\MoleculeSpawner.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MouseTranslate" Collapsed="true">
+    <Position X="31" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAABQAAAAAQAAAACAAACAAA=</HashCode>
+      <FileName>Assets\Scripts\MoleculeConstructionScripts\MouseTranslate.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Position" Collapsed="true">
+    <Position X="24" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\MoleculeConstructionScripts\Position.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Rotation3D" Collapsed="true">
+    <Position X="25.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAAAAAACCAABAAAEAAAAAQgAAAAAAAAQAgAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\MoleculeConstructionScripts\Rotation3D.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Draggable" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="22.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACQAAhAAAgRAEAAAAAAgQCAIAAAwAwAAAAA=</HashCode>
+      <FileName>Assets\Scripts\MoleculeNamingScripts\Draggable.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ElementCard" Collapsed="true">
+    <Position X="24" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAAAAAAAAAAAAAAAAEAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\MoleculeNamingScripts\ElementCard.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ElementCardDisplay" Collapsed="true">
+    <Position X="25.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAACAAAAAAAAAAAAAIAAAAAAAIAQAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\MoleculeNamingScripts\ElementCardDisplay.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MoleculeText" Collapsed="true">
+    <Position X="29.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAIAIAAAAAAAAAAAAAIAAAAAAAACAA=</HashCode>
+      <FileName>Assets\Scripts\MoleculeNamingScripts\MoleculeText.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Slot" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="20.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAACAAAQAAQAAAAAAAAAAiAAAAAABQAQAAQAA=</HashCode>
+      <FileName>Assets\Scripts\MoleculeNamingScripts\Slot.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SlotSpawner" Collapsed="true">
+    <Position X="22.25" Y="5.5" Width="1.5" />
+    <NestedTypes>
+      <Delegate Name="SlotSpawner.MoleculeCompleted" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Assets\Scripts\MoleculeNamingScripts\SlotSpawner.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAUQAAAgAAAAECBAACAACAAAAAAAAAgIQAgAAAAACAA=</HashCode>
+      <FileName>Assets\Scripts\MoleculeNamingScripts\SlotSpawner.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ObjectInteraction" Collapsed="true">
+    <Position X="17" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQCgAAgACAACAEAACAACAABAEAAAIAwQAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\ObjectInteraction.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Crosshair" Collapsed="true">
+    <Position X="18.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAACAAAAAAgAAAAAAAAAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>Assets\Scripts\UI\Crosshair.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CursorLock" Collapsed="true">
+    <Position X="20.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAABAQAAA=</HashCode>
+      <FileName>Assets\Scripts\UI\CursorLock.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="StartCanvas" Collapsed="true">
+    <Position X="25.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACQAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\UI\StartCanvas.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UserIdentification" Collapsed="true">
+    <Position X="22.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAEAAAAQAAAAEAAAACAgAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\UserIdentification.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ChatController" Collapsed="true">
+    <Position X="31" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAABAEAAAAAAAAAAAAAAAAAICEAAAAAACAA=</HashCode>
+      <FileName>Assets\TextMesh Pro\Examples\Scripts\ChatController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EnvMapAnimator" Collapsed="true">
+    <Position X="17" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAACAAAAAAAAAgAAAAAAQAAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>Assets\TextMesh Pro\Examples\Scripts\EnvMapAnimator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TMPro.Examples.Benchmark01" Collapsed="true">
+    <Position X="18.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>YAAAAAIAACAAAAAAAAQAAAAIAAQAAAAAgAABAAAAAAA=</HashCode>
+      <FileName>Assets\TextMesh Pro\Examples\Scripts\Benchmark01.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TMPro.Examples.Benchmark01_UGUI" Collapsed="true">
+    <Position X="20.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>YAAAAAAAACAAAAAAAAQAAAAKAAQAAAAAgAABAAAAAAA=</HashCode>
+      <FileName>Assets\TextMesh Pro\Examples\Scripts\Benchmark01_UGUI.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TMPro.Examples.Benchmark02" Collapsed="true">
+    <Position X="22.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAACAAAAAEAAAAAAABAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\TextMesh Pro\Examples\Scripts\Benchmark02.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TMPro.Examples.Benchmark03" Collapsed="true">
+    <Position X="24" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAACAAAAAEAAAAAAAAAAAAAAAAAAAAAAAACEA=</HashCode>
+      <FileName>Assets\TextMesh Pro\Examples\Scripts\Benchmark03.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TMPro.Examples.Benchmark04" Collapsed="true">
+    <Position X="25.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAADAAAIACAAAAAAAAAAAAAAAAAAAAAAAQAAAAABAAA=</HashCode>
+      <FileName>Assets\TextMesh Pro\Examples\Scripts\Benchmark04.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TMPro.Examples.CameraController" Collapsed="true">
+    <Position X="27.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEQAEAAEADAEBEAgAIQAIEABAAAFgYQQACAAAAAAIEA=</HashCode>
+      <FileName>Assets\TextMesh Pro\Examples\Scripts\CameraController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TMPro.Examples.ObjectSpin" Collapsed="true">
+    <Position X="18.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABQAAEAIAAAAAAAAAAAAQAAAEABAIAgAAAAAAQBAAEA=</HashCode>
+      <FileName>Assets\TextMesh Pro\Examples\Scripts\ObjectSpin.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TMPro.Examples.ShaderPropAnimator" Collapsed="true">
+    <Position X="31" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAACAAAAAAAAAgAEAAAAAAAAAAAAAAAQAgAEA=</HashCode>
+      <FileName>Assets\TextMesh Pro\Examples\Scripts\ShaderPropAnimator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TMPro.Examples.SimpleScript" Collapsed="true">
+    <Position X="17" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAABAAAAAAAEAAAAQAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\TextMesh Pro\Examples\Scripts\SimpleScript.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TMPro.Examples.SkewTextExample" Collapsed="true">
+    <Position X="18.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAEAACAAAAAAAAAAAAAABAEAAAAAIAAAAAACAEA=</HashCode>
+      <FileName>Assets\TextMesh Pro\Examples\Scripts\SkewTextExample.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TMPro.Examples.TeleType" Collapsed="true">
+    <Position X="27.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>YAAAAAAAACAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>Assets\TextMesh Pro\Examples\Scripts\TeleType.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TMPro.Examples.TextConsoleSimulator" Collapsed="true">
+    <Position X="29.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAACAAAAAAAAAAAAAABAAAAAAIAMAAAAACCEA=</HashCode>
+      <FileName>Assets\TextMesh Pro\Examples\Scripts\TextConsoleSimulator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TMPro.Examples.TextMeshProFloatingText" Collapsed="true">
+    <Position X="31" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABACACAJACAAAAAAAAAAAAAIAAQAQAAAAAAAACAACEI=</HashCode>
+      <FileName>Assets\TextMesh Pro\Examples\Scripts\TextMeshProFloatingText.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TMPro.Examples.TextMeshSpawner" Collapsed="true">
+    <Position X="17" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAACAAAAAEAAAAAAABAAAAAAAAAAAAAAAACEA=</HashCode>
+      <FileName>Assets\TextMesh Pro\Examples\Scripts\TextMeshSpawner.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TMPro.Examples.TMP_ExampleScript_01" Collapsed="true">
+    <Position X="20.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAgAIBAAAAAAAAAAACAAAAIAAAAAAAEA=</HashCode>
+      <FileName>Assets\TextMesh Pro\Examples\Scripts\TMP_ExampleScript_01.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TMPro.Examples.TMP_FrameRateCounter" Collapsed="true">
+    <Position X="22.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AoQAAAAAACAAAIgAAAAgAIAAAgQAAAAAAAAAAAAAAEg=</HashCode>
+      <FileName>Assets\TextMesh Pro\Examples\Scripts\TMP_FrameRateCounter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TMPro.Examples.TMP_TextEventCheck" Collapsed="true">
+    <Position X="24" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAAAAAAAAAAAAEAAAAAAEJAAAAAAAACAA=</HashCode>
+      <FileName>Assets\TextMesh Pro\Examples\Scripts\TMP_TextEventCheck.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TMPro.Examples.TMP_TextInfoDebugTool" Collapsed="true">
+    <Position X="27.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIEAAIYACAAAAAAgAAAAAAAoABCAAEAAACAgQACiAA=</HashCode>
+      <FileName>Assets\TextMesh Pro\Examples\Scripts\TMP_TextInfoDebugTool.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TMPro.Examples.TMP_TextSelector_A" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="29.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAIAAAAAAIAAAAAQoAAAAAAAAAQAAAWA=</HashCode>
+      <FileName>Assets\TextMesh Pro\Examples\Scripts\TMP_TextSelector_A.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TMPro.Examples.TMP_TextSelector_B" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="31" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAKAAABBGgAAAIAQAQAAIAAIgAQoAABIAEAAAQAACEA=</HashCode>
+      <FileName>Assets\TextMesh Pro\Examples\Scripts\TMP_TextSelector_B.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TMPro.Examples.TMP_UiFrameRateCounter" Collapsed="true">
+    <Position X="17" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AoQAAAAAACAAAAgAAAAgAIAAAgQAAAAAAAAAAAAAAEg=</HashCode>
+      <FileName>Assets\TextMesh Pro\Examples\Scripts\TMP_UiFrameRateCounter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TMPro.Examples.TMPro_InstructionOverlay" Collapsed="true">
+    <Position X="18.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAIAAAAAAIgAAAAgAAAAAAQAAAAACAAAAAAAAEA=</HashCode>
+      <FileName>Assets\TextMesh Pro\Examples\Scripts\TMPro_InstructionOverlay.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TMPro.Examples.VertexColorCycler" Collapsed="true">
+    <Position X="24" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAAAAgAAAAAAAACAEA=</HashCode>
+      <FileName>Assets\TextMesh Pro\Examples\Scripts\VertexColorCycler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TMPro.Examples.VertexJitter" Collapsed="true">
+    <Position X="25.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAACAAAAAAAAAFAAAAAAAAAAgIAMAAAAACCEA=</HashCode>
+      <FileName>Assets\TextMesh Pro\Examples\Scripts\VertexJitter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TMPro.Examples.VertexShakeA" Collapsed="true">
+    <Position X="27.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAACAAAFAACAAAAAAAgIAMAAAAACCEA=</HashCode>
+      <FileName>Assets\TextMesh Pro\Examples\Scripts\VertexShakeA.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TMPro.Examples.VertexShakeB" Collapsed="true">
+    <Position X="29.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAACAAAAAAAAAFAAAAAAAAAAgIAMAAAAACCEA=</HashCode>
+      <FileName>Assets\TextMesh Pro\Examples\Scripts\VertexShakeB.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TMPro.Examples.VertexZoom" Collapsed="true">
+    <Position X="31" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAACAAAAAAAAAFAAAAAAAAAAgIAMAAAAACCEA=</HashCode>
+      <FileName>Assets\TextMesh Pro\Examples\Scripts\VertexZoom.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TMPro.Examples.WarpTextExample" Collapsed="true">
+    <Position X="17" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAEAACAAAAAAAAAFAAAABAAAAAAAIAAAAAACAEA=</HashCode>
+      <FileName>Assets\TextMesh Pro\Examples\Scripts\WarpTextExample.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TMPro.TMP_DigitValidator" Collapsed="true">
+    <Position X="18.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\TextMesh Pro\Examples\Scripts\TMP_DigitValidator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TMPro.TMP_TextEventHandler" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="25.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAEEAAAAAMABAAEAIEAIAQApAAAAAAAAAQACBWE=</HashCode>
+      <FileName>Assets\TextMesh Pro\Examples\Scripts\TMP_TextEventHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Interface Name="goedle_sdk.detail.IGoedleHttpClient" Collapsed="true">
+    <Position X="17" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAAAAAAAAAAAAAAAACAAAAgIAAAAgAAAAEAAA=</HashCode>
+      <FileName>Assets\goedle_io\Scripts\detail\GoedleHttpClient.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="goedle_sdk.detail.IUnityWebRequests" Collapsed="true">
+    <Position X="20.5" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAAAAQAABAAAAAAAAACABIAAAAAAAAAAAAAIA=</HashCode>
+      <FileName>Assets\goedle_io\Scripts\detail\GoedleHttpClient.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="goedle_sdk.detail.IGoedleUtils" Collapsed="true">
+    <Position X="18.75" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAgCAAAAAAAAAAAAAAIAAA=</HashCode>
+      <FileName>Assets\goedle_io\Scripts\detail\GoedleUtils.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="SimpleJSON.JSONNodeType" Collapsed="true">
+    <Position X="17" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAQAACAAgQEBAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Assets\goedle_io\Plugins\SimpleJSON.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="SimpleJSON.JSONTextMode" Collapsed="true">
+    <Position X="18.75" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAA=</HashCode>
+      <FileName>Assets\goedle_io\Plugins\SimpleJSON.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

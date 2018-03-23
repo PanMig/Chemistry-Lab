@@ -48,7 +48,7 @@ public class Slot : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPointerE
     {
         if (!SlotItem)
         {
-            
+
             elementCardTag = Draggable.item.GetComponent<ElementCardDisplay>().GetTag();
             if (string.Equals(elementCardTag, SlotTag))
             {
@@ -79,6 +79,5 @@ public class Slot : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPointerE
     {
         gameObject.GetComponent<CanvasGroup>().alpha = alpha;
     }
-
 
 }
