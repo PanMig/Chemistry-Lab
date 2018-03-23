@@ -64,17 +64,15 @@ public class Molecule
         this.name = name;
     }
 
-
-
     #endregion
 
 
-    // ROLE : We use the formula so to parce formulas that have both lowercase and Uppercase letters (e.g NaC)
+    // ROLE : We use the function so to parce formulas that have both lowercase and Uppercase letters (e.g NaC)
     public List<string> GetFormula()
     {
         //return a list with the elements 1 by 1 in cells with an order from left to right.
         List<string> list = new List<string>();
-        for (int i = 0; i < formula.Length; i++) // in string always use lesser than the lenght otherwise out of range exception is given.
+        for (int i = 0; i < formula.Length; i++) // in string always use lesser than the length otherwise out of range exception is given.
         {
             if (char.IsUpper(formula[i]) || char.IsNumber(formula[i]))
             {
