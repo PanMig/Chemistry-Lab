@@ -17,19 +17,19 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
     public AudioClip errorClip;
     public AudioClip correctClip;
 
-    public void Start()
+    public void OnEnable()
     {
         item = gameObject;
         startParent = item.transform.parent;
         startPosition = item.transform.position;
         //delegate usage
-        ExitButton.ButtonClicked += RestorePosition;
+        ContentAdaptationManager.NextMolecule += RestorePosition;
     }
 
     void OnDisable()
     {
         //delegate usage
-        ExitButton.ButtonClicked -= RestorePosition;
+        ContentAdaptationManager.NextMolecule -= RestorePosition;
     }
 
     public void RestorePosition()

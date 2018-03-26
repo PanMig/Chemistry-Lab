@@ -46,7 +46,7 @@ public class GameManager : MonoBehaviour {
     private void Start()
     {
         SlotSpawner.MolCompleted += IncrementNamedMolecules;
-        EmptyParentMolecule.MolConstructed += IncrementConstructedMolecules;      
+        EmptyParentMolecule.MolConstructed += IncrementConstructedMolecules;
     }
 
     private void Update()
@@ -54,6 +54,7 @@ public class GameManager : MonoBehaviour {
         
         if (chosenMolecule != null)
         {
+          
         }
     }
 
@@ -73,8 +74,8 @@ public class GameManager : MonoBehaviour {
         if (!IsMoleculeNamed(chosenMolecule.Name))
         {
             namedMolecules++;
+            namedMols.Add(chosenMolecule.Name);
         }
-        namedMols.Add(chosenMolecule.Name);
     }
 
     public bool IsMoleculeNamed(string name)

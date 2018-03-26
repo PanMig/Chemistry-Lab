@@ -4,37 +4,40 @@ using System.Collections.Generic;
 using UnityEngine;
 using goedle_sdk;
 
-public class MoleculeSpawner : MonoBehaviour {
+public class MoleculeSpawner : MonoBehaviour
+{
 
     public List<GameObject> Molecules = new List<GameObject>();
     public Transform position;
     public GameObject molecule;
 
-    public void Start()
+    public void OnEnable()
     {
-        EnterButton.ButtonClicked += SpawnMolecule;
-        ExitButton.ButtonClicked += DestroyMolecule;
-        ExitButton.ButtonClicked += DestroyUnusedElements;
+        ContentAdaptationManager.NextMolecule += DestroyMolecule;
+        ContentAdaptationManager.NextMolecule += DestroyUnusedElements;
+        ContentAdaptationManager.NextMolecule += SpawnMolecule;
         EmptyParentMolecule.MolConstructed += DestroyUnusedElements;
+    }
+
+    private void Start()
+    {
+        SpawnMolecule();
     }
 
     public void OnDisable()
     {
-        EnterButton.ButtonClicked -= SpawnMolecule;
+        ContentAdaptationManager.NextMolecule -= SpawnMolecule;
         EmptyParentMolecule.MolConstructed -= DestroyUnusedElements;
-        ExitButton.ButtonClicked -= DestroyUnusedElements;
-        ExitButton.ButtonClicked -= DestroyMolecule;
+        ContentAdaptationManager.NextMolecule -= DestroyUnusedElements;
+        ContentAdaptationManager.NextMolecule -= DestroyMolecule;
     }
 
     public void SpawnMolecule()
     {
-
         foreach (GameObject mol in Molecules)
         {
-
-            if(mol.name == GameManager.chosenMolecule.Name)
+            if (mol.name == GameManager.chosenMolecule.Name)
             {
-
                 molecule = Instantiate(mol, position.position, Quaternion.identity);
             }
         }
@@ -56,10 +59,9 @@ public class MoleculeSpawner : MonoBehaviour {
 
     public void DestroyMolecule()
     {
-
-        if(molecule != null)
+        if (molecule != null)
         {
-            Destroy (molecule);
+            Destroy(molecule);
         }
     }
 }

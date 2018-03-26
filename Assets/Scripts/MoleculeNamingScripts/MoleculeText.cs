@@ -7,12 +7,12 @@ public class MoleculeText : MonoBehaviour {
 
     private void OnEnable()
     {
-        EnterButton.ButtonClicked += SetText;
+        ContentAdaptationManager.NextMolecule += SetText;
     }
 
     private void OnDisable()
     {
-        EnterButton.ButtonClicked -= SetText;
+        ContentAdaptationManager.NextMolecule -= SetText;
     }
 
     private void SetText()

@@ -18,20 +18,26 @@ public class SlotSpawner : MonoBehaviour
 
     private void OnEnable()
     {
-        //delegate usage
-        EnterButton.ButtonClicked += CreateSlots;
-        ExitButton.ButtonClicked += EmptySlotList;
+        ContentAdaptationManager.NextMolecule += DestroySlots;
+        ContentAdaptationManager.NextMolecule += EmptySlotList;
+        ContentAdaptationManager.NextMolecule += CreateSlots;
     }
 
     private void OnDisable()
     {
-        //delegate usage
-        EnterButton.ButtonClicked -= CreateSlots;
-        ExitButton.ButtonClicked -= EmptySlotList;
+        ContentAdaptationManager.NextMolecule -= EmptySlotList;
+        ContentAdaptationManager.NextMolecule -= DestroySlots;
+        ContentAdaptationManager.NextMolecule -= CreateSlots;
     }
 
     public delegate void MoleculeCompleted();
     public static event MoleculeCompleted MolCompleted;
+
+
+    private void Start()
+    {
+        CreateSlots();
+    }
 
     private void Update()
     {
@@ -45,9 +51,6 @@ public class SlotSpawner : MonoBehaviour
 
     void CreateSlots()
     {
-        //delegate usage.
-        ExitButton.ButtonClicked += DestroySlots;
-
         //calculate the number of slots from the formula string
         slotsNumber = GameManager.chosenMolecule.GetFormulaLength();
         //calculate the width of the panel that stores the slots.
@@ -76,7 +79,7 @@ public class SlotSpawner : MonoBehaviour
     {
         foreach (Slot slot in slotsList.ToArray())
         { 
-            if (slot != null && slot.full)
+            if (slot.full || slot == null)
             {
                 slotsList.Remove(slot);
                 if(slotsList.Count == 0)
@@ -93,7 +96,6 @@ public class SlotSpawner : MonoBehaviour
         foreach (Transform child in parent.transform)
         {
             Destroy(child.gameObject);
-            ExitButton.ButtonClicked -= DestroySlots;
         }
     }
 
