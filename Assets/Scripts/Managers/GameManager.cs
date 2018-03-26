@@ -102,8 +102,9 @@ public class GameManager : MonoBehaviour {
         if (!IsMoleculeConstructed(chosenMolecule.Name))
         {
             constructedMolecules++;
+            constructedMols.Add(chosenMolecule.Name);
         }
-        constructedMols.Add(chosenMolecule.Name);
+        
     }
 
     public bool IsMoleculeConstructed(string name)
