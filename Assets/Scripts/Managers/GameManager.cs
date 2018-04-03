@@ -43,7 +43,7 @@ public class GameManager : MonoBehaviour {
         DontDestroyOnLoad(gameObject);
     }
 
-    private void Start()
+    private void OnEnable()
     {
         SlotSpawner.MolCompleted += IncrementNamedMolecules;
         EmptyParentMolecule.MolConstructed += IncrementConstructedMolecules;
