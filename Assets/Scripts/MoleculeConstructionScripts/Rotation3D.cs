@@ -5,9 +5,14 @@ public class Rotation3D : MonoBehaviour {
     public float rotSpeed = 50.0f;
     public bool isRotating = false;
 
+    //mouse
+    private float rotX;
+    private float rotY;
+
     //start transform.
     private Vector3 startPosition;
     private Quaternion startRotation;
+
 
     public void Start()
     {
@@ -26,6 +31,19 @@ public class Rotation3D : MonoBehaviour {
             PitchRotation();
         }
         else if (Input.GetKey(KeyCode.R) || Input.GetKey(KeyCode.DownArrow))
+        {
+            ResetTransformation();
+        }
+        //ScroolWheel Rotation
+        else if (Input.GetMouseButton(1))
+        {
+            rotX = Input.GetAxis("Mouse X") * (rotSpeed + 10) * Mathf.Deg2Rad;
+            rotY = Input.GetAxis("Mouse Y") * (rotSpeed + 10) * Mathf.Deg2Rad;
+
+            transform.Rotate(Vector3.up * (-rotX), Space.World);
+            transform.Rotate(Vector3.right * (rotY), Space.World);
+        }
+        else if (Input.GetMouseButton(2))
         {
             ResetTransformation();
         }

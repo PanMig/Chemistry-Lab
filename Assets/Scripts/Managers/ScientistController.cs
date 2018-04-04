@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class ScientistController : MonoBehaviour
@@ -20,45 +21,72 @@ public class ScientistController : MonoBehaviour
         }
         SetText();
         animator = gameObject.GetComponent<Animator>();
-        animator.enabled = true;
+        animator.enabled = false;
     }
 
     public void SetText()
     {
         if (GameManager.currentLevel == GameManager.Levels.moleculeNaming)
         {
-            if (GameManager.namedMolecules <1)
+            if (GameManager.namedMolecules == 1)
             {
-                text.text = "Welcome to molecule naming quiz.\n\n" +
-                "Choose from a list of availiable molecules on the left and provide their formulas.";
-            }
-            else if (GameManager.namedMolecules == 1)
-            {
+                EnableScientistPanel();
                 text.text = "Good job, you have just completed your first formula naming quiz.\nKeep going!!";
+                animator.enabled = true;
+                StartCoroutine(WaitForSec());
             }
-            else
+            else if ((GameManager.namedMolecules == 5))
             {
+                EnableScientistPanel();
                 text.text = "You are getting very good at this, I'm impressed.";
+                animator.enabled = true;
+                StartCoroutine(WaitForSec());
             }
-            SlotSpawner.MolCompleted -= SetText;
         }
         else
         {
-            if (GameManager.constructedMolecules < 1)
+            if (GameManager.constructedMolecules == 1)
             {
-                text.text = "Welcome to molecule construction quiz.\n\n" +
-                "Choose from a list of availiable molecules on the left and construct their structure.";
-            }
-            else if (GameManager.constructedMolecules == 1)
-            {
+                EnableScientistPanel();
                 text.text = "Good job, you have just constructed your first molecule.\nKeep going!!";
+                animator.enabled = true;
+                StartCoroutine(WaitForSec());
             }
-            else
+            else if (GameManager.constructedMolecules == 5)
             {
+                EnableScientistPanel();
                 text.text = "You are getting very good at this, I'm impressed.";
+                animator.enabled = true;
+                StartCoroutine(WaitForSec());
             }
-            EmptyParentMolecule.MolConstructed -= SetText;
         }
+    }
+
+    IEnumerator WaitForSec()
+    {
+        yield return new WaitForSeconds(5f);
+        animator.enabled = false;
+        //rewinds the state back to the start.
+        animator.Play("ScientistPanelEntry", -1, 0f);
+        HideScientistPanel();
+    }
+
+    private void OnDisable()
+    {
+        SlotSpawner.MolCompleted -= SetText;
+        EmptyParentMolecule.MolConstructed -= SetText;
+    }
+
+    public void HideScientistPanel()
+    {
+        gameObject.GetComponent<Image>().enabled = false;
+        gameObject.GetComponent<Transform>().GetChild(index: 0).gameObject.SetActive(false);
+    }
+
+    public void EnableScientistPanel()
+    {
+        gameObject.GetComponent<Image>().enabled = true;
+        gameObject.GetComponent<Transform>().GetChild(index: 0).gameObject.SetActive(true);
     }
 
 

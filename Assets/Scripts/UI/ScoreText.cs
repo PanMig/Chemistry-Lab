@@ -41,7 +41,6 @@ public class ScoreText : MonoBehaviour {
         yield return new WaitForSeconds(2f);
         currentText.gameObject.GetComponent<Animator>().enabled = false;
         currentText.gameObject.GetComponent<Animator>().Play("ScoreText", -1, 0f);
-
     }
 
     private void OnDisable()

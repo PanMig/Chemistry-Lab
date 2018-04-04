@@ -9,7 +9,7 @@ public class CameraZoom : MonoBehaviour {
 
     public void Update()
     {
-        CameraZooming();
+        //CameraZooming();
     }
 
     public void CameraZooming()

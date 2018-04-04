@@ -156,9 +156,11 @@ public class GameManager : MonoBehaviour {
         //empty molecules lists
         namedMols.Clear();
         constructedMols.Clear();
+        namedMolecules = 0;
+        constructedMolecules = 0;
         //make Lab scene tutorial active.
         StartCanvas.presentedToUser = false;
-        currentLevel = GameManager.Levels.menu;
+        currentLevel = Levels.menu;
         GoedleAnalytics.track("exit.simulation");
     }
 
