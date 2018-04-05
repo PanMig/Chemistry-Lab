@@ -19,6 +19,7 @@ public class ObjectInteraction : MonoBehaviour
     public SceneLoader sceneLoader;
     public CursorLock cursor;
     public AudioClip clip;
+    public string sceneToLoad;
 
 
     // Use this for initialization
@@ -45,25 +46,23 @@ public class ObjectInteraction : MonoBehaviour
         {
             GameManager.currentLevel = GameManager.Levels.moleculeNaming;
             cursor.UnLockCursor();
-            string sceneName = "MoleculeNaming";
-            GoedleAnalytics.track("choose.quiz",sceneName);
+            GoedleAnalytics.track("choose.quiz",sceneToLoad);
             MoleculeDefinition.buildStrategyNamingQueue(MoleculeDefinition.standard_strategy);
-            sceneLoader.LoadScene(sceneName);
+            sceneLoader.LoadScene(sceneToLoad);
         }
         else if (interactable == Interactables.construction)
         {
             GameManager.currentLevel = GameManager.Levels.moleculeConstruction;
             cursor.UnLockCursor();
-            string sceneName = "MoleculeConstruction";
-            GoedleAnalytics.track("choose.quiz", sceneName);
+            GoedleAnalytics.track("choose.quiz", sceneToLoad);
             MoleculeDefinition.buildStrategyConstructionQueue(MoleculeDefinition.standard_strategy);
-            sceneLoader.LoadScene("MoleculeConstruction");
+            sceneLoader.LoadScene(sceneToLoad);
         }
         else if (interactable == Interactables.exit)
         {
             GameManager.instance.ExitSimulation();
             cursor.UnLockCursor();
-            sceneLoader.LoadScene("Menu");
+            sceneLoader.LoadScene(sceneToLoad);
         }
         SoundManager.instance.PlaySingle(clip);
     }

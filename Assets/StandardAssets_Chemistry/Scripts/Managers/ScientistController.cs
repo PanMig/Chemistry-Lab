@@ -11,7 +11,9 @@ public class ScientistController : MonoBehaviour
     // Use this for initialization
     void OnEnable()
     {
-        if(GameManager.currentLevel == GameManager.Levels.moleculeNaming)
+        animator = gameObject.GetComponent<Animator>();
+        animator.enabled = false;
+        if (GameManager.currentLevel == GameManager.Levels.moleculeNaming)
         {
             SlotSpawner.MolCompleted += SetText;
         }
@@ -20,8 +22,6 @@ public class ScientistController : MonoBehaviour
             EmptyParentMolecule.MolConstructed += SetText;
         }
         SetText();
-        animator = gameObject.GetComponent<Animator>();
-        animator.enabled = false;
     }
 
     public void SetText()

@@ -16,13 +16,6 @@ public class SlotSpawner : MonoBehaviour
 
     public List<Slot> slotsList = new List<Slot>();
 
-    private void OnEnable()
-    {
-        ContentAdaptationManager.NextMolecule += DestroySlots;
-        ContentAdaptationManager.NextMolecule += EmptySlotList;
-        ContentAdaptationManager.NextMolecule += CreateSlots;
-    }
-
     private void OnDisable()
     {
         ContentAdaptationManager.NextMolecule -= EmptySlotList;
@@ -36,6 +29,9 @@ public class SlotSpawner : MonoBehaviour
 
     private void Start()
     {
+        ContentAdaptationManager.NextMolecule += DestroySlots;
+        ContentAdaptationManager.NextMolecule += EmptySlotList;
+        ContentAdaptationManager.NextMolecule += CreateSlots;
         CreateSlots();
     }
 

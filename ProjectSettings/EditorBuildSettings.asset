@@ -12,6 +12,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: 2d4944aa5b09be746aba3482ea85c47b
   - enabled: 1
+    path: Assets/Scenes/Credits.unity
+    guid: 1764cbf449c3948479d16618f687fc68
+  - enabled: 1
+    path: Assets/Scenes/Login.unity
+    guid: dbb8415b1a52ca342b7ed1de564a7417
+  - enabled: 1
     path: Assets/Scenes/Lab.unity
     guid: efc9148cad4e3404cb61363cc5fec72b
   - enabled: 1
@@ -22,4 +28,4 @@ EditorBuildSettings:
     guid: 5a731f8f2e5156d4294bf8b5e0c44270
   - enabled: 0
     path: 
-    guid: c5ca0dfa83da4474caba636cdd82789d
+    guid: 00000000000000000000000000000000
