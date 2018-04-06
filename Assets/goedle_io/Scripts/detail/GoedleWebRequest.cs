@@ -30,7 +30,6 @@ namespace goedle_sdk.detail {
     public class GoedleWebRequest : IGoedleWebRequest{
 
         UnityWebRequest _unityWebRequest { get; set; }
-
        
         public bool isNetworkError
         {
@@ -92,9 +91,5 @@ namespace goedle_sdk.detail {
         {
             _unityWebRequest.SetRequestHeader(name,value);
         }
-
-
     }
-
 }
-

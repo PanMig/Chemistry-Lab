@@ -9,9 +9,9 @@ namespace goedle_sdk.detail
 	{
         public static GoedleHttpClient instance = null;
 
-        public void sendGet( string url, UnityWebRequest www)
+        public void sendGet( string url, GoedleWebRequest gwr)
         {
-            StartCoroutine(getRequest( url, www));
+            StartCoroutine(getRequest( url, gwr));
         }
 
         public void requestStrategy(string url, GoedleAnalytics ga, GoedleWebRequest gwr, GoedleDownloadBuffer gdb){
@@ -34,23 +34,19 @@ namespace goedle_sdk.detail
             StartCoroutine(postJSONRequest(url, authentification, gwr, guh));
         }
 
-        public IEnumerator getRequest(string url, UnityWebRequest www)
+        public IEnumerator getRequest(string url, GoedleWebRequest gwr)
         {
-            www.url = url;
-            www.method = "GET";
-            using (www)
+            gwr.unityWebRequest = new UnityWebRequest();
+
+            gwr.url = url;
+            gwr.method = "GET";
+
+            using (gwr.unityWebRequest)
             {
-                yield return www.SendWebRequest();
-                if (www.isNetworkError || www.isHttpError)
+                yield return gwr.SendWebRequest();
+                if (gwr.isNetworkError || gwr.isHttpError)
                 {
-                    Debug.Log(www.error);
-                }
-                else
-                {
-                    //Show results as text
-                    //Debug.Log(client.downloadHandler.text);
-                    //Or retrieve results as binary data
-                    //byte[] results = client.downloadHandler.data;
+                    Debug.Log("{\"error\": {  \"isHttpError\": \"" + gwr.isHttpError + "\",  \"isNetworkError\": \"" + gwr.isNetworkError + "\" } }");
                 }
             }
         }

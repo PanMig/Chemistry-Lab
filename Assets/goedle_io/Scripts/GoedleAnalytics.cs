@@ -66,7 +66,7 @@ namespace goedle_sdk
         public static void track(string eventName)
         {
 			#if !ENABLE_GOEDLE
-                goedle_analytics.track(eventName);
+            goedle_analytics.track(eventName, new detail.GoedleUploadHandler());
             #endif
         }
 
@@ -79,7 +79,7 @@ namespace goedle_sdk
 		public static void track(string eventName, string eventId)
 		{
 			#if !ENABLE_GOEDLE
-                goedle_analytics.track(eventName,eventId);
+            goedle_analytics.track(eventName,eventId, new detail.GoedleUploadHandler());
 			#endif
 		}
 
@@ -93,7 +93,7 @@ namespace goedle_sdk
 		public static void track(string eventName, string eventId, string event_value)
 		{
 			#if !ENABLE_GOEDLE
-                goedle_analytics.track(eventName,eventId,event_value);
+            goedle_analytics.track(eventName,eventId,event_value, new detail.GoedleUploadHandler());
 			#endif
 		}
 
@@ -107,7 +107,7 @@ namespace goedle_sdk
 		public static void trackTraits(string traitKey, string traitValue)
 		{
 			#if !ENABLE_GOEDLE
-                goedle_analytics.trackTraits(traitKey, traitValue);
+            goedle_analytics.trackTraits(traitKey, traitValue, new detail.GoedleUploadHandler());
 			#endif
 		}
 
@@ -121,7 +121,7 @@ namespace goedle_sdk
 		public static void trackGroup(string group_type, string group_member)
 		{
 			#if !ENABLE_GOEDLE
-                goedle_analytics.trackGroup(group_type, group_member);
+            goedle_analytics.trackGroup(group_type, group_member, new detail.GoedleUploadHandler());
 			#endif
 		}
 
@@ -133,7 +133,7 @@ namespace goedle_sdk
 		public static void setUserId(string user_id)
 		{
 			#if !ENABLE_GOEDLE
-                goedle_analytics.set_user_id(user_id);
+            goedle_analytics.set_user_id(user_id, new detail.GoedleUploadHandler());
 			#endif
 		}
 
@@ -143,7 +143,7 @@ namespace goedle_sdk
         /// </summary>s
         public static void requestStrategy() {
             #if !ENABLE_GOEDLE
-                goedle_analytics.requestStrategy();
+            goedle_analytics.requestStrategy(new detail.GoedleDownloadBuffer());
             #endif
         }
 
@@ -216,12 +216,9 @@ namespace goedle_sdk
             // string locale = Application.systemLanguage.ToString();
             // Build HTTP CLient
             detail.GoedleWebRequest goedleWebRequest = new detail.GoedleWebRequest();
-            detail.GoedleUploadHandler goedleUploadHandler = new detail.GoedleUploadHandler();
-            detail.GoedleDownloadBuffer goedleDownloadBuffer = new detail.GoedleDownloadBuffer();
-
             if (tracking_enabled && gio_interface == null)
             {
-                gio_interface = new detail.GoedleAnalytics(api_key, app_key, user_id.ToString("D"), app_version, GA_TRACKIND_ID, app_name, GA_CD_1, GA_CD_2, GA_CD_EVENT, detail.GoedleHttpClient.instance, goedleWebRequest, goedleUploadHandler, goedleDownloadBuffer);
+                gio_interface = new detail.GoedleAnalytics(api_key, app_key, user_id.ToString("D"), app_version, GA_TRACKIND_ID, app_name, GA_CD_1, GA_CD_2, GA_CD_EVENT, detail.GoedleHttpClient.instance, goedleWebRequest, new detail.GoedleUploadHandler());
             }
 		}
 

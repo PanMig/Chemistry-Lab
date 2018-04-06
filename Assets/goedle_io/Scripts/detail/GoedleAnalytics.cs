@@ -23,11 +23,9 @@ namespace goedle_sdk.detail
         public GoedleUtils goedleUtils = new GoedleUtils();
         public JSONNode strategy = null;
         GoedleWebRequest gwr = null;
-        GoedleUploadHandler guh = null;
-        GoedleDownloadBuffer gdb = null;
         //private string locale = null;
 
-        public GoedleAnalytics(string api_key, string app_key, string user_id, string app_version, string ga_tracking_id, string app_name, int cd1, int cd2, string cd_event, GoedleHttpClient gio_http_client, GoedleWebRequest gwr, GoedleUploadHandler guh, GoedleDownloadBuffer gdb)//, string locale)
+        public GoedleAnalytics(string api_key, string app_key, string user_id, string app_version, string ga_tracking_id, string app_name, int cd1, int cd2, string cd_event, GoedleHttpClient gio_http_client, GoedleWebRequest gwr, GoedleUploadHandler guh)//, string locale)
         {
             this.api_key = api_key;
             this.app_key = app_key;
@@ -40,10 +38,8 @@ namespace goedle_sdk.detail
             this.cd_event = cd_event;
             this.gio_http_client = gio_http_client;
             this.gwr = gwr;
-            this.guh = guh;
-            this.gdb = gdb;
             //this.locale = GoedleLanguageMapping.GetLanguageCode (locale);
-            track_launch();
+            track_launch(guh);
         }
 
         public void reset_user_id(string user_id)
@@ -51,15 +47,15 @@ namespace goedle_sdk.detail
             this.user_id = user_id;
         }
 
-        public void set_user_id(string user_id)
+        public void set_user_id(string user_id, GoedleUploadHandler goedleUploadHandler)
         {
             this.anonymous_id = this.user_id;
             this.user_id = user_id;
-            track(GoedleConstants.IDENTIFY, null, null, false, null, null);
+            track(GoedleConstants.IDENTIFY, null, null, false, null, null, goedleUploadHandler);
         }
 
         // TODO Blocking Time default  
-        public void requestStrategy()
+        public void requestStrategy(GoedleDownloadBuffer goedleDownloadBuffer)
         {
             /*
             Create GoedleWebRequest
@@ -67,15 +63,15 @@ namespace goedle_sdk.detail
             */
             GoedleUtils gu = new GoedleUtils();
             string url = gu.getStrategyUrl(app_key);
-            gio_http_client.requestStrategy(url, this, gwr, gdb);
+            gio_http_client.requestStrategy(url, this, gwr, goedleDownloadBuffer);
         }
 
-        public void track_launch()
+        public void track_launch(GoedleUploadHandler goedleUploadHandler)
         {
-            track(GoedleConstants.EVENT_NAME_INIT, null, null, true, null, null);
+            track(GoedleConstants.EVENT_NAME_INIT, null, null, true, null, null, goedleUploadHandler);
         }
 
-        public void track(string event_name, string event_id, string event_value, bool launch, string trait_key, string trait_value )
+        public void track(string event_name, string event_id, string event_value, bool launch, string trait_key, string trait_value, GoedleUploadHandler goedleUploadHandler )
         {
             bool ga_active = !String.IsNullOrEmpty(this.ga_tracking_id);
             string authentication = null;
@@ -95,9 +91,9 @@ namespace goedle_sdk.detail
                 authentication = goedleUtils.encodeToUrlParameter(content, api_key);
             }
             string url = GoedleConstants.TRACK_URL;
-            guh.add(content);
+            goedleUploadHandler.add(content);
 
-            gio_http_client.sendPost(url, authentication, gwr, guh);
+            gio_http_client.sendPost(url, authentication, gwr, goedleUploadHandler);
             // Sending tp Google Analytics for now we only support the Event tracking
             string type = "event";
             if (ga_active)
@@ -168,42 +164,42 @@ namespace goedle_sdk.detail
                 postData.Add(String.Concat("cd", cd1), event_id);
                 postData.Add(String.Concat("cd", cd2), event_value);
             }
-            //gio_http_client.sendGet(buildGAUrlDataString(postData));
+            gio_http_client.sendGet(buildGAUrlDataString(postData), gwr);
         }
 
 
-        public void track(string event_name)
+        public void track(string event_name, GoedleUploadHandler goedleUploadHandler)
         {
-            track(event_name, null, null, false, null, null);
+            track(event_name, null, null, false, null, null, goedleUploadHandler);
         }
 
 
-        public void track(string event_name, string event_id)
+        public void track(string event_name, string event_id, GoedleUploadHandler goedleUploadHandler)
         {
-            track(event_name, event_id, null, false, null, null);
+            track(event_name, event_id, null, false, null, null, goedleUploadHandler);
         }
 
-        public void track(string event_name, int event_id_i)
+        public void track(string event_name, int event_id_i, GoedleUploadHandler goedleUploadHandler)
         {
             string event_id = event_id_i.ToString();
 
-            track(event_name, event_id, null, false, null, null);
+            track(event_name, event_id, null, false, null, null, goedleUploadHandler);
         }
 
-        public void track(string event_name, string event_id, string event_value)
+        public void track(string event_name, string event_id, string event_value, GoedleUploadHandler goedleUploadHandler)
         {
-            track(event_name, event_id, event_value, false, null, null);
+            track(event_name, event_id, event_value, false, null, null, goedleUploadHandler);
 
         }
 
-        public void trackGroup(string group_type, string group_member)
+        public void trackGroup(string group_type, string group_member, GoedleUploadHandler goedleUploadHandler)
         {
-            track("group", group_type, group_member, false, null, null);
+            track("group", group_type, group_member, false, null, null, goedleUploadHandler);
         }
 
-        public void trackTraits(string trait_key, string trait_value)
+        public void trackTraits(string trait_key, string trait_value, GoedleUploadHandler goedleUploadHandler)
         {
-            track(GoedleConstants.IDENTIFY, null, null, false, trait_key, trait_value);
+            track(GoedleConstants.IDENTIFY, null, null, false, trait_key, trait_value, goedleUploadHandler);
         }
 
 		public int getTimeStamp ()

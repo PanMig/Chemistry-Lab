@@ -117,16 +117,23 @@ public class MoleculeManager : MonoBehaviour
             if (_gio_strategy["config"]["naming"] != null)
             {
                 _naming_strategy = transformJSONArray(_gio_strategy["config"]["naming"]);
+            }else{
+                _naming_strategy = standard_strategy;
+
             }
             if (_gio_strategy["config"]["construction"] != null)
             {
                 _construction_strategy = transformJSONArray(_gio_strategy["config"]["construction"]);
+            }else{
+                _construction_strategy = standard_strategy;
+
             }
         }
         else{
-            _strategy_stack_naming = new Queue<string>(_strategy_stack_default);
-            _strategy_stack_construction = new Queue<string>(_strategy_stack_default);
+            _naming_strategy = standard_strategy;
+            _construction_strategy = standard_strategy;
         }
+
     }
 
     public List<string> transformJSONArray(JSONNode jStrategy){
