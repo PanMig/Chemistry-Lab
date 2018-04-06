@@ -15,10 +15,10 @@ public class ContentAdaptationManager : MonoBehaviour
         switch (GameManager.currentLevel)
         {
             case GameManager.Levels.moleculeNaming:
-                GameManager.chosenMolecule = MoleculeDefinition.getActiveMolecule("naming");
+                GameManager.chosenMolecule = MoleculeManager.getActiveMolecule("naming");
                 break;
             case GameManager.Levels.moleculeConstruction:
-                GameManager.chosenMolecule = MoleculeDefinition.getActiveMolecule("construction");
+                GameManager.chosenMolecule = MoleculeManager.getActiveMolecule("construction");
                 break;
             default:
                 break;
@@ -31,10 +31,10 @@ public class ContentAdaptationManager : MonoBehaviour
         switch (GameManager.currentLevel)
         {
             case GameManager.Levels.moleculeNaming:
-                GameManager.chosenMolecule = MoleculeDefinition.nextMolecule("nameing");
+                GameManager.chosenMolecule = MoleculeManager.nextMolecule("nameing");
                 break;
             case GameManager.Levels.moleculeConstruction:
-                GameManager.chosenMolecule = MoleculeDefinition.nextMolecule("construction");
+                GameManager.chosenMolecule = MoleculeManager.nextMolecule("construction");
                 break;
             default:
                 break;

@@ -4,7 +4,7 @@ using SimpleJSON;
 using UnityEngine.SceneManagement;
 using UnityEngine.Networking;
 using System.Text;
-
+using System.Threading;
 namespace goedle_sdk.detail
 {
     public class GoedleAnalytics
@@ -19,12 +19,15 @@ namespace goedle_sdk.detail
         private int cd1;
         private int cd2;
         private string cd_event = null;
-        private IGoedleHttpClient gio_http_client;
-        private GoedleUtils goedleUtils = new GoedleUtils();
-
+        private GoedleHttpClient gio_http_client;
+        public GoedleUtils goedleUtils = new GoedleUtils();
+        public JSONNode strategy = null;
+        GoedleWebRequest gwr = null;
+        GoedleUploadHandler guh = null;
+        GoedleDownloadBuffer gdb = null;
         //private string locale = null;
 
-        public GoedleAnalytics(string api_key, string app_key, string user_id, string app_version, string ga_tracking_id, string app_name, int cd1, int cd2, string cd_event, IGoedleHttpClient gio_http_client)//, string locale)
+        public GoedleAnalytics(string api_key, string app_key, string user_id, string app_version, string ga_tracking_id, string app_name, int cd1, int cd2, string cd_event, GoedleHttpClient gio_http_client, GoedleWebRequest gwr, GoedleUploadHandler guh, GoedleDownloadBuffer gdb)//, string locale)
         {
             this.api_key = api_key;
             this.app_key = app_key;
@@ -36,6 +39,9 @@ namespace goedle_sdk.detail
             this.cd2 = cd2;
             this.cd_event = cd_event;
             this.gio_http_client = gio_http_client;
+            this.gwr = gwr;
+            this.guh = guh;
+            this.gdb = gdb;
             //this.locale = GoedleLanguageMapping.GetLanguageCode (locale);
             track_launch();
         }
@@ -52,12 +58,24 @@ namespace goedle_sdk.detail
             track(GoedleConstants.IDENTIFY, null, null, false, null, null);
         }
 
+        // TODO Blocking Time default  
+        public void requestStrategy()
+        {
+            /*
+            Create GoedleWebRequest
+            Create GoedleDownloadManager
+            */
+            GoedleUtils gu = new GoedleUtils();
+            string url = gu.getStrategyUrl(app_key);
+            gio_http_client.requestStrategy(url, this, gwr, gdb);
+        }
+
         public void track_launch()
         {
             track(GoedleConstants.EVENT_NAME_INIT, null, null, true, null, null);
         }
 
-        public void track(string event_name, string event_id, string event_value, bool launch, string trait_key, string trait_value)
+        public void track(string event_name, string event_id, string event_value, bool launch, string trait_key, string trait_value )
         {
             bool ga_active = !String.IsNullOrEmpty(this.ga_tracking_id);
             string authentication = null;
@@ -69,19 +87,19 @@ namespace goedle_sdk.detail
             if (rt == null)
             {
                 Console.Write("Data Object is None, there must be an error in the SDK!");
+                return;
             }
             else
             {
                 content = rt.getGoedleAtomDictionary().ToString();
                 authentication = goedleUtils.encodeToUrlParameter(content, api_key);
             }
-
             string url = GoedleConstants.TRACK_URL;
-            gio_http_client.sendPost(url, content, authentication);
+            guh.add(content);
 
+            gio_http_client.sendPost(url, authentication, gwr, guh);
             // Sending tp Google Analytics for now we only support the Event tracking
             string type = "event";
-
             if (ga_active)
                 trackGoogleAnalytics(event_name, event_id, event_value, type);
         }
@@ -112,14 +130,14 @@ namespace goedle_sdk.detail
             // the request body we want to send
             var postData = new Dictionary<string, string>
                            {
-                               { "v", GoedleConstants.GOOGLE_MP_VERSION.ToString() },
+                               {"v", GoedleConstants.GOOGLE_MP_VERSION.ToString()},
                                {"av", app_version},
-                                {"an", app_name},
-                               { "tid", ga_tracking_id },
-                                { "cid", user_id },
-                               { "t", type },
-                                { "ec", getSceneName() },
-                               { "ea", event_name },
+                               {"an", app_name},
+                               {"tid", ga_tracking_id},
+                               {"cid", user_id},
+                               {"t", type},
+                               {"ec", getSceneName()},
+                               {"ea", event_name},
 								//{"ul", this.locale},
                            };
 
@@ -150,8 +168,7 @@ namespace goedle_sdk.detail
                 postData.Add(String.Concat("cd", cd1), event_id);
                 postData.Add(String.Concat("cd", cd2), event_value);
             }
-
-            gio_http_client.sendGet(buildGAUrlDataString(postData));
+            //gio_http_client.sendGet(buildGAUrlDataString(postData));
         }
 
 

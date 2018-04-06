@@ -47,7 +47,7 @@ public class ObjectInteraction : MonoBehaviour
             GameManager.currentLevel = GameManager.Levels.moleculeNaming;
             cursor.UnLockCursor();
             GoedleAnalytics.track("choose.quiz",sceneToLoad);
-            MoleculeDefinition.buildStrategyNamingQueue(MoleculeDefinition.standard_strategy);
+            MoleculeManager.buildStrategyNamingQueue(MoleculeManager._naming_strategy);
             sceneLoader.LoadScene(sceneToLoad);
         }
         else if (interactable == Interactables.construction)
@@ -55,7 +55,7 @@ public class ObjectInteraction : MonoBehaviour
             GameManager.currentLevel = GameManager.Levels.moleculeConstruction;
             cursor.UnLockCursor();
             GoedleAnalytics.track("choose.quiz", sceneToLoad);
-            MoleculeDefinition.buildStrategyConstructionQueue(MoleculeDefinition.standard_strategy);
+            MoleculeManager.buildStrategyConstructionQueue(MoleculeManager._construction_strategy);
             sceneLoader.LoadScene(sceneToLoad);
         }
         else if (interactable == Interactables.exit)

@@ -41,8 +41,9 @@ public class UserIdentification : MonoBehaviour {
             string[] user_ids = inputFields.OfType<InputField>().Select(o => o.ToString()).ToArray();
             string hashed_user_id = GoedleUtils.userHash(user_ids.ToString());
             goedle_sdk.GoedleAnalytics.setUserId(hashed_user_id);
-            // if input is not empty load the lab scene.
+            goedle_sdk.GoedleAnalytics.requestStrategy();
             sceneLoader.LoadScene("Lab");
+            // if input is not empty load the lab scene.
         }
     }
 

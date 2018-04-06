@@ -29,9 +29,7 @@ namespace goedle_sdk
     public class GoedleAnalytics : MonoBehaviour
     {
         public static GoedleAnalytics instance = null;
-
-        detail.IUnityWebRequests www = null;
-
+        public detail.GoedleHttpClient gioHttpClient;
         /*! \cond PRIVATE */
         #region settings
         [Header("Project")]
@@ -139,6 +137,17 @@ namespace goedle_sdk
 			#endif
 		}
 
+
+        /// <summary>
+        /// request strategy from GIO API
+        /// </summary>s
+        public static void requestStrategy() {
+            #if !ENABLE_GOEDLE
+                goedle_analytics.requestStrategy();
+            #endif
+        }
+
+
         /// <summary>
         /// Reset user id
         /// </summary>
@@ -162,21 +171,13 @@ namespace goedle_sdk
 			}
 		}
 
-        public detail.IGoedleHttpClient gio_http_client;
-        public detail.IGoedleHttpClient http_client
-        {
-            get
-            {
-                return gio_http_client;
-            }
-        }
-
         static bool tracking_enabled = true;
 
         void Awake()
         {
-            gio_http_client = (new GameObject("GoedleHTTPClient")).AddComponent<detail.GoedleHttpClient>();
-            gio_http_client.addUnityHTTPClient(www);
+            gioHttpClient = (new GameObject("GoedleHTTPClient")).AddComponent<detail.GoedleHttpClient>();
+
+
             //Check if instance already exists
             if (instance == null)
             {
@@ -191,7 +192,6 @@ namespace goedle_sdk
             }
             //Sets this to not be destroyed when reloading scene
             DontDestroyOnLoad(gameObject);
-            DontDestroyOnLoad(GameObject.Find("GoedleHTTPClient"));
 
             InitGoedle();
         }
@@ -213,12 +213,15 @@ namespace goedle_sdk
                     app_name = Application.productName;
                 else
                     app_name = app_version;
-            //string locale = Application.systemLanguage.ToString();
+            // string locale = Application.systemLanguage.ToString();
             // Build HTTP CLient
+            detail.GoedleWebRequest goedleWebRequest = new detail.GoedleWebRequest();
+            detail.GoedleUploadHandler goedleUploadHandler = new detail.GoedleUploadHandler();
+            detail.GoedleDownloadBuffer goedleDownloadBuffer = new detail.GoedleDownloadBuffer();
 
             if (tracking_enabled && gio_interface == null)
             {
-                gio_interface = new detail.GoedleAnalytics(api_key, app_key, user_id.ToString("D"), app_version, GA_TRACKIND_ID, app_name, GA_CD_1, GA_CD_2, GA_CD_EVENT, gio_http_client);
+                gio_interface = new detail.GoedleAnalytics(api_key, app_key, user_id.ToString("D"), app_version, GA_TRACKIND_ID, app_name, GA_CD_1, GA_CD_2, GA_CD_EVENT, detail.GoedleHttpClient.instance, goedleWebRequest, goedleUploadHandler, goedleDownloadBuffer);
             }
 		}
 

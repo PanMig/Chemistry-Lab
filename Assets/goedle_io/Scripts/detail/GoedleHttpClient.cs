@@ -3,47 +3,19 @@ using UnityEngine;
 using System;
 using SimpleJSON;
 using UnityEngine.Networking;
-
 namespace goedle_sdk.detail
 {
-
-    public interface IGoedleHttpClient
-    {
-        //JSONNode getStrategy(IUnityWebRequests www, string url);
-        void sendPost(string url, string content, string authentification);
-        void sendGet(string url);
-        void addUnityHTTPClient(IUnityWebRequests www);
-        IEnumerator getRequest(string url);
-        IEnumerator getStrategy(string app_key, string api_key);
-        IEnumerator postJSONRequest(string url, string content, string authentification);
-    }
-
-    public interface IUnityWebRequests
-    {
-        UnityWebRequest SendWebRequest();
-        UnityWebRequest Post(string url, string content);
-        UnityWebRequest Get(string url, string content);
-        int responseCode { get; set; }
-        bool isNetworkError { get; set; }
-        bool isHttpError { get; set; }
-        string url{ get; set; }
-
-    }
-
-    public class GoedleHttpClient: MonoBehaviour, IGoedleHttpClient 
+    public class GoedleHttpClient: MonoBehaviour 
 	{
-        IUnityWebRequests _www;
+        public static GoedleHttpClient instance = null;
 
-        public GoedleHttpClient(){
-        }
-
-        public void addUnityHTTPClient(IUnityWebRequests www){
-            _www = www;
-        }
-
-        public void sendGet( string url)
+        public void sendGet( string url, UnityWebRequest www)
         {
-            StartCoroutine(getRequest( url));
+            StartCoroutine(getRequest( url, www));
+        }
+
+        public void requestStrategy(string url, GoedleAnalytics ga, GoedleWebRequest gwr, GoedleDownloadBuffer gdb){
+            StartCoroutine(getJSONResponse(url, ga, gwr, gdb));
         }
 
         /*
@@ -57,27 +29,27 @@ namespace goedle_sdk.detail
             //yield return StartCoroutine(getJSONRequest(www, url));
         }
         */
-        public void sendPost(string url, string content, string authentification)
+        public void sendPost(string url, string authentification, GoedleWebRequest gwr, GoedleUploadHandler guh)
         {
-            StartCoroutine(postJSONRequest(url, content, authentification));
+            StartCoroutine(postJSONRequest(url, authentification, gwr, guh));
         }
 
-        public IEnumerator getRequest(string url)
+        public IEnumerator getRequest(string url, UnityWebRequest www)
         {
-            UnityWebRequest client = _www as UnityWebRequest;
-
-            using (client = new UnityWebRequest(url, "GET"))
+            www.url = url;
+            www.method = "GET";
+            using (www)
             {
-                yield return client.SendWebRequest();
-                if (client.isNetworkError || client.isHttpError)
+                yield return www.SendWebRequest();
+                if (www.isNetworkError || www.isHttpError)
                 {
-                    Debug.Log(client.error);
+                    Debug.Log(www.error);
                 }
                 else
                 {
-                    // Show results as text
+                    //Show results as text
                     //Debug.Log(client.downloadHandler.text);
-                    // Or retrieve results as binary data
+                    //Or retrieve results as binary data
                     //byte[] results = client.downloadHandler.data;
                 }
             }
@@ -90,65 +62,80 @@ namespace goedle_sdk.detail
          Debug.Log("result is " + cd.result);  //  'JSONNode'
          CoroutineWithData is in GoedleUtils
          */
-        public IEnumerator getStrategy(string app_key, string api_key)
+        public IEnumerator getJSONResponse(string url, GoedleAnalytics ga, GoedleWebRequest gwr, GoedleDownloadBuffer gdb)
         {
-            string url = GoedleUtils.getStrategyUrl(app_key, api_key);
-            UnityWebRequest client = _www as UnityWebRequest;
-            using (client = new UnityWebRequest(url, "GET"))
+            gwr.unityWebRequest = new UnityWebRequest();
+            using (gwr.unityWebRequest)
             {
-                yield return client.SendWebRequest();
-                if (client.isNetworkError || client.isHttpError)
+                gwr.url = url;
+                gwr.method = "GET";
+                gwr.downloadHandler = gdb.downloadHandlerBuffer;
+                yield return gwr.SendWebRequest();
+
+                JSONNode strategy_json = null;
+                if (gwr.isNetworkError || gwr.isHttpError)
                 {
-                    Debug.Log(client.error);
-                        yield return JSON.Parse("{\"error\": \" " + client.error + " \"}");
+                    Debug.Log("{\"error\": {  \"isHttpError\": \"" + gwr.isHttpError + "\",  \"isNetworkError\": \"" + gwr.isNetworkError + "\" } }");
+                    strategy_json = null;
                 }
                 else
                 {
                     // Show results as text
-                    Debug.Log(client.downloadHandler.text);
-                JSONNode strategy_json;
                     try
                     {
-                        strategy_json = JSON.Parse(client.downloadHandler.text);
+                        Debug.Log("The following strategy was received: "+ gdb.text);
+                        strategy_json = JSON.Parse(gdb.text);
                     }
-                    catch(Exception e){
-                            strategy_json = "{\"error\": \" " + e.Message + " \"}";
- 
+                    catch (Exception e)
+                    {
+                        Debug.Log("{\"error\": \" " + e.Message + " \"}");
+                        strategy_json = null;
                     }
-                        yield return strategy_json;
                     // Or retrieve results as binary data
                     //byte[] results = client.downloadHandler.data;
                 }
+                ga.strategy = strategy_json;
             }
-
         }
 
-        public IEnumerator postJSONRequest( string url, string content ,string authentification)
+        public IEnumerator postJSONRequest( string url, string authentification, GoedleWebRequest gwr, GoedleUploadHandler guh)
 	    {
-            UnityWebRequest client = _www as UnityWebRequest;
-            client = new UnityWebRequest(url, "POST");
-            using (client)
+            gwr.unityWebRequest = new UnityWebRequest();
+            using (gwr.unityWebRequest)
             {
-                byte[] bodyRaw = new System.Text.UTF8Encoding().GetBytes(content);
-                client.uploadHandler = (UploadHandler)new UploadHandlerRaw(bodyRaw);
-                client.SetRequestHeader("Content-Type", "application/json");
+                gwr.method = "POST";
+                gwr.url = url;
+                gwr.uploadHandler = guh.uploadHandler;
+                gwr.SetRequestHeader("Content-Type", "application/json");
                 if (!string.IsNullOrEmpty(authentification))
-                    client.SetRequestHeader("Authorization", authentification);
-                client.chunkedTransfer = false;
-                yield return client.SendWebRequest();
-                if (client.isNetworkError || client.isHttpError)
+                    gwr.SetRequestHeader("Authorization", authentification);
+                gwr.chunkedTransfer = false;
+                yield return gwr.SendWebRequest();
+                if (gwr.isNetworkError || gwr.isHttpError)
                 {
-                    Debug.Log(client.error);
-                }
-                else
-                { 
-                   //Debug.Log(content);
+                    Debug.Log("{\"error\": {  \"isHttpError\": \"" + gwr.isHttpError + "\",  \"isNetworkError\": \"" + gwr.isNetworkError + "\" } }");
                 }
             }
 	    }
 
+        void Awake()
+        {
+            //Check if instance already exists
+            if (instance == null)
+            {
+                //if not, set instance to this
+                instance = this;
+            }
+            //If instance already exists and it's not this:
+            else if (instance != this)
+            {
+                //Then destroy this. This enforces our singleton pattern, meaning there can only ever be one instance of a GameManager.
+                Destroy(gameObject);
+            }
+            //Sets this to not be destroyed when reloading scene
+            DontDestroyOnLoad(gameObject);
+        }
 	}
-
 }
 
 

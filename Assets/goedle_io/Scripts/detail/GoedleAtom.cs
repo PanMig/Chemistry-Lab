@@ -70,7 +70,7 @@ namespace goedle_sdk.detail
 
         public JSONObject getGoedleAtomDictionary ()
 		{
-            JSONObject goedleAtom = new JSONObject();
+            var goedleAtom = new JSONObject();
             goedleAtom.Add ("app_key", this.app_key);
 			goedleAtom.Add ("user_id", this.user_id);
 			goedleAtom.Add ("ts", this.ts);

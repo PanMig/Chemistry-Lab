@@ -10,6 +10,7 @@ namespace goedle_sdk.detail
 {
     public interface IGoedleUtils{
         string HexStringFromBytes(byte[] bytes);
+        string getStrategyUrl(string url);
         string encodeToUrlParameter(string content, string api_key);
         bool IsFloatOrInt(string value);
     }
@@ -30,7 +31,6 @@ namespace goedle_sdk.detail
             Guid user_id_hash = new Guid(hashBytes);
             return user_id_hash.ToString();
         }
-
 
         public string HexStringFromBytes(byte[] bytes)
         {
@@ -57,16 +57,12 @@ namespace goedle_sdk.detail
             float floatValue;
             return Int32.TryParse(value, out intValue) || float.TryParse(value, out floatValue);
         }
-
-        public static string getStrategyUrl(string app_key, string api_key)
+        public string getStrategyUrl(string app_key)
         {
             // TODO: build strategy url
-            return GoedleConstants.STRATEGY_URL;
+            return GoedleConstants.STRATEGY_URL + app_key + GoedleConstants.STRATEGY_PATH;
         }
-
     }
-
-
     public static class UriHelper
     {
         public static Dictionary<string, string> DecodeQueryParameters(this Uri uri)
@@ -76,7 +72,6 @@ namespace goedle_sdk.detail
 
             if (uri.Query.Length == 0)
                 return new Dictionary<string, string>();
-
             return uri.Query.TrimStart('?')
                             .Split(new[] { '&', ';' }, StringSplitOptions.RemoveEmptyEntries)
                             .Select(parameter => parameter.Split(new[] { '=' }, StringSplitOptions.RemoveEmptyEntries))
@@ -84,7 +79,6 @@ namespace goedle_sdk.detail
                       .ToDictionary(grouping => grouping.Key, grouping => string.Join(",", grouping.ToArray()));
         }
     }
-
     public class CoroutineWithData : MonoBehaviour
     {
         public Coroutine coroutine { get; private set; }

@@ -51,13 +51,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 869a1b8b5dd6a4fc1a8d0a76f77e5b5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  app_key: 68f2ce7a5521c97d72dbcaa17029b6cc
-  api_key: f3c3d5246b518f4465b699391ba48c1c
+  gioHttpClient: {fileID: 0}
+  app_key: 1
+  api_key: secret
   ENABLE_GOEDLE: 1
-  APP_VERSION: v_00
-  APP_NAME: Chemistry Lab
+  APP_VERSION: v_test_chem
+  APP_NAME: 'Chemistry Lab Test '
   ENABLE_GA: 1
-  GA_TRACKIND_ID: UA-89555283-6
+  GA_TRACKIND_ID: 
   GA_CD_EVENT: 
   GA_CD_1: 0
   GA_CD_2: 0
