@@ -7,6 +7,7 @@ namespace goedle_sdk.detail
     {
         UploadHandler uploadHandler { get; set; }
         void add(string stringContent);
+        string getDataString();
     }
 
     public class GoedleUploadHandler : IGoedleUploadHandler
@@ -17,6 +18,11 @@ namespace goedle_sdk.detail
         public void add (string stringContent){
             byte[] byteContentRaw = new UTF8Encoding().GetBytes(stringContent);
             _uploadHandler = (UploadHandler)new UploadHandlerRaw(byteContentRaw);
+        }
+
+        public string getDataString()
+        { 
+            return Encoding.UTF8.GetString(_uploadHandler.data);
         }
 
         public UploadHandler uploadHandler

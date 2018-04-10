@@ -63,7 +63,7 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
          * So disabling raycast on the object enables to hit other objects while dragging. 
          */    
         GetComponent<CanvasGroup>().blocksRaycasts = false;
-        GoedleAnalytics.track("drag.element", item.GetComponent<ElementCardDisplay>().GetTag());
+        GoedleAnalytics.instance.track("drag.element", item.GetComponent<ElementCardDisplay>().GetTag());
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -78,14 +78,14 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
         transform.position = startPosition;
         if (placed)
         {
-            GoedleAnalytics.track("release.element", gameObject.GetComponent<ElementCardDisplay>().GetTag(), "true");
+            GoedleAnalytics.instance.track("release.element", gameObject.GetComponent<ElementCardDisplay>().GetTag(), "true");
             SoundManager.instance.PlaySingle(correctClip);
             GetComponent<CanvasGroup>().blocksRaycasts = false;
             item = null;
         }
         else
         {
-            GoedleAnalytics.track("release.element", gameObject.GetComponent<ElementCardDisplay>().GetTag(),"false");
+            GoedleAnalytics.instance.track("release.element", gameObject.GetComponent<ElementCardDisplay>().GetTag(),"false");
             SoundManager.instance.PlaySingle(errorClip);
             GetComponent<CanvasGroup>().blocksRaycasts = true;
             item = null;

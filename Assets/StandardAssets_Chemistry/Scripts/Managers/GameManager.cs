@@ -61,7 +61,7 @@ public class GameManager : MonoBehaviour {
     public void CreateMolecule(string name, string formula,string difficulty)
     {
         chosenMolecule = new Molecule(name, formula,difficulty);
-        GoedleAnalytics.track("select.molecule", name, difficulty);
+        GoedleAnalytics.instance.track("select.molecule", name, difficulty);
     }
 
 
@@ -69,7 +69,7 @@ public class GameManager : MonoBehaviour {
 
     public void IncrementNamedMolecules()
     {
-        GoedleAnalytics.track("complete.formula", chosenMolecule.Name);
+        GoedleAnalytics.instance.track("complete.formula", chosenMolecule.Name);
 
         if (!IsMoleculeNamed(chosenMolecule.Name))
         {
@@ -97,7 +97,7 @@ public class GameManager : MonoBehaviour {
 
     public void IncrementConstructedMolecules()
     {
-        GoedleAnalytics.track("complete.construction",chosenMolecule.Name);
+        GoedleAnalytics.instance.track("complete.construction",chosenMolecule.Name);
 
         if (!IsMoleculeConstructed(chosenMolecule.Name))
         {
@@ -129,17 +129,17 @@ public class GameManager : MonoBehaviour {
     public void SetName(string text)
     {
         instance.playerName = text.Trim();
-        GoedleAnalytics.trackTraits("first_name", instance.playerName);
+        GoedleAnalytics.instance.trackTraits("first_name", instance.playerName);
     }
     public void SetClass(string text)
     {
         instance.playerClass = text.Trim();
-        GoedleAnalytics.track("group", "class", instance.playerClass);
+        GoedleAnalytics.instance.track("group", "class", instance.playerClass);
     }
     public void SetSchoolName(string text)
     {
         instance.playerSchoolName = text.Trim();
-        GoedleAnalytics.track("group", "school", instance.playerSchoolName);
+        GoedleAnalytics.instance.track("group", "school", instance.playerSchoolName);
     }
 
     #endregion
@@ -161,7 +161,7 @@ public class GameManager : MonoBehaviour {
         //make Lab scene tutorial active.
         StartCanvas.presentedToUser = false;
         currentLevel = Levels.menu;
-        GoedleAnalytics.track("exit.simulation");
+        GoedleAnalytics.instance.track("exit.simulation");
     }
 
     #endregion

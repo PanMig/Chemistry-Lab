@@ -22,7 +22,7 @@ public class ElementsCreator : MonoBehaviour {
     {
         Mathf.Clamp(position.position.x, leftBorder, rightBorder);
         Instantiate(element,position.position, Quaternion.identity);
-        GoedleAnalytics.track("spawn.element", element.name);
+        GoedleAnalytics.instance.track("spawn.element", element.name);
         SoundManager.instance.PlaySingle(clip);
     }
 

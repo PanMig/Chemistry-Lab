@@ -4,7 +4,6 @@ public class Loader : MonoBehaviour
 {
 
     public GameObject gameManager; //GameManager prefab to instantiate.
-    public GameObject moleculeManager; //GameManager prefab to instantiate.
 
     void Awake()
     {
@@ -12,8 +11,5 @@ public class Loader : MonoBehaviour
         if (GameManager.instance == null)
             //Instantiate gameManager prefab
             Instantiate(gameManager);
-        if (MoleculeManager.instance == null)
-            //Instantiate gameManager prefab
-            Instantiate(moleculeManager);
     }
 }

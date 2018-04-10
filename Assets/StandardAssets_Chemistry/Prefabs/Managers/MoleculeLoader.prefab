@@ -9,30 +9,30 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1492566816638968}
+  m_RootGameObject: {fileID: 1926773127508386}
   m_IsPrefabParent: 1
---- !u!1 &1492566816638968
+--- !u!1 &1926773127508386
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4897265681327712}
-  - component: {fileID: 114284509087535302}
+  - component: {fileID: 4585423750091566}
+  - component: {fileID: 114864498535027838}
   m_Layer: 0
-  m_Name: MoleculeManager
+  m_Name: MoleculeLoader
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4897265681327712
+--- !u!4 &4585423750091566
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1492566816638968}
+  m_GameObject: {fileID: 1926773127508386}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -40,14 +40,16 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114284509087535302
+--- !u!114 &114864498535027838
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1492566816638968}
+  m_GameObject: {fileID: 1926773127508386}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 488bdbbd476084faf9661e2dd8b8dd26, type: 3}
+  m_Script: {fileID: 11500000, guid: 316b9abab33a742339ef5b77943b2112, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moleculeManager: {fileID: 1492566816638968, guid: ec18de5f4ccfe4bf6916b905c80c2471,
+    type: 2}

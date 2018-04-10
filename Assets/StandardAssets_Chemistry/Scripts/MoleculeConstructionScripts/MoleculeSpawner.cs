@@ -48,7 +48,7 @@ public class MoleculeSpawner : MonoBehaviour
         var elements = FindObjectsOfType<MouseTranslate>();
         if (elements.Length != 0)
         {
-            GoedleAnalytics.track("clear.elements", GameManager.chosenMolecule.Name, elements.Length.ToString());
+            GoedleAnalytics.instance.track("clear.elements", GameManager.chosenMolecule.Name, elements.Length.ToString());
 
             for (int i = 0; i < elements.Length; i++)
             {

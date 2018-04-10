@@ -16,7 +16,6 @@ namespace goedle_sdk.detail {
         UnityWebRequest unityWebRequest { get; set; }
         bool isHttpError { get;}
         bool isNetworkError { get; }
-
         string url { get; set; }
         long responseCode { get; }
         string method { get; set; }

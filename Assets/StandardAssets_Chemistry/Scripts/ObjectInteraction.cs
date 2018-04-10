@@ -46,16 +46,16 @@ public class ObjectInteraction : MonoBehaviour
         {
             GameManager.currentLevel = GameManager.Levels.moleculeNaming;
             cursor.UnLockCursor();
-            GoedleAnalytics.track("choose.quiz",sceneToLoad);
-            MoleculeManager.buildStrategyNamingQueue(MoleculeManager._naming_strategy);
+            GoedleAnalytics.instance.track("choose.quiz",sceneToLoad);
+            MoleculeManager.instance.buildStrategyNamingQueue(MoleculeManager.instance._naming_strategy);
             sceneLoader.LoadScene(sceneToLoad);
         }
         else if (interactable == Interactables.construction)
         {
             GameManager.currentLevel = GameManager.Levels.moleculeConstruction;
             cursor.UnLockCursor();
-            GoedleAnalytics.track("choose.quiz", sceneToLoad);
-            MoleculeManager.buildStrategyConstructionQueue(MoleculeManager._construction_strategy);
+            GoedleAnalytics.instance.track("choose.quiz", sceneToLoad);
+            MoleculeManager.instance.buildStrategyConstructionQueue(MoleculeManager.instance._construction_strategy);
             sceneLoader.LoadScene(sceneToLoad);
         }
         else if (interactable == Interactables.exit)
@@ -73,7 +73,7 @@ public class ObjectInteraction : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            GoedleAnalytics.track("play");
+            GoedleAnalytics.instance.track("play");
 
             rend.material = outlinedMat;
             interactionCanvas.enabled = true;
