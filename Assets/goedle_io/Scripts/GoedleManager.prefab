@@ -52,12 +52,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gioHttpClient: {fileID: 0}
+  staging: 0
   app_key: 1
   api_key: secret
-  ENABLE_GOEDLE: 1
-  APP_VERSION: v_test_chem
-  APP_NAME: 'Chemistry Lab Test '
-  ENABLE_GA: 1
+  APP_VERSION: v_test
+  APP_NAME: Chemistry Lab Test
   GA_TRACKIND_ID: 
   GA_CD_EVENT: 
   GA_CD_1: 0

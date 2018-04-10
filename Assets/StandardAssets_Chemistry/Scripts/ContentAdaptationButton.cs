@@ -46,7 +46,7 @@ public class ContentAdaptationButton : MonoBehaviour {
         //set parameters to initial.
         gameObject.GetComponent<Image>().sprite = normalSprite;
         animator.enabled = false;
-        GoedleAnalytics.track("continue.quiz", GameManager.currentLevel.ToString());
+        GoedleAnalytics.instance.track("continue.quiz", GameManager.currentLevel.ToString());
         GameManager.chosenMolecule = null;
 
         //Load next molecule

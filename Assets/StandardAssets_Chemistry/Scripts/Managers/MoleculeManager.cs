@@ -2,33 +2,34 @@
 using System.Collections.Generic;
 using UnityEngine;
 using SimpleJSON;
+using goedle_sdk;
 
 public class MoleculeManager : MonoBehaviour
 {
     // Definition of molecules
     public static MoleculeManager instance = null;
-
-    static Molecule _H20 = new Molecule("Water", "H2O");
-    static Molecule _CH4 = new Molecule("Methane", "CH4");
-    static Molecule _HCl = new Molecule("Hydrogen Chloride", "HCl");
-    static Molecule _NaCl = new Molecule("Sodium Chloride", "NaCl");
-    static Molecule _CH4O = new Molecule("Methanole", "CH4O");
-    static Molecule _C2H6O = new Molecule("Ethanol", "C2H6O");
-    static Molecule _C3H6O = new Molecule("Acetone", "C3H6O");
-    static Molecule _CH5N = new Molecule("Isocyanic Acid", "CH5N");
-    static Molecule _CH2N2 = new Molecule("Cyanamide", "CH2N2");
-    static Molecule _C2H2O = new Molecule("Ethenone", "C2H2O");
-    public static List<string> standard_strategy = new List<string> (new string[] { "H20", "CH4", "HCl", "NaCl", "CH4O", "C2H6O", "C3H6O", "CH5N", "CH2N2", "C2H2O" });
-    public static List<string> _construction_strategy = null;
-    public static List<string> _naming_strategy = null;
-    public static Queue<string> _strategy_stack_default = new Queue<string>(standard_strategy);
-    public static Queue<string> _strategy_stack_naming = new Queue<string>(standard_strategy);
-    public static Queue<string> _strategy_stack_construction=new Queue<string>(standard_strategy);
-    public static JSONNode _gio_strategy = null;
+    string[] defaulStrategy = { "H20", "CH4", "HCl", "NaCl", "CH4O", "C2H6O", "C3H6O", "CH5N", "CH2N2", "C2H2O" };
+    Molecule _H20 = new Molecule("Water", "H2O");
+    Molecule _CH4 = new Molecule("Methane", "CH4");
+    Molecule _HCl = new Molecule("Hydrogen Chloride", "HCl");
+    Molecule _NaCl = new Molecule("Sodium Chloride", "NaCl");
+    Molecule _CH4O = new Molecule("Methanole", "CH4O");
+    Molecule _C2H6O = new Molecule("Ethanol", "C2H6O");
+    Molecule _C3H6O = new Molecule("Acetone", "C3H6O");
+    Molecule _CH5N = new Molecule("Isocyanic Acid", "CH5N");
+    Molecule _CH2N2 = new Molecule("Cyanamide", "CH2N2");
+    Molecule _C2H2O = new Molecule("Ethenone", "C2H2O");
+    public List<string> standard_strategy = null;
+    public List<string> _construction_strategy = null;
+    public List<string> _naming_strategy = null;
+    public Queue<string> _strategy_stack_default = null;
+    public Queue<string> _strategy_stack_naming = null;
+    public Queue<string> _strategy_stack_construction=null;
+    public JSONNode _gio_strategy = null;
 
 
     // There are no static dictonaries in C# this is ugly but the best and efficent solution
-    public static Molecule getMolecule(string forumla)
+    public Molecule getMolecule(string forumla)
     {
         switch (forumla)
         {
@@ -46,18 +47,38 @@ public class MoleculeManager : MonoBehaviour
             default: return _H20;
         }
     }
+
+    public void setStandardStrategy(string [] strategy){
+        standard_strategy = new List<string>(strategy);
+    }
+
+    public void fillDefaultQueue(List<string> strategy)
+    {
+        _strategy_stack_default = new Queue<string>(strategy);
+    }
+
+    public void fillNamingQueue(List<string> strategy)
+    {
+        _strategy_stack_naming = new Queue<string>(strategy);
+    }
+
+    public void fillConstructiontQueue(List<string> strategy)
+    {
+        _strategy_stack_construction = new Queue<string>(strategy);
+    }
+
     // this builds the strategy que for the naming quiz
-    public static void buildStrategyNamingQueue(List<string> strategy)
+    public void buildStrategyNamingQueue(List<string> strategy)
     {
         _strategy_stack_naming = new Queue<string>(strategy);
     }
     // this builds the strategy que for the construction quiz
-    public static void buildStrategyConstructionQueue(List<string> strategy)
+    public void buildStrategyConstructionQueue(List<string> strategy)
     {
         _strategy_stack_construction = new Queue<string>(strategy);
     }
     // helper function to get the current active molecule for a lab
-    public static Molecule getActiveMolecule(string quiz_name)
+    public Molecule getActiveMolecule(string quiz_name)
     {
         switch (quiz_name)
         {
@@ -67,7 +88,7 @@ public class MoleculeManager : MonoBehaviour
         }
     }
     // helper function to get the next molecule for a lab 
-    public static Molecule nextMolecule(string quiz_name)
+    public Molecule nextMolecule(string quiz_name)
     {
         switch (quiz_name)
         {
@@ -77,7 +98,7 @@ public class MoleculeManager : MonoBehaviour
         }
     }
     // dequeue molecule and put molecule in the queue and peek the next in queue
-    public static Molecule dequeueMolecule(Queue<string> strategy_stack){
+    public Molecule dequeueMolecule(Queue<string> strategy_stack){
         string current_molecule = strategy_stack.Dequeue();
         strategy_stack.Enqueue(current_molecule);
         return getMolecule(strategy_stack.Peek());
@@ -99,21 +120,28 @@ public class MoleculeManager : MonoBehaviour
         }
         //Sets this to not be destroyed when reloading scene
         DontDestroyOnLoad(gameObject);
-        goedle_sdk.GoedleAnalytics.requestStrategy();
+        setStandardStrategy(defaulStrategy);
+        fillDefaultQueue(standard_strategy);
+        fillNamingQueue(standard_strategy);
+        fillConstructiontQueue(standard_strategy);
+
+        GoedleAnalytics.instance.requestStrategy();
+
         StartCoroutine(getStrategy());
+
     }
 
     public IEnumerator getStrategy()
     {
         int c = 0;
-        while (goedle_sdk.GoedleAnalytics.gio_interface.strategy == null || c < 150)
+        while (GoedleAnalytics.instance.goedle_analytics.strategy == null || c < 150)
         {
             yield return null;
             c++;
         }
-        if (goedle_sdk.GoedleAnalytics.gio_interface.strategy != null)
+        if (GoedleAnalytics.instance.gio_interface.strategy != null)
         {
-            _gio_strategy = goedle_sdk.GoedleAnalytics.gio_interface.strategy;
+            _gio_strategy = GoedleAnalytics.instance.gio_interface.strategy;
             if (_gio_strategy["config"]["naming"] != null)
             {
                 _naming_strategy = transformJSONArray(_gio_strategy["config"]["naming"]);
