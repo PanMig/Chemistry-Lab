@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4585423750091566}
-  - component: {fileID: 114864498535027838}
+  - component: {fileID: 114394637338386326}
   m_Layer: 0
   m_Name: MoleculeLoader
   m_TagString: Untagged
@@ -40,7 +40,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114864498535027838
+--- !u!114 &114394637338386326
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -48,8 +48,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 1926773127508386}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 316b9abab33a742339ef5b77943b2112, type: 3}
+  m_Script: {fileID: 11500000, guid: 256c7b2d6d7240943a1a146d03c601b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moleculeManager: {fileID: 1492566816638968, guid: ec18de5f4ccfe4bf6916b905c80c2471,
+  moleculeManager: {fileID: 1492566816638968, guid: a8751aa659e6d7c4d9a36b8b4c432742,
     type: 2}

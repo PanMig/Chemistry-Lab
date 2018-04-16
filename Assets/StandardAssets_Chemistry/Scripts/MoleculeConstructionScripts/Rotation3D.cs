@@ -22,11 +22,11 @@ public class Rotation3D : MonoBehaviour {
 
     public void Update()
     {
-        if(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+        if(Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.LeftArrow))
         {
             YawRotation(rotSpeed);
         }
-        else if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
+        else if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.UpArrow))
         {
             PitchRotation();
         }

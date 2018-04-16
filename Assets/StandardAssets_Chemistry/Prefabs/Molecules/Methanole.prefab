@@ -236,7 +236,7 @@ GameObject:
   - component: {fileID: 114488767843912222}
   - component: {fileID: 114449302195680346}
   m_Layer: 0
-  m_Name: Methanol
+  m_Name: Methanole
   m_TagString: Molecule
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
