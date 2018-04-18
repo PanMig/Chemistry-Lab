@@ -1,0 +1,69 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1599989332634340}
+  m_IsPrefabParent: 1
+--- !u!1 &1599989332634340
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4131707223909558}
+  - component: {fileID: 114016839438512074}
+  m_Layer: 0
+  m_Name: ScoreManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4131707223909558
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1599989332634340}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 459.2694, y: 293.04407, z: -1.6104708}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114016839438512074
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1599989332634340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76246f99b56dcec42a1d48968e224217, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  namedMols: {fileID: 0}
+  constructedMols: {fileID: 0}
+  badges:
+  - {fileID: 21300000, guid: ece8ac2cb44577542aab6c96e2a7ded0, type: 3}
+  - {fileID: 21300000, guid: 2344b713b55cd004b90c461e2778c90f, type: 3}
+  - {fileID: 21300000, guid: 1e340974a9046d245a33a8f04d7c7b94, type: 3}
+  logTexts:
+  - You could do better
+  - You are good... but more
+  - great
+  - pefect
+  sumMolsNaming: {fileID: 0}
+  sumMolsConstruction: {fileID: 0}
+  badge: {fileID: 0}
+  logText: {fileID: 0}
+  scoreCanvas: {fileID: 0}

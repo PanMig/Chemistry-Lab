@@ -154,8 +154,8 @@ public class GameManager : MonoBehaviour {
         instance.playerClass = null;
         instance.playerSchoolName = null;
         //empty molecules lists
-        namedMols.Clear();
-        constructedMols.Clear();
+        instance.namedMols.Clear();
+        instance.constructedMols.Clear();
         namedMolecules = 0;
         constructedMolecules = 0;
         //make Lab scene tutorial active.

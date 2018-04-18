@@ -24,7 +24,7 @@ public class CursorLock : MonoBehaviour {
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && gameObject.GetComponent<FirstPersonController>().enabled == true)
         {
             LockCursor();
         }

@@ -20,6 +20,7 @@ public class ObjectInteraction : MonoBehaviour
     public CursorLock cursor;
     public AudioClip clip;
     public string sceneToLoad;
+    public ScoreManagerDisplay scoreManager;
 
 
     // Use this for initialization
@@ -60,9 +61,8 @@ public class ObjectInteraction : MonoBehaviour
         }
         else if (interactable == Interactables.exit)
         {
-            GameManager.instance.ExitSimulation();
             cursor.UnLockCursor();
-            sceneLoader.LoadScene(sceneToLoad);
+            scoreManager.DisplayScore();
         }
         SoundManager.instance.PlaySingle(clip);
     }
