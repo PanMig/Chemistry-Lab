@@ -3128,6 +3128,7 @@ MonoBehaviour:
   - {fileID: 1991706656229866, guid: 0839ffd5f20f452408d697a82dca8f82, type: 2}
   - {fileID: 1367466838061354, guid: a14e7278237f55c489ac4365c2036b2c, type: 2}
   - {fileID: 1940253171340428, guid: f65824e9e7f882044901667b3a628649, type: 2}
+  - {fileID: 1012647342512280, guid: c674bee7eb22b744fb1c152c6e4e03f7, type: 2}
   position: {fileID: 1586177784}
   molecule: {fileID: 0}
 --- !u!1001 &839834648
@@ -4694,10 +4695,7 @@ MonoBehaviour:
     - Drag & drop elements on specific slots upon the molecule.
 
 
-    - Use the left mouse or the "D" key for right rotation.
-
-
-    - Use the mouse or "A" key forward rotation.  '
+    - Use the right mouse click or the WASD keys to rotate the molecule.  '
 --- !u!222 &1317461724
 CanvasRenderer:
   m_ObjectHideFlags: 0

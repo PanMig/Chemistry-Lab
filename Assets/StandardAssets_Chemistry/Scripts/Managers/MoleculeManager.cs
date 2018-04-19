@@ -8,7 +8,8 @@ public class MoleculeManager : MonoBehaviour
 {
     // Definition of molecules
     public static MoleculeManager instance = null;
-    string[] defaulStrategy = { "H20", "CH4", "HCl", "NaCl", "CH4O", "C2H6O", "C3H6O", "CH5N", "CH2N2", "C2H2O" };
+    //string[] defaulStrategy = { "H20", "CH4", "HCl", "NaCl", "CH4O", "C2H6O", "C3H6O", "CH5N", "CH2N2", "C2H2O" };
+    string[] defaulStrategy = { "H20", "CH4", "HCl", "NH3", "NaCl", "CH4O", "C2H6O", "C3H8", "CH5N"};
     Molecule _H20 = new Molecule("Water", "H2O");
     Molecule _CH4 = new Molecule("Methane", "CH4");
     Molecule _HCl = new Molecule("Hydrogen Chloride", "HCl");
@@ -16,9 +17,11 @@ public class MoleculeManager : MonoBehaviour
     Molecule _CH4O = new Molecule("Methanole", "CH4O");
     Molecule _C2H6O = new Molecule("Ethanol", "C2H6O");
     Molecule _C3H6O = new Molecule("Acetone", "C3H6O");
-    Molecule _CH5N = new Molecule("Isocyanic Acid", "CH5N");
+    Molecule _CH5N = new Molecule("Methanamine", "CH5N");
     Molecule _CH2N2 = new Molecule("Cyanamide", "CH2N2");
     Molecule _C2H2O = new Molecule("Ethenone", "C2H2O");
+    Molecule _NH3 = new Molecule("Ammonia", "NH3");
+    Molecule _C3H8 = new Molecule("Propane", "C3H8");
     public List<string> standard_strategy = null;
     public List<string> _construction_strategy = null;
     public List<string> _naming_strategy = null;
@@ -43,7 +46,9 @@ public class MoleculeManager : MonoBehaviour
             case "CH5N": return _CH5N;
             case "CH2N2": return _CH2N2;
             case "C2H2O": return _C2H2O;
-                // I had no better idea, now water is the default molecule
+            case "NH3": return _NH3;
+            case "C3H8": return _C3H8;
+            // I had no better idea, now water is the default molecule
             default: return _H20;
         }
     }
@@ -125,10 +130,10 @@ public class MoleculeManager : MonoBehaviour
         fillNamingQueue(standard_strategy);
         fillConstructiontQueue(standard_strategy);
 
-        GoedleAnalytics.instance.requestStrategy();
-
-        StartCoroutine(getStrategy());
-
+        //GoedleAnalytics.instance.requestStrategy();
+        //StartCoroutine(getStrategy());
+        _naming_strategy = standard_strategy;
+        _construction_strategy = standard_strategy;
     }
 
     public IEnumerator getStrategy()

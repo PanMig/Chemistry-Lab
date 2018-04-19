@@ -13,10 +13,10 @@ public class GameManager : MonoBehaviour {
     public static Molecule chosenMolecule;
 
     //Molecule naming properties
-    public static int namedMolecules;
+    public static int namedMolecules = 0;
     private List<string> namedMols = new List<string>();
     //molecule construction
-    public static int constructedMolecules;
+    public static int constructedMolecules = 0;
     private List<string> constructedMols = new List<string>();
 
     //PLayer Information

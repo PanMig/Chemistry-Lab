@@ -22,15 +22,23 @@ public class Rotation3D : MonoBehaviour {
 
     public void Update()
     {
-        if(Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.LeftArrow))
+        if(Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+        {
+            YawRotation(-rotSpeed);
+        }
+        else if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
             YawRotation(rotSpeed);
         }
-        else if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.UpArrow))
+        else if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
         {
-            PitchRotation();
+            PitchRotation(rotSpeed);
         }
-        else if (Input.GetKey(KeyCode.R) || Input.GetKey(KeyCode.DownArrow))
+        else if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
+        {
+            PitchRotation(-rotSpeed);
+        }
+        else if (Input.GetKey(KeyCode.R))
         {
             ResetTransformation();
         }
@@ -57,9 +65,9 @@ public class Rotation3D : MonoBehaviour {
     }
 
     //x axis
-    public void PitchRotation()
+    public void PitchRotation(float speed)
     {
-        transform.Rotate(Vector3.right * Time.deltaTime * rotSpeed, Space.World);
+        transform.Rotate(Vector3.right * Time.deltaTime * speed, Space.World);
     }
 
     //z axis
