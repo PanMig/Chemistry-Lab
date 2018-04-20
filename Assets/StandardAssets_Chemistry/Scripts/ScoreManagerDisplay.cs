@@ -40,10 +40,7 @@ public class ScoreManagerDisplay : MonoBehaviour {
         int firstBorder = MoleculeManager.instance.standard_strategy.Count;
         int secondBorder = ((3 * firstBorder + 3 * firstBorder - 1) / 4) + 1;
         int thirdBorder = 2 * firstBorder - 1;
-        int lastBorder = 2 * firstBorder;
-        print(firstBorder);
-        print(secondBorder);
-        print(thirdBorder);
+
         if (totalScore <= firstBorder)
         {
             logText.text = logTexts[0];
