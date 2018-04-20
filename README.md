@@ -8,9 +8,15 @@ Use the WASD keys to move through the 3d scene. Use the mouse to rotate your cam
 The game is released as a web project. To try the game you can visit this webpage ( http://160.40.51.48/games/chemistry/ )
 For avoiding any perfomance problems, its suggested to use either google chroome or mozilla firefox browsers.
 
+<<<<<<< HEAD
 # Information
 The <i> Chemistry Lab</i> game is designed under the ENVISAGE project. For more information you can visit the core webpage of the project
 ( http://www.envisage-h2020.eu/ ).
+=======
+# Demo
+You can visit this webpage to try the web version of the game.
+http://160.40.51.48/games/chemistry/
+>>>>>>> ce35977583e4b42cbb58c5582f95376e4332870f
 
 # Images
 ![screenshot 18](https://user-images.githubusercontent.com/15057375/37338513-59133100-26c0-11e8-8845-2038d3e23ae7.png)
