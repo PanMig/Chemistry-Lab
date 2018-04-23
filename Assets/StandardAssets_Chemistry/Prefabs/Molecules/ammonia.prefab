@@ -94,7 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4474975772399402}
   m_Layer: 0
-  m_Name: Ammonia
+  m_Name: ammonia
   m_TagString: Molecule
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

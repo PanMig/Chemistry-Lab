@@ -53,3 +53,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   goedleAnalytics: {fileID: 1760457710204008, guid: 47c7ca76693cd449d8b98a99017822a2,
     type: 2}
+  gioHttpClient: {fileID: 1355082793054128, guid: b080822040015425ca79dddd1ff53c6e,
+    type: 2}

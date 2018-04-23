@@ -87,7 +87,7 @@ public class MoleculeManager : MonoBehaviour
     {
         switch (quiz_name)
         {
-            case "nameing": return getMolecule(_strategy_stack_naming.Peek());
+            case "naming": return getMolecule(_strategy_stack_naming.Peek());
             case "construction": return getMolecule(_strategy_stack_construction.Peek());
             default: return getMolecule(_strategy_stack_default.Peek());
         }
@@ -127,13 +127,11 @@ public class MoleculeManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
         setStandardStrategy(defaulStrategy);
         fillDefaultQueue(standard_strategy);
-        fillNamingQueue(standard_strategy);
-        fillConstructiontQueue(standard_strategy);
 
-        //GoedleAnalytics.instance.requestStrategy();
-        //StartCoroutine(getStrategy());
-        _naming_strategy = standard_strategy;
-        _construction_strategy = standard_strategy;
+
+        GoedleAnalytics.instance.requestStrategy();
+        StartCoroutine(getStrategy());
+
     }
 
     public IEnumerator getStrategy()
@@ -147,33 +145,35 @@ public class MoleculeManager : MonoBehaviour
         if (GoedleAnalytics.instance.gio_interface.strategy != null)
         {
             _gio_strategy = GoedleAnalytics.instance.gio_interface.strategy;
-            if (_gio_strategy["config"]["naming"] != null)
+            if (_gio_strategy["config"][0]["naming"] != null)
             {
-                _naming_strategy = transformJSONArray(_gio_strategy["config"]["naming"]);
+
+                _naming_strategy = transformJSONArray(_gio_strategy["config"][0]["naming"]);
             }else{
                 _naming_strategy = standard_strategy;
-
             }
-            if (_gio_strategy["config"]["construction"] != null)
+
+            if (_gio_strategy["config"][0]["construction"] != null)
             {
-                _construction_strategy = transformJSONArray(_gio_strategy["config"]["construction"]);
+                _construction_strategy = transformJSONArray(_gio_strategy["config"][0]["construction"]);
             }else{
                 _construction_strategy = standard_strategy;
-
             }
         }
         else{
             _naming_strategy = standard_strategy;
             _construction_strategy = standard_strategy;
         }
+        fillNamingQueue(_naming_strategy);
+        fillConstructiontQueue(_construction_strategy);
 
     }
 
     public List<string> transformJSONArray(JSONNode jStrategy){
         var sStrategy = new List<string>();
-        foreach (var mol in jStrategy.AsArray)
+        foreach (var mol in jStrategy)
         {
-            sStrategy.Add(mol.ToString());
+            sStrategy.Add(mol.Value);
         }
         return sStrategy;
     }

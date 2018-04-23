@@ -13,7 +13,6 @@ namespace goedle_sdk.detail {
 
     public interface IGoedleWebRequest
     {
-        UnityWebRequest unityWebRequest { get; set; }
         bool isHttpError { get;}
         bool isNetworkError { get; }
         string url { get; set; }
@@ -22,6 +21,7 @@ namespace goedle_sdk.detail {
         bool chunkedTransfer{ get; set; }
         DownloadHandler downloadHandler { get; set; }
         UploadHandler uploadHandler { get; set; }
+        UnityWebRequest unityWebRequest { get; set; }
         UnityWebRequestAsyncOperation SendWebRequest();
         void SetRequestHeader(string name, string value);
     }
@@ -30,6 +30,10 @@ namespace goedle_sdk.detail {
 
         UnityWebRequest _unityWebRequest { get; set; }
        
+        public GoedleWebRequest(){
+            
+        }
+
         public bool isNetworkError
         {
             get { return _unityWebRequest.isNetworkError; }
@@ -62,6 +66,7 @@ namespace goedle_sdk.detail {
         {
             get { return _unityWebRequest; }
             set { _unityWebRequest = value; }
+
         }
 
         public DownloadHandler downloadHandler 

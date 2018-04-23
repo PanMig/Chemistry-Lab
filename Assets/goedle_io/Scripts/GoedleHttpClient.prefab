@@ -9,30 +9,30 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1760457710204008}
+  m_RootGameObject: {fileID: 1355082793054128}
   m_IsPrefabParent: 1
---- !u!1 &1760457710204008
+--- !u!1 &1355082793054128
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4480355689303762}
-  - component: {fileID: 114885203543728634}
+  - component: {fileID: 4868970863976906}
+  - component: {fileID: 114030811278249572}
   m_Layer: 0
-  m_Name: GoedleManager
+  m_Name: GoedleHttpClient
   m_TagString: Untagged
-  m_Icon: {fileID: 2800000, guid: ab3abf0d7632f422fab784496584980d, type: 3}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4480355689303762
+--- !u!4 &4868970863976906
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1760457710204008}
+  m_GameObject: {fileID: 1355082793054128}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -40,23 +40,14 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114885203543728634
+--- !u!114 &114030811278249572
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1760457710204008}
+  m_GameObject: {fileID: 1355082793054128}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 869a1b8b5dd6a4fc1a8d0a76f77e5b5e, type: 3}
+  m_Script: {fileID: 11500000, guid: 5290c9347fe0b40278807555438196f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  staging: 0
-  app_key: 1
-  api_key: secret
-  APP_VERSION: v_test
-  APP_NAME: Chemistry Lab Test
-  GA_TRACKIND_ID: 
-  GA_CD_EVENT: 
-  GA_CD_1: 0
-  GA_CD_2: 0

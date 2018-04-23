@@ -29,7 +29,6 @@ namespace goedle_sdk
     public class GoedleAnalytics : MonoBehaviour
     {
         public static GoedleAnalytics instance = null;
-        public detail.GoedleHttpClient gioHttpClient;
         /*! \cond PRIVATE */
         #region settings
         [Header("Project")]
@@ -51,11 +50,10 @@ namespace goedle_sdk
         public int GA_CD_1 = 0;
         [Tooltip("Google Analytics Number of Custom Dimension for Group member. (To set this you need a configured custom dimension in Google Analytics)")]
         public int GA_CD_2 = 0;
+        [Tooltip("Enable (True) / Disable(False) only content adaptation")]
+        public bool adaptation_only = false;
         #endregion
         /*! \endcond */
-
-
-
 
         /// <summary>
         /// Tracks an event.
@@ -89,7 +87,6 @@ namespace goedle_sdk
             goedle_analytics.track(eventName,eventId,event_value, new detail.GoedleUploadHandler());
 		}
 
-
 		/// <summary>
 		/// Identify function for a user.
 		/// </summary>
@@ -100,7 +97,6 @@ namespace goedle_sdk
 		{
             goedle_analytics.trackTraits(traitKey, traitValue, new detail.GoedleUploadHandler());
 		}
-
 
 		/// <summary>
 		/// Group tracking function for a user.
@@ -129,10 +125,12 @@ namespace goedle_sdk
         /// </summary>s
         public void requestStrategy() 
         {
-            detail.IGoedleDownloadBuffer goedleDownloadBuffer = new detail.GoedleDownloadBuffer();
-            goedle_analytics.requestStrategy(goedleDownloadBuffer);
+            if (!staging)
+            {
+                detail.IGoedleDownloadBuffer goedleDownloadBuffer = new detail.GoedleDownloadBuffer();
+                goedle_analytics.requestStrategy(goedleDownloadBuffer);
+            }
         }
-
 
         /// <summary>
         /// Reset user id
@@ -143,7 +141,6 @@ namespace goedle_sdk
             Guid new_user_id = Guid.NewGuid();
             goedle_analytics.reset_user_id(new_user_id.ToString("D"));
         }
-
 
 		#region internal
         public detail.GoedleAnalytics gio_interface;
@@ -157,14 +154,12 @@ namespace goedle_sdk
 
         void Awake()
         {
-            gioHttpClient = (new GameObject("GoedleHTTPClient")).AddComponent<detail.GoedleHttpClient>();
-
-
             //Check if instance already exists
             if (instance == null)
             {
                 //if not, set instance to this
                 instance = this;
+                InitGoedle();
             }
             //If instance already exists and it's not this:
             else if (instance != this)
@@ -175,7 +170,6 @@ namespace goedle_sdk
             //Sets this to not be destroyed when reloading scene
             DontDestroyOnLoad(gameObject);
 
-            InitGoedle();
         }
 
 		private void InitGoedle()
@@ -196,7 +190,7 @@ namespace goedle_sdk
             detail.IGoedleUploadHandler goedleUploadHandler = new detail.GoedleUploadHandler();
             if (gio_interface == null && (!string.IsNullOrEmpty(instance.api_key) || !string.IsNullOrEmpty(instance.app_key)))
             {
-                gio_interface = new detail.GoedleAnalytics(api_key, app_key, user_id.ToString("D"), app_version, GA_TRACKIND_ID, app_name, GA_CD_1, GA_CD_2, GA_CD_EVENT, detail.GoedleHttpClient.instance, goedleWebRequest, goedleUploadHandler, staging);
+                gio_interface = new detail.GoedleAnalytics(api_key, app_key, user_id.ToString("D"), app_version, GA_TRACKIND_ID, app_name, GA_CD_1, GA_CD_2, GA_CD_EVENT, detail.GoedleHttpClient.instance, goedleWebRequest, goedleUploadHandler, staging, adaptation_only);
                 Debug.Log("goedle.io SDK is initialzied");
             }
 		}

@@ -23,7 +23,8 @@ namespace goedle_sdk.detail
         public GoedleUtils _goedleUtils = new GoedleUtils();
         public JSONNode strategy = null;
         IGoedleWebRequest _gwr = null;
-        public bool _staging = false; 
+        public bool _staging = false;
+        public bool _adaptation_only = false;
         //private string locale = null;
 
         public GoedleAnalytics(
@@ -39,7 +40,8 @@ namespace goedle_sdk.detail
                 GoedleHttpClient gio_http_client, 
                 IGoedleWebRequest gwr, 
                 IGoedleUploadHandler guh, 
-                bool staging)//, string locale)
+                bool staging,
+                bool adaptation_only)//, string locale)
         {
             _api_key = api_key;
             _app_key = app_key;
@@ -53,6 +55,7 @@ namespace goedle_sdk.detail
             _gio_http_client = gio_http_client;
             _gwr = gwr;
             _staging = staging;
+            _adaptation_only = adaptation_only;
             //this.locale = GoedleLanguageMapping.GetLanguageCode (locale);
             track_launch(guh);
         }
@@ -72,10 +75,6 @@ namespace goedle_sdk.detail
         // TODO Blocking Time default  
         public void requestStrategy(IGoedleDownloadBuffer goedleDownloadBuffer)
         {
-            /*
-            Create GoedleWebRequest
-            Create GoedleDownloadManager
-            */
             GoedleUtils gu = new GoedleUtils();
             string url = gu.getStrategyUrl(_app_key);
             _gio_http_client.requestStrategy(url, this, _gwr, goedleDownloadBuffer, _staging);
@@ -88,31 +87,35 @@ namespace goedle_sdk.detail
 
         public void track(string event_name, string event_id, string event_value, bool launch, string trait_key, string trait_value, IGoedleUploadHandler goedleUploadHandler )
         {
-            bool ga_active = !String.IsNullOrEmpty(_ga_tracking_id);
-            string authentication = null;
-            string content = null;
-            int ts = getTimeStamp();
-            // -1 because c# returns -1 for UTC +1 , * 1000 from Seconds to Milliseconds
-            int timezone = (int)(((DateTime.UtcNow - DateTime.Now).TotalSeconds) * -1 * 1000);
-            GoedleAtom rt = new GoedleAtom(_app_key, _user_id, ts, event_name, event_id, event_value, timezone, _app_version, _anonymous_id, trait_key, trait_value, ga_active);
-            if (rt == null)
+            if (!_adaptation_only)
             {
-                Console.Write("Data Object is None, there must be an error in the SDK!");
-                return;
-            }
-            else
-            {
-                content = rt.getGoedleAtomDictionary().ToString();
-                authentication = _goedleUtils.encodeToUrlParameter(content, _api_key);
-            }
-            string url = GoedleConstants.TRACK_URL;
-            goedleUploadHandler.add(content);
 
-            _gio_http_client.sendPost(url, authentication, _gwr, goedleUploadHandler, _staging);
-            // Sending tp Google Analytics for now we only support the Event tracking
-            string type = "event";
-            if (ga_active)
-                trackGoogleAnalytics(event_name, event_id, event_value, type);
+                bool ga_active = !String.IsNullOrEmpty(_ga_tracking_id);
+                string authentication = null;
+                string content = null;
+                int ts = getTimeStamp();
+                // -1 because c# returns -1 for UTC +1 , * 1000 from Seconds to Milliseconds
+                int timezone = (int)(((DateTime.UtcNow - DateTime.Now).TotalSeconds) * -1 * 1000);
+                GoedleAtom rt = new GoedleAtom(_app_key, _user_id, ts, event_name, event_id, event_value, timezone, _app_version, _anonymous_id, trait_key, trait_value, ga_active);
+                if (rt == null)
+                {
+                    Console.Write("Data Object is None, there must be an error in the SDK!");
+                    return;
+                }
+                else
+                {
+                    content = rt.getGoedleAtomDictionary().ToString();
+                    authentication = _goedleUtils.encodeToUrlParameter(content, _api_key);
+                }
+                string url = GoedleConstants.TRACK_URL;
+                goedleUploadHandler.add(content);
+
+                _gio_http_client.sendPost(url, authentication, _gwr, goedleUploadHandler, _staging);
+                // Sending tp Google Analytics for now we only support the Event tracking
+                string type = "event";
+                if (ga_active)
+                    trackGoogleAnalytics(event_name, event_id, event_value, type);
+            }
         }
 
         private string buildGAUrlDataString(Dictionary<string, string> postData)

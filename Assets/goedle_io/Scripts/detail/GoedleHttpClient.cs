@@ -43,15 +43,11 @@ namespace goedle_sdk.detail
             else
             {
                 gwr.unityWebRequest = new UnityWebRequest();
-
-                gwr.url = url;
-                gwr.method = "GET";
-
                 using (gwr.unityWebRequest)
                 {
+                    gwr.method = "GET";
+                    gwr.url = url;
                     yield return gwr.SendWebRequest();
-                    Debug.Log(gwr.isNetworkError);
-                    Debug.Log(gwr.isHttpError);
                     if (gwr.isNetworkError || gwr.isHttpError)
                     {
                         Debug.Log("{\"error\": {  \"isHttpError\": \"" + gwr.isHttpError + "\",  \"isNetworkError\": \"" + gwr.isNetworkError + "\" } }");
@@ -70,21 +66,19 @@ namespace goedle_sdk.detail
          */
         public IEnumerator getJSONResponse(string url, GoedleAnalytics ga, IGoedleWebRequest gwr, IGoedleDownloadBuffer gdb, bool staging)
         {
-            gwr.unityWebRequest = new UnityWebRequest();
-            using (gwr.unityWebRequest)
+            if (staging)
             {
-                if (staging)
+                Debug.Log("Staging is on your get request would look like this:\n" + url);
+            }
+            else
+            {
+                gwr.unityWebRequest = new UnityWebRequest();
+                using (gwr.unityWebRequest)
                 {
-                    Debug.Log("Staging is on your get request would look like this:\n"+ url);
-                }
-                else
-                {
-                    gwr.url = url;
                     gwr.method = "GET";
+                    gwr.url = url;
                     gwr.downloadHandler = gdb.downloadHandlerBuffer;
                     yield return gwr.SendWebRequest();
-                    Debug.Log(gwr.isNetworkError);
-                    Debug.Log(gwr.isHttpError);
                     JSONNode strategy_json = null;
                     if (gwr.isNetworkError || gwr.isHttpError)
                     {
@@ -109,7 +103,6 @@ namespace goedle_sdk.detail
                     }
                     ga.strategy = strategy_json;
                     yield break;
-
                 }
             }
         }
@@ -138,7 +131,6 @@ namespace goedle_sdk.detail
                         Debug.Log("{\"error\": {  \"isHttpError\": \"" + gwr.isHttpError + "\",  \"isNetworkError\": \"" + gwr.isNetworkError + "\" } }");
                     }
                     yield break;
-
                 }
             }
 	    }
