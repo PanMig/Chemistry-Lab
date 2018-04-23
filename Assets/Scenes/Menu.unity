@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -1521,6 +1521,12 @@ Prefab:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 114022582269577592, guid: a0685e6dac0c44d9fbc607930f4a897d,
+        type: 2}
+      propertyPath: gioHttpClient
+      value: 
+      objectReference: {fileID: 1355082793054128, guid: 14a83051b7bde4fbaa0822dbee68fcec,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a0685e6dac0c44d9fbc607930f4a897d, type: 2}
   m_IsPrefabParent: 0
