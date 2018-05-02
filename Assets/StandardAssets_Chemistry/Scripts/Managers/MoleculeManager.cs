@@ -9,13 +9,13 @@ public class MoleculeManager : MonoBehaviour
     // Definition of molecules
     public static MoleculeManager instance = null;
     //string[] defaulStrategy = { "H20", "CH4", "HCl", "NaCl", "CH4O", "C2H6O", "C3H6O", "CH5N", "CH2N2", "C2H2O" };
-    string[] defaulStrategy = { "H20", "CH4", "HCl", "NH3", "NaCl", "CH4O", "C2H6O", "C3H8", "CH5N"};
+    string[] defaulStrategy = { "H20", "CH4", "HCl", "NH3", "NaCl", "CH3OH", "C2H5OH", "C3H8", "CH5N"};
     Molecule _H20 = new Molecule("Water", "H2O");
     Molecule _CH4 = new Molecule("Methane", "CH4");
     Molecule _HCl = new Molecule("Hydrogen Chloride", "HCl");
     Molecule _NaCl = new Molecule("Sodium Chloride", "NaCl");
-    Molecule _CH4O = new Molecule("Methanole", "CH4O");
-    Molecule _C2H6O = new Molecule("Ethanol", "C2H6O");
+    Molecule _CH4O = new Molecule("Methanole", "CH3OH");
+    Molecule _C2H6O = new Molecule("Ethanol", "C2H5OH");
     Molecule _C3H6O = new Molecule("Acetone", "C3H6O");
     Molecule _CH5N = new Molecule("Methanamine", "CH5N");
     Molecule _CH2N2 = new Molecule("Cyanamide", "CH2N2");
@@ -40,8 +40,8 @@ public class MoleculeManager : MonoBehaviour
             case "CH4": return _CH4;
             case "HCl": return _HCl;
             case "NaCl": return _NaCl;
-            case "CH4O": return _CH4O;
-            case "C2H6O": return _C2H6O;
+            case "CH3OH": return _CH4O;
+            case "C2H5OH": return _C2H6O;
             case "C3H6O": return _C3H6O;
             case "CH5N": return _CH5N;
             case "CH2N2": return _CH2N2;
