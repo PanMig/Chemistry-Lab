@@ -14,12 +14,12 @@ public class ScoreManagerDisplay : MonoBehaviour {
     public Text sumMolsConstruction;
     public Image badge;
     public Text logText;
-    public Canvas scoreCanvas;
+    public GameObject scoreCanvas;
     public GameObject player;
 
     // Use this for initialization
     void Start () {
-        scoreCanvas.enabled = false;
+        scoreCanvas.SetActive(false);
 	}
 
     public void DisplayScore()
@@ -30,7 +30,7 @@ public class ScoreManagerDisplay : MonoBehaviour {
         sumMolsConstruction.text = MoleculeManager.instance.standard_strategy.Count.ToString();
 
         BranchScore();
-        scoreCanvas.enabled = true;
+        scoreCanvas.SetActive(true);
         player.GetComponent<FirstPersonController>().enabled = false;
     }
 

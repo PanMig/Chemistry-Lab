@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour {
     public string playerName;
     public string playerClass;
     public string playerSchoolName;
+    public float playerProgress;
 
 
     void Awake()
@@ -51,10 +52,10 @@ public class GameManager : MonoBehaviour {
 
     private void Update()
     {
-        
-        if (chosenMolecule != null)
+        if (Input.GetKeyDown(KeyCode.H))
         {
-          
+            namedMolecules++;
+            constructedMolecules++;
         }
     }
 

@@ -61,6 +61,7 @@ public class ObjectInteraction : MonoBehaviour
         }
         else if (interactable == Interactables.exit)
         {
+            interactionCanvas.enabled = false;
             cursor.UnLockCursor();
             scoreManager.DisplayScore();
         }

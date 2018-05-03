@@ -28,6 +28,14 @@ public class SoundManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+    private void Start()
+    {
+        if(GameManager.currentLevel != GameManager.Levels.lab)
+        {
+            instance.musicSource.Play();
+        }
+    }
+
     public void PlaySingle(AudioClip clip)
     {
         instance.efxSource.clip = clip;

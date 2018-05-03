@@ -4,6 +4,7 @@ using UnityEngine.UI;
 public class MoleculeText : MonoBehaviour {
 
     public int option;
+    public Image line;
 
     private void OnEnable()
     {
@@ -17,16 +18,7 @@ public class MoleculeText : MonoBehaviour {
 
     public void Start()
     {
-        if (option == 1 && GameManager.currentLevel == GameManager.Levels.moleculeNaming)
-        {
-            if (GameManager.instance.IsMoleculeNamed(GameManager.chosenMolecule.Name)) { gameObject.GetComponent<Text>().color = Color.black; }
-            else { gameObject.GetComponent<Text>().color = Color.white; }
-        }
-        else
-        {
-            if (GameManager.instance.IsMoleculeConstructed(GameManager.chosenMolecule.Name)) { gameObject.GetComponent<Text>().color = Color.white; }
-            else { gameObject.GetComponent<Text>().color = Color.black; }
-        }
+        SetText();
     }
 
     private void SetText()
@@ -35,23 +27,20 @@ public class MoleculeText : MonoBehaviour {
         if (option == 1 && GameManager.currentLevel == GameManager.Levels.moleculeNaming)
         {
             if (GameManager.instance.IsMoleculeNamed(GameManager.chosenMolecule.Name)) {
-                gameObject.GetComponent<Text>().color = new Color(0,0,0,0.4f);
+                line.enabled = true;
             }
-            else{ gameObject.GetComponent<Text>().color = Color.white; }
+            else{ line.enabled = false; }
 
             gameObject.GetComponent<Text>().text = GameManager.chosenMolecule.Name;
         }
         else if(option == 1 && GameManager.currentLevel == GameManager.Levels.moleculeConstruction)
         {
-            if (GameManager.instance.IsMoleculeConstructed(GameManager.chosenMolecule.Name)) { gameObject.GetComponent<Text>().color = new Color(1, 1, 1, 0.55f); }
-            else { gameObject.GetComponent<Text>().color = Color.black; }
+            if (GameManager.instance.IsMoleculeConstructed(GameManager.chosenMolecule.Name)) { line.enabled = true; }
+            else { line.enabled = false; }
             gameObject.GetComponent<Text>().text = GameManager.chosenMolecule.Name;
         }
-        else
+        else // for the formula in construction scene.
         {
-            if (GameManager.instance.IsMoleculeConstructed(GameManager.chosenMolecule.Name)) { gameObject.GetComponent<Text>().color = new Color(1,1,1,0.55f); }
-            else { gameObject.GetComponent<Text>().color = Color.black; }
-
             gameObject.GetComponent<Text>().text = GameManager.chosenMolecule.Formula;
         }
     }

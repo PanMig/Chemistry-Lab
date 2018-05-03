@@ -9,7 +9,7 @@ public class MoleculeManager : MonoBehaviour
     // Definition of molecules
     public static MoleculeManager instance = null;
     //string[] defaulStrategy = { "H20", "CH4", "HCl", "NaCl", "CH4O", "C2H6O", "C3H6O", "CH5N", "CH2N2", "C2H2O" };
-    string[] defaulStrategy = { "H20", "CH4", "HCl", "NH3", "NaCl", "CH3OH", "C2H5OH", "C3H8", "CH5N"};
+    string[] defaulStrategy = { "CH4", "H20","HCl", "NH3", "NaCl", "CH3OH", "C2H5OH", "C3H8", "CH5N"};
     Molecule _H20 = new Molecule("Water", "H2O");
     Molecule _CH4 = new Molecule("Methane", "CH4");
     Molecule _HCl = new Molecule("Hydrogen Chloride", "HCl");
@@ -129,7 +129,7 @@ public class MoleculeManager : MonoBehaviour
         fillDefaultQueue(standard_strategy);
 
 
-        GoedleAnalytics.instance.requestStrategy();
+        //GoedleAnalytics.instance.requestStrategy();
         StartCoroutine(getStrategy());
 
     }
