@@ -42,4 +42,17 @@ public class SoundManager : MonoBehaviour
         instance.efxSource.Play();
     }
 
+    public void StopBackAudio()
+    {
+        if (!instance.musicSource.enabled)
+        {
+            instance.musicSource.enabled = true;
+            instance.musicSource.Play();
+        }
+        else
+        {
+            instance.musicSource.enabled = false;
+        }
+    }
+
 }

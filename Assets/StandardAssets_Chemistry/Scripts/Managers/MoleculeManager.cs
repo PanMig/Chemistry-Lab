@@ -128,9 +128,10 @@ public class MoleculeManager : MonoBehaviour
         setStandardStrategy(defaulStrategy);
         fillDefaultQueue(standard_strategy);
 
-
+        _naming_strategy = standard_strategy;
+        _construction_strategy = standard_strategy;
         //GoedleAnalytics.instance.requestStrategy();
-        StartCoroutine(getStrategy());
+        //StartCoroutine(getStrategy());
 
     }
 
