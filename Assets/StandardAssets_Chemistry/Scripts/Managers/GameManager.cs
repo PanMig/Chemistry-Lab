@@ -24,6 +24,9 @@ public class GameManager : MonoBehaviour {
     public string playerClass;
     public string playerSchoolName;
     public float playerProgress;
+    //players location and rotation
+    public Vector3 lastPosition;
+    public Quaternion lastRotation;
 
 
     void Awake()
@@ -42,6 +45,10 @@ public class GameManager : MonoBehaviour {
         }
         //Sets this to not be destroyed when reloading scene
         DontDestroyOnLoad(gameObject);
+
+        //set players trasform
+        lastPosition = new Vector3(-1.254f, 0.918f, -1.788f);
+        lastRotation = new Quaternion (0,-50, 0 ,80);
     }
 
     private void OnEnable()
@@ -163,6 +170,9 @@ public class GameManager : MonoBehaviour {
         StartCanvas.presentedToUser = false;
         currentLevel = Levels.menu;
         GoedleAnalytics.instance.track("exit.simulation");
+        //set players trasform
+        instance.lastPosition = new Vector3(-1.254f, 0.918f, -1.788f);
+        instance.lastRotation = new Quaternion(0, -50, 0, 80);
     }
 
     #endregion

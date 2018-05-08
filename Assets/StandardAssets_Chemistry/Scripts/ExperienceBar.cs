@@ -18,6 +18,7 @@ public class ExperienceBar : MonoBehaviour {
         int totalMolecules = 2 * MoleculeManager.instance.standard_strategy.Count;
         int playersMolecules = GameManager.namedMolecules + GameManager.constructedMolecules;
         progress = Mathf.Clamp01 ((float)playersMolecules / (float)totalMolecules);
+        GameManager.instance.playerProgress = Mathf.FloorToInt(progress*100); //store to GM in percetange.
         experienceBar.value = progress;
     }
 }

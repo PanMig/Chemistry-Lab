@@ -29,7 +29,7 @@ public class UserIdentification : MonoBehaviour {
         return false;
     }
 
-    public void StartSimulation()
+    public void StartSimulation(string sceneName)
     {
         if (IsInputEmpty())
         {
@@ -41,7 +41,7 @@ public class UserIdentification : MonoBehaviour {
             string[] user_ids = inputFields.OfType<InputField>().Select(o => o.ToString()).ToArray();
             string hashed_user_id = GoedleUtils.userHash(user_ids.ToString());
             goedle_sdk.GoedleAnalytics.instance.setUserId(hashed_user_id);
-            sceneLoader.LoadScene("Lab");
+            sceneLoader.LoadScene(sceneName);
             // if input is not empty load the lab scene.
         }
     }

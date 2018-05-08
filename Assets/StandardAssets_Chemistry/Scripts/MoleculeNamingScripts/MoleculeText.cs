@@ -21,7 +21,7 @@ public class MoleculeText : MonoBehaviour {
         SetText();
     }
 
-    private void SetText()
+    private void SetText() //sets the text for the molecule name and enables the line if constructed or named.
     {
         //stands for the naming quiz
         if (option == 1 && GameManager.currentLevel == GameManager.Levels.moleculeNaming)

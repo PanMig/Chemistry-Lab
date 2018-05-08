@@ -16288,6 +16288,17 @@ MonoBehaviour:
     smooth: 0
     smoothTime: 5
     lockCursor: 1
+--- !u!114 &806409092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 806409090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3eb788dc1ff2fb40bafe09f8de29907, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &811148823
 GameObject:
   m_ObjectHideFlags: 0

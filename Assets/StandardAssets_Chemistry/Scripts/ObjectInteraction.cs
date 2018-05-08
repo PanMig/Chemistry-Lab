@@ -37,6 +37,11 @@ public class ObjectInteraction : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E) && inTrigger == true)
         {
             InteractWithObject();
+            if(interactable != Interactables.exit)
+            {
+                GameManager.instance.lastPosition = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>().position;
+                GameManager.instance.lastRotation = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>().rotation;
+            }
         }
     }
 
