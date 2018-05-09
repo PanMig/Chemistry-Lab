@@ -39,6 +39,7 @@ public class UserIdentification : MonoBehaviour {
         {
             // Creating a hashed user id, md5 hash of a string and then using a guid
             string[] user_ids = inputFields.OfType<InputField>().Select(o => o.ToString()).ToArray();
+            print(user_ids[1]);
             string hashed_user_id = GoedleUtils.userHash(user_ids.ToString());
             goedle_sdk.GoedleAnalytics.instance.setUserId(hashed_user_id);
             sceneLoader.LoadScene(sceneName);
