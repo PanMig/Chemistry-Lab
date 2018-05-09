@@ -8,12 +8,11 @@ public class MoleculeManager : MonoBehaviour
 {
     // Definition of molecules
     public static MoleculeManager instance = null;
-    //string[] defaulStrategy = { "H20", "CH4", "HCl", "NaCl", "CH4O", "C2H6O", "C3H6O", "CH5N", "CH2N2", "C2H2O" };
-    string[] defaulStrategy = { "CH4", "H20","HCl", "NH3", "NaCl", "CH3OH", "C2H5OH", "C3H8", "CH5N"};
-    Molecule _H20 = new Molecule("Water", "H2O");
-    Molecule _CH4 = new Molecule("Methane", "CH4");
-    Molecule _HCl = new Molecule("Hydrogen Chloride", "HCl");
-    Molecule _NaCl = new Molecule("Sodium Chloride", "NaCl");
+    public string[] defaulStrategy = { "CH4", "H2O","HCl", "NH3", "NaCl", "CH3OH", "C2H5OH", "C3H8", "CH5N"};
+	Molecule _H20 = new Molecule("Water", "H2O");
+	Molecule _CH4 = new Molecule("Methane", "CH4");
+	Molecule _HCl = new Molecule("Hydrogen Chloride", "HCl");
+	Molecule _NaCl = new Molecule("Sodium Chloride", "NaCl");
     Molecule _CH4O = new Molecule("Methanole", "CH3OH");
     Molecule _C2H6O = new Molecule("Ethanol", "C2H5OH");
     Molecule _C3H6O = new Molecule("Acetone", "C3H6O");
@@ -22,13 +21,12 @@ public class MoleculeManager : MonoBehaviour
     Molecule _C2H2O = new Molecule("Ethenone", "C2H2O");
     Molecule _NH3 = new Molecule("Ammonia", "NH3");
     Molecule _C3H8 = new Molecule("Propane", "C3H8");
-    public List<string> standard_strategy = null;
-    public List<string> _construction_strategy = null;
-    public List<string> _naming_strategy = null;
-    public Queue<string> _strategy_stack_default = null;
-    public Queue<string> _strategy_stack_naming = null;
+    public List<string> strategy = null;
+	public List<string> received_strategy = null;
+	public int _naming_strategy_count = 0;
+	public int _construction_strategy_count = 0;
+	public Queue<string> _strategy_stack_naming = null;
     public Queue<string> _strategy_stack_construction=null;
-    public JSONNode _gio_strategy = null;
 
 
     // There are no static dictonaries in C# this is ugly but the best and efficent solution
@@ -53,23 +51,8 @@ public class MoleculeManager : MonoBehaviour
         }
     }
 
-    public void setStandardStrategy(string [] strategy){
-        standard_strategy = new List<string>(strategy);
-    }
-
-    public void fillDefaultQueue(List<string> strategy)
-    {
-        _strategy_stack_default = new Queue<string>(strategy);
-    }
-
-    public void fillNamingQueue(List<string> strategy)
-    {
-        _strategy_stack_naming = new Queue<string>(strategy);
-    }
-
-    public void fillConstructiontQueue(List<string> strategy)
-    {
-        _strategy_stack_construction = new Queue<string>(strategy);
+    public void setStrategy(string [] new_strategy){
+		strategy = new List<string>(new_strategy);
     }
 
     // this builds the strategy que for the naming quiz
@@ -85,22 +68,20 @@ public class MoleculeManager : MonoBehaviour
     // helper function to get the current active molecule for a lab
     public Molecule getActiveMolecule(string quiz_name)
     {
-        switch (quiz_name)
-        {
-            case "naming": return getMolecule(_strategy_stack_naming.Peek());
-            case "construction": return getMolecule(_strategy_stack_construction.Peek());
-            default: return getMolecule(_strategy_stack_default.Peek());
-        }
+		if (quiz_name.Equals("naming"))
+			return getMolecule(_strategy_stack_naming.Peek());
+		if (quiz_name.Equals("construction"))
+             return getMolecule(_strategy_stack_construction.Peek());
+		return null;
     }
     // helper function to get the next molecule for a lab 
     public Molecule nextMolecule(string quiz_name)
     {
-        switch (quiz_name)
-        {
-            case "nameing": return dequeueMolecule(_strategy_stack_naming);
-            case "construction": return dequeueMolecule(_strategy_stack_construction);
-            default: return dequeueMolecule(_strategy_stack_default);
-        }
+		if (quiz_name.Equals("naming"))
+			return dequeueMolecule(_strategy_stack_naming);
+        if (quiz_name.Equals("construction"))
+			return dequeueMolecule(_strategy_stack_construction);
+        return null;  
     }
     // dequeue molecule and put molecule in the queue and peek the next in queue
     public Molecule dequeueMolecule(Queue<string> strategy_stack){
@@ -125,12 +106,11 @@ public class MoleculeManager : MonoBehaviour
         }
         //Sets this to not be destroyed when reloading scene
         DontDestroyOnLoad(gameObject);
-        setStandardStrategy(defaulStrategy);
-        fillDefaultQueue(standard_strategy);
-
-        //_naming_strategy = standard_strategy;
-        //_construction_strategy = standard_strategy;
-
+        
+		buildStrategyNamingQueue(strategy);
+		buildStrategyConstructionQueue(strategy);
+		_naming_strategy_count = _strategy_stack_naming.Count;
+		_construction_strategy_count = _strategy_stack_construction.Count; 
         GoedleAnalytics.instance.requestStrategy();
         StartCoroutine(getStrategy());
 
@@ -144,31 +124,18 @@ public class MoleculeManager : MonoBehaviour
             yield return null;
             c++;
         }
-        if (GoedleAnalytics.instance.gio_interface.strategy != null)
-        {
-            _gio_strategy = GoedleAnalytics.instance.gio_interface.strategy;
-            if (_gio_strategy["config"][0]["naming"] != null)
-            {
-
-                _naming_strategy = transformJSONArray(_gio_strategy["config"][0]["naming"]);
-            }else{
-                _naming_strategy = standard_strategy;
-            }
-
-            if (_gio_strategy["config"][0]["construction"] != null)
-            {
-                _construction_strategy = transformJSONArray(_gio_strategy["config"][0]["construction"]);
-            }else{
-                _construction_strategy = standard_strategy;
-            }
-        }
-        else{
-            _naming_strategy = standard_strategy;
-            _construction_strategy = standard_strategy;
-        }
-        fillNamingQueue(_naming_strategy);
-        fillConstructiontQueue(_construction_strategy);
-
+		if (GoedleAnalytics.instance.gio_interface.strategy != null)
+		{
+			if (GoedleAnalytics.instance.gio_interface.strategy["config"] != null)
+			{
+				GoedleAnalytics.instance.track("received.strategy",GoedleAnalytics.instance.gio_interface.strategy["id"]);
+				received_strategy = transformJSONArray(GoedleAnalytics.instance.gio_interface.strategy["config"]);
+				buildStrategyNamingQueue(received_strategy);
+				buildStrategyConstructionQueue(received_strategy);
+			}
+		}
+		_naming_strategy_count = _strategy_stack_naming.Count;
+        _construction_strategy_count = _strategy_stack_construction.Count; 
     }
 
     public List<string> transformJSONArray(JSONNode jStrategy){

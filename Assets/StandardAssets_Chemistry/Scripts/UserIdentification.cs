@@ -17,34 +17,14 @@ public class UserIdentification : MonoBehaviour {
         textLog.SetActive(false);
     }
 
-    public bool IsInputEmpty()
-    {
-        foreach (InputField field in inputFields)
-        {
-            if (field.text.Length == 0)
-            {
-                return true;
-            }
-        }
-        return false;
-    }
 
     public void StartSimulation(string sceneName)
     {
-        if (IsInputEmpty())
-        {
-            textLog.SetActive(true);
-        }
-        else
-        {
-            // Creating a hashed user id, md5 hash of a string and then using a guid
-            string[] user_ids = inputFields.OfType<InputField>().Select(o => o.ToString()).ToArray();
-            print(user_ids[1]);
-            string hashed_user_id = GoedleUtils.userHash(user_ids.ToString());
-            goedle_sdk.GoedleAnalytics.instance.setUserId(hashed_user_id);
-            sceneLoader.LoadScene(sceneName);
-            // if input is not empty load the lab scene.
-        }
+		string user_id_raw = GameManager.instance.playerName + GameManager.instance.playerClass + GameManager.instance.playerSchoolName;
+        // Creating a hashed user id, md5 hash of a string and then using a guid
+		string hashed_user_id = GoedleUtils.userHash(user_id_raw);
+        goedle_sdk.GoedleAnalytics.instance.setUserId(hashed_user_id);
+        sceneLoader.LoadScene(sceneName);
     }
 
 }
