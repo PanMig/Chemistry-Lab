@@ -26,8 +26,8 @@ public class ScoreManagerDisplay : MonoBehaviour {
     {
         namedMols.text = GameManager.namedMolecules.ToString();
         constructedMols.text = GameManager.constructedMolecules.ToString();
-        sumMolsNaming.text = MoleculeManager.instance.standard_strategy.Count.ToString();
-        sumMolsConstruction.text = MoleculeManager.instance.standard_strategy.Count.ToString();
+        sumMolsNaming.text = MoleculeManager.instance._naming_strategy.Count.ToString();
+        sumMolsConstruction.text = MoleculeManager.instance._construction_strategy.Count.ToString();
 
         BranchScore();
         scoreCanvas.SetActive(true);
@@ -37,7 +37,7 @@ public class ScoreManagerDisplay : MonoBehaviour {
     public void BranchScore()
     {
         int totalScore = GameManager.namedMolecules + GameManager.constructedMolecules;
-        int firstBorder = MoleculeManager.instance.standard_strategy.Count;
+        int firstBorder = MoleculeManager.instance._naming_strategy.Count;
         int secondBorder = ((3 * firstBorder + 3 * firstBorder - 1) / 4) + 1;
         int thirdBorder = 2 * firstBorder - 1;
 
