@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -12,11 +12,11 @@ public class RemainingMolsText : MonoBehaviour {
     {
         if (type == 1)
         {
-            gameObject.GetComponent<Text>().text = (MoleculeManager.instance._naming_strategy.Count - GameManager.namedMolecules).ToString();
+			gameObject.GetComponent<Text>().text = (MoleculeManager.instance.strategy.Count - GameManager.namedMolecules).ToString();
         }
         else
         {
-            gameObject.GetComponent<Text>().text = (MoleculeManager.instance._construction_strategy.Count - GameManager.constructedMolecules).ToString();
+            gameObject.GetComponent<Text>().text = (MoleculeManager.instance.strategy.Count - GameManager.constructedMolecules).ToString();
         }
     }
 }

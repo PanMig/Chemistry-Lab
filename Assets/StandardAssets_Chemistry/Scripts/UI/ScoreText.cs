@@ -21,14 +21,14 @@ public class ScoreText : MonoBehaviour {
     {
         if (GameManager.currentLevel == GameManager.Levels.moleculeNaming)
         {
-            sumText.text = MoleculeManager.instance._naming_strategy.Count.ToString();
+			sumText.text = MoleculeManager.instance._naming_strategy_count.ToString();
             currentText.text = GameManager.namedMolecules.ToString();
             StartCoroutine(WaitForSec());
 
         }
         else
         {
-            sumText.text = MoleculeManager.instance._construction_strategy.Count.ToString();
+			sumText.text = MoleculeManager.instance._construction_strategy_count.ToString();
             currentText.text = GameManager.constructedMolecules.ToString();
             StartCoroutine(WaitForSec());
         }
