@@ -32,6 +32,7 @@ public class ScoreText : MonoBehaviour {
             currentText.text = GameManager.constructedMolecules.ToString();
             StartCoroutine(WaitForSec());
         }
+		Debug.Log(sumText.text);
         
     }
 

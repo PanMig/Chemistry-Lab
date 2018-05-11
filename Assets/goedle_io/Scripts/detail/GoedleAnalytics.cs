@@ -108,6 +108,8 @@ namespace goedle_sdk.detail
                     authentication = _goedleUtils.encodeToUrlParameter(content, _api_key);
                 }
                 string url = GoedleConstants.TRACK_URL;
+				Console.WriteLine(event_name);
+				Console.WriteLine(event_id);
                 goedleUploadHandler.add(content);
 
                 _gio_http_client.sendPost(url, authentication, _gwr, goedleUploadHandler, _staging);

@@ -77,6 +77,7 @@ public class GameManager : MonoBehaviour {
 
     public void IncrementNamedMolecules()
     {
+		
         GoedleAnalytics.instance.track("complete.formula", chosenMolecule.Name);
 
         if (!IsMoleculeNamed(chosenMolecule.Name))

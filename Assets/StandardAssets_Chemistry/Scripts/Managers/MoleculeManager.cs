@@ -68,7 +68,7 @@ public class MoleculeManager : MonoBehaviour
     // helper function to get the current active molecule for a lab
     public Molecule getActiveMolecule(string quiz_name)
     {
-		if (quiz_name.Equals("naming"))
+		if (quiz_name.Equals("nameing"))
 			return getMolecule(_strategy_stack_naming.Peek());
 		if (quiz_name.Equals("construction"))
              return getMolecule(_strategy_stack_construction.Peek());
@@ -77,7 +77,7 @@ public class MoleculeManager : MonoBehaviour
     // helper function to get the next molecule for a lab 
     public Molecule nextMolecule(string quiz_name)
     {
-		if (quiz_name.Equals("naming"))
+		if (quiz_name.Equals("nameing"))
 			return dequeueMolecule(_strategy_stack_naming);
         if (quiz_name.Equals("construction"))
 			return dequeueMolecule(_strategy_stack_construction);
