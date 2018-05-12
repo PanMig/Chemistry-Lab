@@ -140,7 +140,7 @@ GameObject:
   - component: {fileID: 612720212}
   - component: {fileID: 612720211}
   m_Layer: 5
-  m_Name: CreditsImage
+  m_Name: __CreditsImage__
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -516,7 +516,7 @@ GameObject:
   - component: {fileID: 1128077940}
   - component: {fileID: 1128077939}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -587,7 +587,7 @@ GameObject:
   - component: {fileID: 1356577912}
   - component: {fileID: 1356577911}
   m_Layer: 5
-  m_Name: CreditsText
+  m_Name: __CreditsText__
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -723,7 +723,7 @@ GameObject:
   - component: {fileID: 1597161471}
   - component: {fileID: 1597161470}
   m_Layer: 5
-  m_Name: BackgroundImage
+  m_Name: __BackgroundImage__
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -888,7 +888,7 @@ GameObject:
   - component: {fileID: 1975080050}
   - component: {fileID: 1975080049}
   m_Layer: 5
-  m_Name: Button
+  m_Name: __ReturnButton__
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

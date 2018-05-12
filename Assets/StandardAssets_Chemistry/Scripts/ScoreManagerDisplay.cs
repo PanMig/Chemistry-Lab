@@ -29,9 +29,12 @@ public class ScoreManagerDisplay : MonoBehaviour {
         constructedMols.text = GameManager.constructedMolecules.ToString();
 		sumMolsNaming.text = MoleculeManager.instance._nameing_strategy_count.ToString();
 		sumMolsConstruction.text = MoleculeManager.instance._construction_strategy_count.ToString();
-		GoedleAnalytics.instance.track("submit.score","nameing", (MoleculeManager.instance._nameing_strategy_count/GameManager.namedMolecules).ToString() );
-		GoedleAnalytics.instance.track("submit.score", "construction", (MoleculeManager.instance._construction_strategy_count / GameManager.constructedMolecules).ToString());
 
+        if (GameManager.namedMolecules != 0 && GameManager.constructedMolecules != 0)
+        {
+            GoedleAnalytics.instance.track("submit.score", "nameing", (MoleculeManager.instance._nameing_strategy_count / GameManager.namedMolecules).ToString());
+            GoedleAnalytics.instance.track("submit.score", "construction", (MoleculeManager.instance._construction_strategy_count / GameManager.constructedMolecules).ToString());
+        }
 		BranchScore();
         scoreCanvas.SetActive(true);
         player.GetComponent<FirstPersonController>().enabled = false;

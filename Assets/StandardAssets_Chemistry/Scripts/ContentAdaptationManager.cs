@@ -31,7 +31,7 @@ public class ContentAdaptationManager : MonoBehaviour
         switch (GameManager.currentLevel)
         {
             case GameManager.Levels.moleculeNaming:
-                GameManager.chosenMolecule = MoleculeManager.instance.nextMolecule("naming");
+                GameManager.chosenMolecule = MoleculeManager.instance.nextMolecule("nameing");
                 break;
             case GameManager.Levels.moleculeConstruction:
                 GameManager.chosenMolecule = MoleculeManager.instance.nextMolecule("construction");
