@@ -52,10 +52,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   staging: 0
-  app_key: 9f0208495c53c9fa8ae5ebbb8e84e905
-  api_key: 6d60afe597e1b05bcae4180b2ab3564b
-  APP_VERSION: v_test
-  APP_NAME: Chemistry_Lab_Test
+  app_key: 
+  api_key: 
+  APP_VERSION: 
+  APP_NAME: 
   GA_TRACKIND_ID: 
   GA_CD_EVENT: 
   GA_CD_1: 0

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityStandardAssets.Characters.FirstPerson;
+using goedle_sdk;
 
 public class ScoreManagerDisplay : MonoBehaviour {
 
@@ -26,9 +27,12 @@ public class ScoreManagerDisplay : MonoBehaviour {
     {
         namedMols.text = GameManager.namedMolecules.ToString();
         constructedMols.text = GameManager.constructedMolecules.ToString();
-		sumMolsNaming.text = MoleculeManager.instance._naming_strategy_count.ToString();
+		sumMolsNaming.text = MoleculeManager.instance._nameing_strategy_count.ToString();
 		sumMolsConstruction.text = MoleculeManager.instance._construction_strategy_count.ToString();
-        BranchScore();
+		GoedleAnalytics.instance.track("submit.score","nameing", (MoleculeManager.instance._nameing_strategy_count/GameManager.namedMolecules).ToString() );
+		GoedleAnalytics.instance.track("submit.score", "construction", (MoleculeManager.instance._construction_strategy_count / GameManager.constructedMolecules).ToString());
+
+		BranchScore();
         scoreCanvas.SetActive(true);
         player.GetComponent<FirstPersonController>().enabled = false;
     }

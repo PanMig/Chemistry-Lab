@@ -12,11 +12,11 @@ public class RemainingMolsText : MonoBehaviour {
     {
         if (type == 1)
         {
-			gameObject.GetComponent<Text>().text = (MoleculeManager.instance.received_strategy.Count - GameManager.namedMolecules).ToString();
+			gameObject.GetComponent<Text>().text = (MoleculeManager.instance._nameing_strategy_count - GameManager.namedMolecules).ToString();
         }
         else
         {
-            gameObject.GetComponent<Text>().text = (MoleculeManager.instance.received_strategy.Count - GameManager.constructedMolecules).ToString();
+			gameObject.GetComponent<Text>().text = (MoleculeManager.instance._construction_strategy_count - GameManager.constructedMolecules).ToString();
         }
     }
 }
