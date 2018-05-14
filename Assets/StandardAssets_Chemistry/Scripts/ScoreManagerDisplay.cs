@@ -44,7 +44,7 @@ public class ScoreManagerDisplay : MonoBehaviour {
     {
         int totalScore = GameManager.namedMolecules + GameManager.constructedMolecules;
 
-		int firstBorder = MoleculeManager.instance.received_strategy.Count;
+		int firstBorder = MoleculeManager.instance.strategy.Count;
         int secondBorder = ((3 * firstBorder + 3 * firstBorder - 1) / 4) + 1;
         int thirdBorder = 2 * firstBorder - 1;
 

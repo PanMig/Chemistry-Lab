@@ -27,6 +27,9 @@ EditorBuildSettings:
     path: Assets/Scenes/MoleculeNaming.unity
     guid: 3cbd064172443e14f95d4e8caf81d944
   - enabled: 1
+    path: Assets/Scenes/MoleculeNamingTemplate.unity
+    guid: c00f47aa5a9f7004eacdf0e235252186
+  - enabled: 1
     path: Assets/Scenes/MoleculeConstruction.unity
     guid: 5a731f8f2e5156d4294bf8b5e0c44270
   - enabled: 0

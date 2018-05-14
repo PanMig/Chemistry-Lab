@@ -4,6 +4,7 @@ using UnityEngine;
 using SimpleJSON;
 using goedle_sdk;
 
+[System.Serializable]
 public class MoleculeManager : MonoBehaviour
 {
     // Definition of molecules
