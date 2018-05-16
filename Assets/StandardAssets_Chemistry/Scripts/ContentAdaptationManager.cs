@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ContentAdaptationManager : MonoBehaviour
 {
+    public MoleculesController MoleculesCtrl;
 
     //delegate
     public delegate void ButtonClick();
@@ -12,33 +13,14 @@ public class ContentAdaptationManager : MonoBehaviour
     // Use this for initialization
     void Awake()
     {
-        switch (GameManager.currentLevel)
-        {
-            case GameManager.Levels.moleculeNaming:
-                GameManager.chosenMolecule = MoleculeManager.instance.getActiveMolecule("nameing");
-                break;
-            case GameManager.Levels.moleculeConstruction:
-                GameManager.chosenMolecule = MoleculeManager.instance.getActiveMolecule("construction");
-                break;
-            default:
-                break;
-        }
+        GameManager.chosenMolecule = MoleculesCtrl.GetActiveMolecule();
     }
 
 
     public void LoadNextMol()
     {
-        switch (GameManager.currentLevel)
-        {
-            case GameManager.Levels.moleculeNaming:
-                GameManager.chosenMolecule = MoleculeManager.instance.nextMolecule("nameing");
-                break;
-            case GameManager.Levels.moleculeConstruction:
-                GameManager.chosenMolecule = MoleculeManager.instance.nextMolecule("construction");
-                break;
-            default:
-                break;
-        }
+        GameManager.chosenMolecule = MoleculesCtrl.NextMolecule();
+
         if (NextMolecule != null)
         {
             NextMolecule();
