@@ -28,11 +28,15 @@ public class MoleculesController : MonoBehaviour
     public int strategy_count = 0;
     public Queue<string> strategy_stack = null;
 
+    //the present molecule, made static so not to be create every time we load the script.
+    private static string lastViewed_naming = null;
+    private static string lastViewed_construction = null;
+
 
     // There are no static dictonaries in C# this is ugly but the best and efficent solution
-    public Molecule GetMolecule(string forumla)
+    public Molecule GetMolecule(string formula)
     {
-        switch (forumla)
+        switch (formula)
         {
             case "H20": return _H20;
             case "CH4": return _CH4;
@@ -51,6 +55,7 @@ public class MoleculesController : MonoBehaviour
         }
     }
 
+
     public void SetStrategy(string[] new_strategy)
     {
         strategy = new List<string>(new_strategy);
@@ -65,19 +70,55 @@ public class MoleculesController : MonoBehaviour
     // helper function to get the current active molecule for a lab
     public Molecule GetActiveMolecule()
     {
-        return GetMolecule(strategy_stack.Peek());
+        switch (GameManager.currentLevel)
+        {
+            case GameManager.Levels.moleculeNaming:
+                if (lastViewed_naming == null)
+                {
+                    return GetMolecule(strategy_stack.Peek());
+                }
+                else
+                {
+                    return GetMolecule(lastViewed_naming);
+                }
+            case GameManager.Levels.moleculeConstruction:
+                if (lastViewed_construction == null)
+                {
+                    return GetMolecule(strategy_stack.Peek());
+                }
+                else
+                {
+                    return GetMolecule(lastViewed_construction);
+                }
+            default:
+                Debug.Log("error for last_viewed molecule");
+                return null;
+        }
+        
     }
 
     // helper function to get the next molecule for a lab 
     public Molecule NextMolecule()
-    {
-        return DequeueMolecule(strategy_stack);
+    { 
+       return DequeueMolecule(strategy_stack);
     }
+
     // dequeue molecule and put molecule in the queue and peek the next in queue
     public Molecule DequeueMolecule(Queue<string> strategy_stack)
     {
         string current_molecule = strategy_stack.Dequeue();
         strategy_stack.Enqueue(current_molecule);
+        
+        // hold the last viewed molecule, differently for the two exams.
+        if(GameManager.currentLevel == GameManager.Levels.moleculeNaming)
+        {
+            lastViewed_naming = strategy_stack.Peek();
+        }
+        else
+        {
+            lastViewed_construction = strategy_stack.Peek(); 
+        }
+
         return GetMolecule(strategy_stack.Peek());
     }
 

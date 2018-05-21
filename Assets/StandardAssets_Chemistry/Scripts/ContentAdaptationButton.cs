@@ -53,6 +53,7 @@ public class ContentAdaptationButton : MonoBehaviour {
         CAManager.LoadNextMol();
     }
 
+
     public void ChangeSprite()
     {
         gameObject.GetComponent<Image>().sprite = greenSprite;
