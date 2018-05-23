@@ -3164,7 +3164,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaulStrategy:
-  - ___[Formula Type]___
+  - H2O
+  - NH3
+  - CH4
+  availableMolecules:
+  - name: Water
+    formula: H2O
+  - name: Ammonia
+    formula: NH3
+  - name: Methane
+    formula: CH4
   strategy: []
   received_strategy: []
   strategy_count: 0

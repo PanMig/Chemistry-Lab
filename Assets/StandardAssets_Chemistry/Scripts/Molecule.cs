@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 
+[Serializable]
 public class Molecule
 {
 
     #region properties
-    private string name;
+    public string name;
     public string Name
     {
         get
@@ -19,7 +20,7 @@ public class Molecule
         }
     }
 
-    private string formula;
+    public string formula;
     public string Formula
     {
         get

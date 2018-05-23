@@ -22,6 +22,9 @@ public class MoleculesController : MonoBehaviour
     Molecule _NH3 = new Molecule("Ammonia", "NH3");
     Molecule _C3H8 = new Molecule("Propane", "C3H8");
 
+    //all the molecules that will be available in both naming and construction and
+    [SerializeField] public List<Molecule> availableMolecules = new List<Molecule>();
+
     //Data structures
     public List<string> strategy = null;
     public List<string> received_strategy = null;
@@ -34,7 +37,7 @@ public class MoleculesController : MonoBehaviour
 
 
     // There are no static dictonaries in C# this is ugly but the best and efficent solution
-    public Molecule GetMolecule(string formula)
+    /*public Molecule GetMolecule(string formula)
     {
         switch (formula)
         {
@@ -53,7 +56,20 @@ public class MoleculesController : MonoBehaviour
             // I had no better idea, now water is the default molecule
             default: return _H20;
         }
+    }*/
+
+    public Molecule GetMolecule(string formula)
+    {
+        foreach (Molecule molecule in availableMolecules)
+        {
+            if(molecule.formula == formula)
+            {
+                return new Molecule(molecule.name, molecule.formula);
+            }
+        }
+        return null;  
     }
+
 
 
     public void SetStrategy(string[] new_strategy)
