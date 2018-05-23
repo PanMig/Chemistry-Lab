@@ -1757,7 +1757,12 @@ Prefab:
     - target: {fileID: 114887907869304822, guid: 167bfa52f8a813942a8dc5caaff4122b,
         type: 2}
       propertyPath: defaulStrategy.Array.size
-      value: 4
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114887907869304822, guid: 167bfa52f8a813942a8dc5caaff4122b,
+        type: 2}
+      propertyPath: availableMolecules.Array.size
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4528333339660128, guid: 167bfa52f8a813942a8dc5caaff4122b, type: 2}
       propertyPath: m_LocalPosition.x
@@ -1815,6 +1820,56 @@ Prefab:
         type: 2}
       propertyPath: defaulStrategy.Array.data[4]
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114887907869304822, guid: 167bfa52f8a813942a8dc5caaff4122b,
+        type: 2}
+      propertyPath: defaulStrategy.Array.data[0]
+      value: H2O
+      objectReference: {fileID: 0}
+    - target: {fileID: 114887907869304822, guid: 167bfa52f8a813942a8dc5caaff4122b,
+        type: 2}
+      propertyPath: defaulStrategy.Array.data[1]
+      value: NH3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114887907869304822, guid: 167bfa52f8a813942a8dc5caaff4122b,
+        type: 2}
+      propertyPath: defaulStrategy.Array.data[2]
+      value: CH4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114887907869304822, guid: 167bfa52f8a813942a8dc5caaff4122b,
+        type: 2}
+      propertyPath: availableMolecules.Array.data[0].name
+      value: Water
+      objectReference: {fileID: 0}
+    - target: {fileID: 114887907869304822, guid: 167bfa52f8a813942a8dc5caaff4122b,
+        type: 2}
+      propertyPath: availableMolecules.Array.data[0].formula
+      value: H2O
+      objectReference: {fileID: 0}
+    - target: {fileID: 114887907869304822, guid: 167bfa52f8a813942a8dc5caaff4122b,
+        type: 2}
+      propertyPath: availableMolecules.Array.data[1].name
+      value: Ammonia
+      objectReference: {fileID: 0}
+    - target: {fileID: 114887907869304822, guid: 167bfa52f8a813942a8dc5caaff4122b,
+        type: 2}
+      propertyPath: availableMolecules.Array.data[1].formula
+      value: NH3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114887907869304822, guid: 167bfa52f8a813942a8dc5caaff4122b,
+        type: 2}
+      propertyPath: availableMolecules.Array.data[2].name
+      value: Methane
+      objectReference: {fileID: 0}
+    - target: {fileID: 114887907869304822, guid: 167bfa52f8a813942a8dc5caaff4122b,
+        type: 2}
+      propertyPath: availableMolecules.Array.data[2].formula
+      value: CH4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114887907869304822, guid: 167bfa52f8a813942a8dc5caaff4122b,
+        type: 2}
+      propertyPath: defaulStrategy.Array.data[3]
+      value: NH3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 167bfa52f8a813942a8dc5caaff4122b, type: 2}
