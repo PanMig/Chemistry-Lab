@@ -8,7 +8,9 @@ using goedle_sdk;
 public class MoleculesController : MonoBehaviour
 {
 
-    public string[] defaulStrategy = { "CH4", "H2O", "HCl", "NH3", "NaCl", "CH3OH", "C2H5OH", "C3H8", "CH5N" };
+    public string[] defaulStrategy;
+    /* There is no need for predifined molecules,
+     * I create them based on the list of molecules given from the inspector
     Molecule _H20 = new Molecule("Water", "H2O");
     Molecule _CH4 = new Molecule("Methane", "CH4");
     Molecule _HCl = new Molecule("Hydrogen Chloride", "HCl");
@@ -21,7 +23,8 @@ public class MoleculesController : MonoBehaviour
     Molecule _C2H2O = new Molecule("Ethenone", "C2H2O");
     Molecule _NH3 = new Molecule("Ammonia", "NH3");
     Molecule _C3H8 = new Molecule("Propane", "C3H8");
-
+    */
+    
     //all the molecules that will be available in both naming and construction and
     [SerializeField] public List<Molecule> availableMolecules = new List<Molecule>();
 
@@ -36,7 +39,7 @@ public class MoleculesController : MonoBehaviour
     private static string lastViewed_construction = null;
 
 
-    // There are no static dictonaries in C# this is ugly but the best and efficent solution
+    //No need to have this method, I just made one to itarate through the list
     /*public Molecule GetMolecule(string formula)
     {
         switch (formula)
@@ -67,7 +70,7 @@ public class MoleculesController : MonoBehaviour
                 return new Molecule(molecule.name, molecule.formula);
             }
         }
-        return null;  
+        return new Molecule("Molecule does not exist, check your strategy input","HHH");  
     }
 
 
