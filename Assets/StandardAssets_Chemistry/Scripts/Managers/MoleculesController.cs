@@ -70,7 +70,7 @@ public class MoleculesController : MonoBehaviour
                 return new Molecule(molecule.name, molecule.formula);
             }
         }
-        return new Molecule("Molecule does not exist, check your strategy input","HHH");  
+        return new Molecule("Molecule does not exist either in the strategy array or available molecules list","HHH");  
     }
 
 
