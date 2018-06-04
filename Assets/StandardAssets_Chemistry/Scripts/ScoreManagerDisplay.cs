@@ -27,13 +27,13 @@ public class ScoreManagerDisplay : MonoBehaviour {
     {
         namedMols.text = GameManager.namedMolecules.ToString();
         constructedMols.text = GameManager.constructedMolecules.ToString();
-		sumMolsNaming.text = MoleculeManager.instance._nameing_strategy_count.ToString();
-		sumMolsConstruction.text = MoleculeManager.instance._construction_strategy_count.ToString();
+		sumMolsNaming.text = GameManager.instance.totalNamedMols.ToString();
+		sumMolsConstruction.text = GameManager.instance.totalConstructedMols.ToString();
 
         if (GameManager.namedMolecules != 0 && GameManager.constructedMolecules != 0)
         {
-            GoedleAnalytics.instance.track("submit.score", "nameing", (MoleculeManager.instance._nameing_strategy_count / GameManager.namedMolecules).ToString());
-            GoedleAnalytics.instance.track("submit.score", "construction", (MoleculeManager.instance._construction_strategy_count / GameManager.constructedMolecules).ToString());
+            GoedleAnalytics.instance.track("submit.score", "nameing", ( GameManager.instance.totalNamedMols/ GameManager.namedMolecules).ToString());
+            GoedleAnalytics.instance.track("submit.score", "construction", (GameManager.instance.totalConstructedMols / GameManager.constructedMolecules).ToString());
         }
 		BranchScore();
         scoreCanvas.SetActive(true);
@@ -44,7 +44,7 @@ public class ScoreManagerDisplay : MonoBehaviour {
     {
         int totalScore = GameManager.namedMolecules + GameManager.constructedMolecules;
 
-		int firstBorder = MoleculeManager.instance.strategy.Count;
+		int firstBorder = GameManager.instance.totalNamedMols;
         int secondBorder = ((3 * firstBorder + 3 * firstBorder - 1) / 4) + 1;
         int thirdBorder = 2 * firstBorder - 1;
 

@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using UnityEngine.Collections;
+using System.Collections;
 
 public class MouseTranslate : MonoBehaviour
 {

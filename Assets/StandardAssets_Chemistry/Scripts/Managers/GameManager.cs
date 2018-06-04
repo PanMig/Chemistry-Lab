@@ -24,9 +24,14 @@ public class GameManager : MonoBehaviour {
     public string playerClass;
     public string playerSchoolName;
     public float playerProgress;
+    
     //players location and rotation
     public Vector3 lastPosition;
     public Quaternion lastRotation;
+
+    // total molecules in mini game
+    public int totalNamedMols;
+    public int totalConstructedMols;
 
 
     void Awake()

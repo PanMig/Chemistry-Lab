@@ -151,6 +151,16 @@ public class MoleculesController : MonoBehaviour
         GoedleAnalytics.instance.requestStrategy();
         StartCoroutine(GetStrategy());
 
+        //save molecules to GM so to use them in the lab scene
+        if(GameManager.currentLevel == GameManager.Levels.moleculeNaming)
+        {
+            GameManager.instance.totalNamedMols = strategy_count;
+        }
+        else if (GameManager.currentLevel == GameManager.Levels.moleculeConstruction)
+        {
+            GameManager.instance.totalConstructedMols = strategy_count;
+        }
+
     }
 
     public IEnumerator GetStrategy()
