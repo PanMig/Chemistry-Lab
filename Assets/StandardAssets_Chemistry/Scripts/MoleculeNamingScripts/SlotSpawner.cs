@@ -40,7 +40,7 @@ public class SlotSpawner : MonoBehaviour
         if (SlotsFull())
         {
             MolCompleted();
-            SoundManager.instance.PlaySingle(successClip);
+                SoundManager.instance.PlaySingle(successClip);
         }
     }
 

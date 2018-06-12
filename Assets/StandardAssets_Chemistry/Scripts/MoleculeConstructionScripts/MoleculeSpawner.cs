@@ -38,7 +38,7 @@ public class MoleculeSpawner : MonoBehaviour
         {
             if (mol.name == GameManager.chosenMolecule.Name)
             {
-                molecule = Instantiate(mol, position.position, Quaternion.identity);
+                molecule = Instantiate(mol, position.position,Quaternion.identity);
             }
         }
     }

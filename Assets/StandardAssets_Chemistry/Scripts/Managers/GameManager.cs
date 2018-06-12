@@ -68,7 +68,9 @@ public class GameManager : MonoBehaviour {
         {
             namedMolecules++;
             constructedMolecules++;
+            
         }
+        print(namedMolecules);
     }
 
     public void CreateMolecule(string name, string formula,string difficulty)

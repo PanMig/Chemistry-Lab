@@ -2,14 +2,20 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ScientistController : MonoBehaviour
+public class PlayerMessagesController : MonoBehaviour
 {
 
     private Animator animator;
     public Text text;
 
+    public GameObject levelCompleteCanvas;
+    public AudioClip levelCompletedClip;
+
+    private static bool namingCompleted = false;
+    private static bool constructionCompleted = false;
+
     // Use this for initialization
-    void OnEnable()
+    void Start()
     {
         animator = gameObject.GetComponent<Animator>();
         animator.enabled = false;
@@ -35,15 +41,13 @@ public class ScientistController : MonoBehaviour
                 animator.enabled = true;
                 StartCoroutine(WaitForSec());
             }
-            else if ((GameManager.namedMolecules == 5))
+            else if (GameManager.namedMolecules == GameManager.instance.totalNamedMols && namingCompleted == false)
             {
-                EnableScientistPanel();
-                text.text = "You are getting very good at this, I'm impressed.";
-                animator.enabled = true;
-                StartCoroutine(WaitForSec());
+                levelCompleteCanvas.SetActive(true);
+                namingCompleted = true;
             }
         }
-        else
+        else if(GameManager.currentLevel == GameManager.Levels.moleculeConstruction)
         {
             if (GameManager.constructedMolecules == 1)
             {
@@ -52,12 +56,10 @@ public class ScientistController : MonoBehaviour
                 animator.enabled = true;
                 StartCoroutine(WaitForSec());
             }
-            else if (GameManager.constructedMolecules == 5)
+            else if (GameManager.constructedMolecules == GameManager.instance.totalConstructedMols && constructionCompleted == false)
             {
-                EnableScientistPanel();
-                text.text = "You are getting very good at this, I'm impressed.";
-                animator.enabled = true;
-                StartCoroutine(WaitForSec());
+                levelCompleteCanvas.SetActive(true);
+                constructionCompleted = true;
             }
         }
     }
