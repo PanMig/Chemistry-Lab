@@ -15181,7 +15181,9 @@ Prefab:
       propertyPath: m_LocalPosition.z
       value: -0.096
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114686398476656212, guid: d95dfe9eeea7731489064565a2d8b306, type: 2}
+    - {fileID: 65897519085266878, guid: d95dfe9eeea7731489064565a2d8b306, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: d95dfe9eeea7731489064565a2d8b306, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &762943943 stripped
@@ -49699,75 +49701,33 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4909941690500726, guid: d95dfe9eeea7731489064565a2d8b306, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -269.281
-      objectReference: {fileID: 0}
-    - target: {fileID: 4909941690500726, guid: d95dfe9eeea7731489064565a2d8b306, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 1.090873
-      objectReference: {fileID: 0}
-    - target: {fileID: 4909941690500726, guid: d95dfe9eeea7731489064565a2d8b306, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 1.214243
-      objectReference: {fileID: 0}
-    - target: {fileID: 4909941690500726, guid: d95dfe9eeea7731489064565a2d8b306, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 1.0908731
-      objectReference: {fileID: 0}
     - target: {fileID: 1716111664439686, guid: d95dfe9eeea7731489064565a2d8b306, type: 2}
       propertyPath: m_Name
       value: laptopNaming
       objectReference: {fileID: 0}
-    - target: {fileID: 4763079543819776, guid: d95dfe9eeea7731489064565a2d8b306, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4763079543819776, guid: d95dfe9eeea7731489064565a2d8b306, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -0.096
-      objectReference: {fileID: 0}
+    - target: {fileID: 114686398476656212, guid: d95dfe9eeea7731489064565a2d8b306,
+        type: 2}
+      propertyPath: interactionCanvas
+      value: 
+      objectReference: {fileID: 1048944797}
+    - target: {fileID: 114686398476656212, guid: d95dfe9eeea7731489064565a2d8b306,
+        type: 2}
+      propertyPath: crosshair
+      value: 
+      objectReference: {fileID: 254592000}
+    - target: {fileID: 114686398476656212, guid: d95dfe9eeea7731489064565a2d8b306,
+        type: 2}
+      propertyPath: sceneLoader
+      value: 
+      objectReference: {fileID: 227587222}
+    - target: {fileID: 114686398476656212, guid: d95dfe9eeea7731489064565a2d8b306,
+        type: 2}
+      propertyPath: cursor
+      value: 
+      objectReference: {fileID: 806409091}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d95dfe9eeea7731489064565a2d8b306, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &2137844026 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1451490347123022, guid: d95dfe9eeea7731489064565a2d8b306,
-    type: 2}
-  m_PrefabInternal: {fileID: 2137844025}
---- !u!114 &2137844027
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2137844026}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bbd2f0278cc4f9743b689e41b0994a4b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  interactionCanvas: {fileID: 1048944797}
-  crosshair: {fileID: 254592000}
-  defaultMat: {fileID: 2100000, guid: 54c38eb35b5848443a34928936331d6b, type: 2}
-  outlinedMat: {fileID: 2100000, guid: 829f166bc0690f54ba3cc13532d84976, type: 2}
-  interactable: 0
-  sceneLoader: {fileID: 227587222}
-  cursor: {fileID: 806409091}
-  clip: {fileID: 8300000, guid: 28f48e6af139f4947b1e28ed02729467, type: 3}
-  sceneToLoad: MoleculeNaming
-  scoreManager: {fileID: 0}
---- !u!65 &2137844028
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2137844026}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.28190455, y: 0.15075701, z: 0.41001028}
-  m_Center: {x: 7.9136996e-11, y: 0.075502194, z: 0.10668291}
 --- !u!1 &2144750246
 GameObject:
   m_ObjectHideFlags: 0

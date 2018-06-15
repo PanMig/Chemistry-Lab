@@ -62,17 +62,6 @@ public class GameManager : MonoBehaviour {
         EmptyParentMolecule.MolConstructed += IncrementConstructedMolecules;
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.H))
-        {
-            namedMolecules++;
-            constructedMolecules++;
-            
-        }
-        print(namedMolecules);
-    }
-
     public void CreateMolecule(string name, string formula,string difficulty)
     {
         chosenMolecule = new Molecule(name, formula,difficulty);
