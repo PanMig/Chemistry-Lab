@@ -5,7 +5,7 @@ Welcome to Chemistry Lab, a 3D first-person serious game, aiming to teach the pl
 Use the WASD keys to move through the 3d scene. Use the mouse to rotate your camera according to the specified direction of the mouse position.
 
 # Play
-http://160.40.51.48/games/ChemistryLab_v2.0/
+https://envisagelabs.iti.gr/games/ChemistryLab_v2.0/
 
 # Information
 The <i> Chemistry Lab</i> game is designed under the ENVISAGE project. For more information you can visit the core webpage of the project
