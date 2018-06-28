@@ -208,13 +208,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbd2f0278cc4f9743b689e41b0994a4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactionCanvas: {fileID: 1550805207870548}
-  crosshair: {fileID: 1188843026414514}
+  interactionCanvas: {fileID: 0}
+  crosshair: {fileID: 0}
   defaultMat: {fileID: 2100000, guid: 54c38eb35b5848443a34928936331d6b, type: 2}
   outlinedMat: {fileID: 2100000, guid: 829f166bc0690f54ba3cc13532d84976, type: 2}
   interactable: 0
-  sceneLoader: {fileID: 1620059394486012}
-  cursor: {fileID: 100100000}
+  sceneLoader: {fileID: 0}
+  cursor: {fileID: 0}
   clip: {fileID: 8300000, guid: 28f48e6af139f4947b1e28ed02729467, type: 3}
   sceneToLoad: MoleculeNaming
   scoreManager: {fileID: 0}
