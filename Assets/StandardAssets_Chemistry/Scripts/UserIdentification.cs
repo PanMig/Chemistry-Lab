@@ -20,6 +20,8 @@ public class UserIdentification : MonoBehaviour {
 
     public void StartSimulation(string sceneName)
     {
+		
+		Debug.Log(UnityEditor.SceneManagement.EditorSceneManager.GetActiveScene().buildIndex);
 		string user_id_raw = GameManager.instance.playerName + GameManager.instance.playerClass + GameManager.instance.playerSchoolName;
         // Creating a hashed user id, md5 hash of a string and then using a guid
 		string hashed_user_id = GoedleUtils.userHash(user_id_raw);

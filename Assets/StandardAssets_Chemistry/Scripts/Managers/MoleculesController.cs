@@ -29,10 +29,17 @@ public class MoleculesController : MonoBehaviour
     [SerializeField] public List<Molecule> availableMolecules = new List<Molecule>();
 
     //Data structures
-    public List<string> strategy = null;
-    public List<string> received_strategy = null;
-    public int strategy_count = 0;
-    public Queue<string> strategy_stack = null;
+    public List<string> strategy_naming = null;
+	public List<string> strategy_construction = null;
+
+    public List<string> received_strategy_naming = null;
+	public List<string> received_strategy_construction = null;
+	public Queue<string> strategy_stack_naming = null;
+	public Queue<string> strategy_stack_construction = null;
+    
+    public int strategy_naming_count = 0;
+	public int strategy_construction_count = 0;
+
 
     //the present molecule, made static so not to be create every time we load the script.
     private static string lastViewed_naming = null;
@@ -75,15 +82,26 @@ public class MoleculesController : MonoBehaviour
 
 
 
-    public void SetStrategy(string[] new_strategy)
+    public void SetStrategyNaming(string[] new_strategy)
     {
-        strategy = new List<string>(new_strategy);
+		strategy_naming = new List<string>(new_strategy);
     }
 
-    // this builds the strategy que for the naming quiz
-    public void BuildStrategyQueue(List<string> strategy)
+	public void SetStrategyConstruction(string[] new_strategy)
     {
-        strategy_stack = new Queue<string>(strategy);
+		strategy_construction  = new List<string>(new_strategy);
+    }
+
+	// this builds the strategy que for the naming quiz
+    public void BuildStrategyNamingQueue(List<string> strategy)
+    {
+		strategy_stack_naming = new Queue<string>(strategy);
+    }
+
+	// this builds the strategy que for the construction quiz
+    public void BuildStrategyConstructionQueue(List<string> strategy)
+    {
+		strategy_stack_construction = new Queue<string>(strategy);
     }
 
     // helper function to get the current active molecule for a lab
@@ -94,7 +112,7 @@ public class MoleculesController : MonoBehaviour
             case GameManager.Levels.moleculeNaming:
                 if (lastViewed_naming == null)
                 {
-                    return GetMolecule(strategy_stack.Peek());
+					return GetMolecule(strategy_stack_naming.Peek());
                 }
                 else
                 {
@@ -103,7 +121,7 @@ public class MoleculesController : MonoBehaviour
             case GameManager.Levels.moleculeConstruction:
                 if (lastViewed_construction == null)
                 {
-                    return GetMolecule(strategy_stack.Peek());
+					return GetMolecule(strategy_stack_construction.Peek());
                 }
                 else
                 {
@@ -117,10 +135,14 @@ public class MoleculesController : MonoBehaviour
     }
 
     // helper function to get the next molecule for a lab 
-    public Molecule NextMolecule()
+	public Molecule NextMolecule(string type_of_exam)
     { 
-       return DequeueMolecule(strategy_stack);
-    }
+		if (type_of_exam.Equals("naming"))
+           return DequeueMolecule(strategy_stack_naming);
+		else
+			return DequeueMolecule(strategy_stack_construction);
+
+	}
 
     // dequeue molecule and put molecule in the queue and peek the next in queue
     public Molecule DequeueMolecule(Queue<string> strategy_stack)
@@ -143,9 +165,15 @@ public class MoleculesController : MonoBehaviour
 
     void Awake()
     {
-        strategy = new List<string>(defaulStrategy);
-        BuildStrategyQueue(strategy);
-        strategy_count = strategy_stack.Count;
+        strategy_naming = new List<string>(defaulStrategy);
+		strategy_construction = new List<string>(defaulStrategy);
+
+		BuildStrategyNamingQueue(strategy_naming);
+		BuildStrategyConstructionQueue(strategy_construction);
+
+
+		strategy_naming_count = strategy_stack_naming.Count;
+		strategy_construction_count = strategy_stack_construction.Count;
 
         // request strategy from server
         GoedleAnalytics.instance.requestStrategy();
@@ -154,11 +182,11 @@ public class MoleculesController : MonoBehaviour
         //save molecules to GM so to use them in the lab scene
         if(GameManager.currentLevel == GameManager.Levels.moleculeNaming)
         {
-            GameManager.instance.totalNamedMols = strategy_count;
+			GameManager.instance.totalNamedMols = strategy_naming_count;
         }
         else if (GameManager.currentLevel == GameManager.Levels.moleculeConstruction)
         {
-            GameManager.instance.totalConstructedMols = strategy_count;
+			GameManager.instance.totalConstructedMols = strategy_construction_count;
         }
 
     }
@@ -175,13 +203,28 @@ public class MoleculesController : MonoBehaviour
         {
             if (GoedleAnalytics.instance.gio_interface.strategy["config"] != null)
             {
+				if (GoedleAnalytics.instance.gio_interface.strategy["config"].IsArray){
+					if (GoedleAnalytics.instance.gio_interface.strategy["config"][0]["naming"] != null)
+                    {
+						received_strategy_naming = transformJSONArray(GoedleAnalytics.instance.gio_interface.strategy["config"][0]["naming"]);
+						strategy_naming = new List<string>(received_strategy_naming);
+						BuildStrategyNamingQueue(received_strategy_naming);
+                    }
+					if (GoedleAnalytics.instance.gio_interface.strategy["config"][0]["construction"] != null)
+                    {
+						received_strategy_construction = transformJSONArray(GoedleAnalytics.instance.gio_interface.strategy["config"][0]["construction"]);
+						strategy_construction = new List<string>(received_strategy_construction);
+						BuildStrategyConstructionQueue(received_strategy_construction);
+                    }
+				}
+				if (received_strategy_construction != null || received_strategy_naming != null)
                 GoedleAnalytics.instance.track("received.strategy", GoedleAnalytics.instance.gio_interface.strategy["id"]);
-                received_strategy = transformJSONArray(GoedleAnalytics.instance.gio_interface.strategy["config"]);
-                strategy = new List<string>(received_strategy);
-                BuildStrategyQueue(received_strategy);
+
             }
         }
-        strategy_count = strategy_stack.Count;
+		strategy_naming_count = strategy_stack_naming.Count;
+		strategy_construction_count = strategy_stack_construction.Count;
+
     }
 
     public List<string> transformJSONArray(JSONNode jStrategy)
