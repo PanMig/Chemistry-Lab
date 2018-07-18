@@ -50,7 +50,14 @@ public class ContentAdaptationButton : MonoBehaviour {
         GameManager.chosenMolecule = null;
 
         //Load next molecule
-        CAManager.LoadNextMol();
+        if(GameManager.currentLevel == GameManager.Levels.moleculeNaming)
+        {
+            CAManager.LoadNextMol("naming");
+        }
+        else
+        {
+            CAManager.LoadNextMol("construction");
+        }
     }
 
 
