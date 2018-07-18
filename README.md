@@ -14,7 +14,7 @@ Steps to open the source code and assets of the game :
 
 # Play
 
-The game is released as a web project. To try the game you can visit this webpage ( https://envisagelabs.iti.gr/games/ChemistryLab_v2.0/ )
+The game is released as a web project. To try the game visit https://envisagelabs.iti.gr/games/ChemistryLab_v2.0/ .
 For avoiding any perfomance problems, its suggested to use either google chroome or mozilla firefox browsers.
 
 # Images
