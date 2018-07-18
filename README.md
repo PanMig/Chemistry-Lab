@@ -21,7 +21,7 @@ For avoiding any perfomance problems, its suggested to use either google chroome
 
 ![screenshot 18](https://user-images.githubusercontent.com/15057375/37338513-59133100-26c0-11e8-8845-2038d3e23ae7.png)
 
-![screenshot 46](https://user-images.githubusercontent.com/15057375/42884364-cf1e2a18-8aa6-11e8-964f-19e468f1c985.png)
+![screenshot 46](https://user-images.githubusercontent.com/15057375/42884433-005457ba-8aa7-11e8-9b5f-5c55928aa79a.png)
 
 ![screenshot 18](https://user-images.githubusercontent.com/15057375/42884286-a056db3a-8aa6-11e8-8f10-6db0e38d3e9c.png)
 
