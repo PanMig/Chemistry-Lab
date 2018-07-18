@@ -25,7 +25,7 @@ For avoiding any perfomance problems, its suggested to use either google chroome
 
 ![screenshot 14](https://user-images.githubusercontent.com/15057375/37338504-4ff46224-26c0-11e8-83f2-4612ea4e4b5f.png)
 
-![screenshot 17](https://user-images.githubusercontent.com/15057375/37338525-5f3488c2-26c0-11e8-9c2d-313183fab866.png)
+![screenshot 18](https://user-images.githubusercontent.com/15057375/42884286-a056db3a-8aa6-11e8-8f10-6db0e38d3e9c.png)
 
 To get a glipse of the game you can watch this video that also introduces the main controls and actions :
 https://www.youtube.com/watch?v=DN3L2vEZfdI
