@@ -60,4 +60,4 @@ MonoBehaviour:
   GA_CD_EVENT: 
   GA_CD_1: 0
   GA_CD_2: 0
-  adaptation_only: 1
+  adaptation_only: 0

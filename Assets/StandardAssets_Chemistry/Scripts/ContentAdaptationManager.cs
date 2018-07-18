@@ -19,7 +19,7 @@ public class ContentAdaptationManager : MonoBehaviour
 
     public void LoadNextMol()
     {
-        GameManager.chosenMolecule = MoleculesCtrl.NextMolecule();
+        GameManager.chosenMolecule = MoleculesCtrl.NextMolecule("naming");
         if (NextMolecule != null)
         {
             NextMolecule();
