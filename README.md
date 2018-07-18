@@ -30,4 +30,8 @@ For avoiding any perfomance problems, its suggested to use either google chroome
 To get a glipse of the game you can watch this video that also introduces the main controls and actions :
 https://www.youtube.com/watch?v=DN3L2vEZfdI
 
+# Contact
 
+- Panagiotis migkotzidis (panagiotismigo@gmail.com)
+- Spiros Nikolopoulos (nikolopo@iti.gr)
+- Dimitrios Ververidis (ververid@iti.gr)
