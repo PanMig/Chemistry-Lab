@@ -6,7 +6,7 @@ http://www.envisage-h2020.eu/.
 
 # Install
 
-To install and modify this project we can either clone the repository or download it. The game has been developed using the Unity engine and can only be opened with the respective software.
+To install and modify this project you can either clone the repository or download it. The game has been developed using the Unity engine and can only be opened with the respective software.
 
 Steps to open the source code and assets of the game :
 1) Download and install Unity (https://unity3d.com/get-unity/download)
