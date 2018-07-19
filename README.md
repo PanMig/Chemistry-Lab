@@ -2,7 +2,7 @@
 
 Welcome to Chemistry Lab, a 3D first-person serious game, aiming to teach the player about the science of chemistry through an immersive and entertaining experience.
 This game has been developed for the ENVISAGE project that had received funding from the European Union’s Horizon 2020 research and innovation programme under grant agreement No 731900 
-( http://www.envisage-h2020.eu/ ).
+http://www.envisage-h2020.eu/.
 
 # Install
 
