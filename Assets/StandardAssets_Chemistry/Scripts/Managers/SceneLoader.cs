@@ -15,6 +15,11 @@ public class SceneLoader : MonoBehaviour {
         StartCoroutine(LoadSceneAsychronusly(sceneName));
     }
 
+    public void ExitGane()
+    {
+        Application.Quit();
+    }
+
     IEnumerator LoadSceneAsychronusly(string sceneName)
     {
         AsyncOperation operation = SceneManager.LoadSceneAsync(sceneName);

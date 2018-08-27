@@ -9,21 +9,6 @@ public class MoleculesController : MonoBehaviour
 {
 
     public string[] defaulStrategy;
-    /* There is no need for predifined molecules,
-     * I create them based on the list of molecules given from the inspector
-    Molecule _H20 = new Molecule("Water", "H2O");
-    Molecule _CH4 = new Molecule("Methane", "CH4");
-    Molecule _HCl = new Molecule("Hydrogen Chloride", "HCl");
-    Molecule _NaCl = new Molecule("Sodium Chloride", "NaCl");
-    Molecule _CH4O = new Molecule("Methanole", "CH3OH");
-    Molecule _C2H6O = new Molecule("Ethanol", "C2H5OH");
-    Molecule _C3H6O = new Molecule("Acetone", "C3H6O");
-    Molecule _CH5N = new Molecule("Methanamine", "CH5N");
-    Molecule _CH2N2 = new Molecule("Cyanamide", "CH2N2");
-    Molecule _C2H2O = new Molecule("Ethenone", "C2H2O");
-    Molecule _NH3 = new Molecule("Ammonia", "NH3");
-    Molecule _C3H8 = new Molecule("Propane", "C3H8");
-    */
     
     //all the molecules that will be available in both naming and construction and
     [SerializeField] public List<Molecule> availableMolecules = new List<Molecule>();
@@ -34,52 +19,16 @@ public class MoleculesController : MonoBehaviour
 
     public List<string> received_strategy_naming = null;
 	public List<string> received_strategy_construction = null;
-	public Queue<string> strategy_stack_naming = null;
-	public Queue<string> strategy_stack_construction = null;
+	public static Queue<string> strategy_stack_naming = null;
+	public static Queue<string> strategy_stack_construction = null;
     
     public int strategy_naming_count = 0;
 	public int strategy_construction_count = 0;
 
 
-    //the present molecule, made static so not to be create every time we load the script.
+    //the present molecule, made static so not to be created every time we load the script.
     private static string lastViewed_naming = null;
     private static string lastViewed_construction = null;
-
-
-    //No need to have this method, I just made one to itarate through the list
-    /*public Molecule GetMolecule(string formula)
-    {
-        switch (formula)
-        {
-            case "H20": return _H20;
-            case "CH4": return _CH4;
-            case "HCl": return _HCl;
-            case "NaCl": return _NaCl;
-            case "CH3OH": return _CH4O;
-            case "C2H5OH": return _C2H6O;
-            case "C3H6O": return _C3H6O;
-            case "CH5N": return _CH5N;
-            case "CH2N2": return _CH2N2;
-            case "C2H2O": return _C2H2O;
-            case "NH3": return _NH3;
-            case "C3H8": return _C3H8;
-            // I had no better idea, now water is the default molecule
-            default: return _H20;
-        }
-    }*/
-
-    public Molecule GetMolecule(string formula)
-    {
-        foreach (Molecule molecule in availableMolecules)
-        {
-            if(molecule.formula == formula)
-            {
-                return new Molecule(molecule.name, molecule.formula);
-            }
-        }
-        return new Molecule("Molecule does not exist either in the strategy array or available molecules list","HHH");  
-    }
-
 
 
     public void SetStrategyNaming(string[] new_strategy)
@@ -95,13 +44,27 @@ public class MoleculesController : MonoBehaviour
 	// this builds the strategy que for the naming quiz
     public void BuildStrategyNamingQueue(List<string> strategy)
     {
+        if(lastViewed_naming == null)
 		strategy_stack_naming = new Queue<string>(strategy);
     }
 
 	// this builds the strategy que for the construction quiz
     public void BuildStrategyConstructionQueue(List<string> strategy)
     {
-		strategy_stack_construction = new Queue<string>(strategy);
+        if (lastViewed_construction == null)
+            strategy_stack_construction = new Queue<string>(strategy);
+    }
+
+    public Molecule GetMolecule(string formula)
+    {
+        foreach (Molecule molecule in availableMolecules)
+        {
+            if (molecule.formula == formula)
+            {
+                return new Molecule(molecule.name, molecule.formula);
+            }
+        }
+        return new Molecule("Molecule does not exist either in the strategy array or available molecules list", "HHH");
     }
 
     // helper function to get the current active molecule for a lab
@@ -112,7 +75,9 @@ public class MoleculesController : MonoBehaviour
             case GameManager.Levels.moleculeNaming:
                 if (lastViewed_naming == null)
                 {
-					return GetMolecule(strategy_stack_naming.Peek());
+                    lastViewed_naming = strategy_stack_naming.Peek().ToString();
+
+                    return GetMolecule(strategy_stack_naming.Peek());
                 }
                 else
                 {
@@ -121,7 +86,8 @@ public class MoleculesController : MonoBehaviour
             case GameManager.Levels.moleculeConstruction:
                 if (lastViewed_construction == null)
                 {
-					return GetMolecule(strategy_stack_construction.Peek());
+                    lastViewed_construction = strategy_stack_construction.Peek().ToString();
+                    return GetMolecule(strategy_stack_construction.Peek());
                 }
                 else
                 {
@@ -141,7 +107,6 @@ public class MoleculesController : MonoBehaviour
            return DequeueMolecule(strategy_stack_naming);
 		else
 			return DequeueMolecule(strategy_stack_construction);
-
 	}
 
     // dequeue molecule and put molecule in the queue and peek the next in queue

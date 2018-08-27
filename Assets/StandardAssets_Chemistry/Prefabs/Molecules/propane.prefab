@@ -407,7 +407,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4254524448524352}
   m_Layer: 0
-  m_Name: Propane
+  m_Name: propane
   m_TagString: Molecule
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
