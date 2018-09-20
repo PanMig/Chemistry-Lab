@@ -25,8 +25,8 @@ GameObject:
   - component: {fileID: 114158175942298162}
   - component: {fileID: 54582171691090742}
   m_Layer: 0
-  m_Name: Chloride
-  m_TagString: chlorine
+  m_Name: fluorine
+  m_TagString: fluorine
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -58,7 +58,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 7366930f913e0314990719d1183aef8d, type: 2}
+  - {fileID: 2100000, guid: 7fc5b835b1a9b9441bfa4eac8cd09d4b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

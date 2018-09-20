@@ -25,8 +25,8 @@ GameObject:
   - component: {fileID: 114158175942298162}
   - component: {fileID: 54582171691090742}
   m_Layer: 0
-  m_Name: Chloride
-  m_TagString: chlorine
+  m_Name: Pottasium
+  m_TagString: potassium
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -58,7 +58,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 7366930f913e0314990719d1183aef8d, type: 2}
+  - {fileID: 2100000, guid: 7d9d55927058eba4b9bfec020e8cc5ac, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

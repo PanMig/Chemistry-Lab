@@ -1341,6 +1341,60 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &1102286176
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1102286177}
+  - component: {fileID: 1102286178}
+  m_Layer: 0
+  m_Name: MoleculesController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1102286177
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1102286176}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.7028403, y: -1.9090658, z: 89.80469}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1102286178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1102286176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be790311a160ed14cac4b654d027506b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaulStrategy:
+  - H2O
+  - CH4
+  availableMolecules:
+  - name: Water
+    formula: H2O
+  - name: Methane
+    formula: CH4
+  strategy_naming: []
+  strategy_construction: []
+  received_strategy_naming: []
+  received_strategy_construction: []
+  strategy_naming_count: 0
+  strategy_construction_count: 0
 --- !u!1 &1128077937
 GameObject:
   m_ObjectHideFlags: 0
@@ -2167,7 +2221,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Menu
+          m_StringArgument: S_MainMenu
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 114083161415107388, guid: d96e2996417f73d43b58f80956bd1927,

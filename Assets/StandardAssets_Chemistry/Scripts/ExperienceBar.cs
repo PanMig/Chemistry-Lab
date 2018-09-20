@@ -15,7 +15,7 @@ public class ExperienceBar : MonoBehaviour {
 	
     public void CalculateExperience()
     {
-        int totalMolecules = 2 * GameManager.instance.totalNamedMols;
+        int totalMolecules = MoleculesController.instance.strategy_naming_count + MoleculesController.instance.strategy_construction_count;
         int playersMolecules = GameManager.namedMolecules + GameManager.constructedMolecules;
         progress = Mathf.Clamp01 ((float)playersMolecules / (float)totalMolecules);
         GameManager.instance.playerProgress = Mathf.FloorToInt(progress*100); //store to GM in percetange.
