@@ -1389,8 +1389,10 @@ MonoBehaviour:
   - CH3OH
   - C2H5OH
   - CF4
-  - C3H8
+  - KBr
   - CH5N
+  - C3H8
+  - CaCl2
   availableMolecules:
   - name: Water
     formula: H2O
@@ -1410,6 +1412,10 @@ MonoBehaviour:
     formula: CH5N
   - name: Sodium Chloride
     formula: NaCl
+  - name: Potassium Bromide
+    formula: KBr
+  - name: Calcium Chloride
+    formula: CaCl2
   strategy_naming: []
   strategy_construction: []
   received_strategy_naming: []
