@@ -1385,7 +1385,12 @@ MonoBehaviour:
   - H2O
   - CH4
   - NaCl
+  - NH3
   - CH3OH
+  - C2H5OH
+  - CF4
+  - C3H8
+  - CH5N
   availableMolecules:
   - name: Water
     formula: H2O
