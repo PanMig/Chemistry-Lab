@@ -27,8 +27,8 @@ public class ScoreManagerDisplay : MonoBehaviour {
     {
         namedMols.text = GameManager.namedMolecules.ToString();
         constructedMols.text = GameManager.constructedMolecules.ToString();
-		sumMolsNaming.text = GameManager.instance.totalNamedMols.ToString();
-		sumMolsConstruction.text = GameManager.instance.totalConstructedMols.ToString();
+        sumMolsNaming.text = MoleculesController.instance.strategy_naming_count.ToString();
+		sumMolsConstruction.text = MoleculesController.instance.strategy_construction_count.ToString();
 
         if (GameManager.namedMolecules != 0 && GameManager.constructedMolecules != 0)
         {
