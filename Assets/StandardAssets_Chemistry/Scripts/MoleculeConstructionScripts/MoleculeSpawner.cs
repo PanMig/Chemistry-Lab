@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -38,7 +38,7 @@ public class MoleculeSpawner : MonoBehaviour
         {
             if (mol.name == GameManager.chosenMolecule.Name)
             {
-                molecule = Instantiate(mol, position.position,Quaternion.identity);
+             	molecule = Instantiate(mol, position.position,mol.transform.rotation);
             }
         }
     }

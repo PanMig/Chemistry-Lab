@@ -1384,11 +1384,27 @@ MonoBehaviour:
   defaulStrategy:
   - H2O
   - CH4
+  - NaCl
+  - CH3OH
   availableMolecules:
   - name: Water
     formula: H2O
   - name: Methane
     formula: CH4
+  - name: Ammonia
+    formula: NH3
+  - name: Methanole
+    formula: CH3OH
+  - name: Ethanol
+    formula: C2H5OH
+  - name: Propane
+    formula: C3H8
+  - name: Tetrafluoromethane
+    formula: CF4
+  - name: Methanamine
+    formula: CH5N
+  - name: Sodium Chloride
+    formula: NaCl
   strategy_naming: []
   strategy_construction: []
   received_strategy_naming: []
