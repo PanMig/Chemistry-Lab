@@ -5599,6 +5599,11 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114652878218671236, guid: 443c3f6189b22864cbe92e0cc9173376,
+        type: 2}
+      propertyPath: m_Text
+      value: Congrats, you managed to construct all the formulas, great job!!!
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 443c3f6189b22864cbe92e0cc9173376, type: 2}
   m_IsPrefabParent: 0

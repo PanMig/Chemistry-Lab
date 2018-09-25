@@ -56,7 +56,7 @@ public class PlayerMessagesController : MonoBehaviour
                 animator.enabled = true;
                 StartCoroutine(WaitForSec());
             }
-            else if (GameManager.constructedMolecules == GameManager.instance.totalConstructedMols && constructionCompleted == false)
+            else if (GameManager.constructedMolecules == MoleculesController.instance.strategy_construction_count && constructionCompleted == false)
             {
                 levelCompleteCanvas.SetActive(true);
                 constructionCompleted = true;
