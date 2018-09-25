@@ -1958,13 +1958,13 @@ MonoBehaviour:
     formula: H2O
   - name: Methane
     formula: CH4
-  - name: Ammonia
+  - name: ammonia
     formula: NH3
   - name: Methanole
     formula: CH3OH
   - name: Ethanol
     formula: C2H5OH
-  - name: Propane
+  - name: propane
     formula: C3H8
   - name: Tetrafluoromethane
     formula: CF4
@@ -1974,7 +1974,7 @@ MonoBehaviour:
     formula: NaCl
   - name: Potassium Bromide
     formula: KBr
-  - name: Calcium Chloride
+  - name: Calcium chloride
     formula: CaCl2
   strategy_naming: []
   strategy_construction: []
